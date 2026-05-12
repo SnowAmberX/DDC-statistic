@@ -4,14 +4,15 @@ import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
+CHECK_NUMBER = 10
 
 print(f"读取: {INPUT_FILE} ...")
 df = pd.read_excel(INPUT_FILE)
 
 # ── 1. DDC 统计（只看不足 100 条的分类）──────────────────────────────
 ddc_counts = df.groupby('DDC').size().reset_index(name='count')
-under_100 = ddc_counts[ddc_counts['count'] < 100].copy()
-under_100['gap_to_100'] = 100 - under_100['count']
+under_100 = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
+under_100['gap_to_100'] = CHECK_NUMBER - under_100['count']
 under_100 = under_100.sort_values('DDC').reset_index(drop=True)
 
 ddc_result = under_100.rename(columns={
