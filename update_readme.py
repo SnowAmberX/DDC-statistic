@@ -114,8 +114,8 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
 
 def build_statistics_block(stats: dict[str, Any]) -> str:
     abstract_stats = stats.get("abstract_stats", {})
-    ddc_under_100 = stats.get("ddc_under_100", {})
-    ddc_under_100_count = ddc_under_100.get("ddc_under_100_count", 0)
+    ddc_under_check_number = stats.get("ddc_under_check_number", {})
+    ddc_under_check_number_count = ddc_under_check_number.get("ddc_under_check_number_count", 0)
 
     valid_sample_total = _safe_int(
         stats.get(
@@ -148,8 +148,8 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
     check_number = _safe_int(stats.get("check_number", 100), 100)
 
     underfilled_raw = stats.get("underfilled_ddc")
-    if underfilled_raw is None and isinstance(ddc_under_100, dict):
-        underfilled_raw = ddc_under_100.get("details", [])
+    if underfilled_raw is None and isinstance(ddc_under_check_number, dict):
+        underfilled_raw = ddc_under_check_number.get("details", [])
 
     underfilled_ddc = _normalize_underfilled_items(underfilled_raw)
 
@@ -164,7 +164,7 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         "### DDC data distribution\n\n"
         f"DDC that already having {check_number} samples will not show details of the distribution.\n\n"
         f"**Vaild samples number in total: {valid_sample_total}**\n\n"
-        f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_100_count} \n\n"
+        f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_check_number_count} \n\n"
         f"**DDC grouped by 10 (count of DDC < {check_number}):**\n"
         f"{grouped_table}\n\n"
         f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"

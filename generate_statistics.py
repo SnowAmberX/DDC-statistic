@@ -11,14 +11,14 @@ df = pd.read_excel(INPUT_FILE)
 
 # ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
 ddc_counts = df.groupby('DDC').size().reset_index(name='count')
-under_100 = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
-under_100['gap_to_100'] = CHECK_NUMBER - under_100['count']
-under_100 = under_100.sort_values('DDC').reset_index(drop=True)
+under_check_number = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
+under_check_number['gap_to_check_number'] = CHECK_NUMBER - under_check_number['count']
+under_check_number = under_check_number.sort_values('DDC').reset_index(drop=True)
 
-ddc_result = under_100.rename(columns={
+ddc_result = under_check_number.rename(columns={
     'DDC': 'ddc',
     'count': 'current_count',
-    'gap_to_100': 'gap_to_100'
+    'gap_to_check_number': 'gap_to_check_number'
 }).to_dict(orient='records')
 
 # ── 2. Abstract/description 长度统计（单词数）─────────────────────────
@@ -49,18 +49,18 @@ existing_ddc = set(ddc_counts['DDC'].apply(pad_ddc))
 existing_int_ddc = {d for d in existing_ddc if '.' not in d}
 missing_ddc = sorted(all_ddc - existing_int_ddc)
 
-# 将完全缺失的三位整数 DDC 作为 0 条记录并入 under_100 详情
-missing_as_under_100 = [
+# 将完全缺失的三位整数 DDC 作为 0 条记录并入不足 CHECK_NUMBER 的详情
+missing_as_under_check_number = [
     {
         'ddc': code,
         'current_count': 0,
-        'gap_to_100': CHECK_NUMBER
+        'gap_to_check_number': CHECK_NUMBER
     }
     for code in missing_ddc
 ]
 
-ddc_under_100_details = sorted(
-    ddc_result + missing_as_under_100,
+ddc_under_check_number_details = sorted(
+    ddc_result + missing_as_under_check_number,
     key=lambda item: (item['current_count'], pad_ddc(item['ddc']))
 )
 
@@ -85,12 +85,12 @@ for i in range(0, 1000, 10):
 output = {
     'check_number': CHECK_NUMBER,
     'abstract_stats': abstract_stats,
-    'ddc_under_100': {
+    'ddc_under_check_number': {
         'total_ddc_classes': int(len(ddc_counts)),
-        'ddc_over_100_count': int((ddc_counts['count'] >= CHECK_NUMBER).sum()),
-        'ddc_over_100_total_records': int(ddc_counts[ddc_counts['count'] >= CHECK_NUMBER]['count'].sum()),
-        'ddc_under_100_count': int(len(ddc_under_100_details)),
-        'details': ddc_under_100_details
+        'ddc_over_check_number_count': int((ddc_counts['count'] >= CHECK_NUMBER).sum()),
+        'ddc_over_check_number_total_records': int(ddc_counts[ddc_counts['count'] >= CHECK_NUMBER]['count'].sum()),
+        'ddc_under_check_number_count': int(len(ddc_under_check_number_details)),
+        'details': ddc_under_check_number_details
     },
     'ddc_group_by_10': ddc_group_by_10
 }
@@ -107,6 +107,6 @@ print(f"  平均: {abstract_stats['mean']} 词")
 print(f"\n── DDC 统计 ──")
 print(f"  001-999 中完全缺失的分类: {len(missing_ddc)} 个")
 print(f"  缺失列表: {missing_ddc[:20]}{'...' if len(missing_ddc) > 20 else ''}")
-print(f"  总分类数: {output['ddc_under_100']['total_ddc_classes']}")
-print(f"  >= {CHECK_NUMBER} 条的分类: {output['ddc_under_100']['ddc_over_100_count']} 个，共 {output['ddc_under_100']['ddc_over_100_total_records']} 条记录")
-print(f"  < 100 条的分类:  {output['ddc_under_100']['ddc_under_100_count']}")
+print(f"  总分类数: {output['ddc_under_check_number']['total_ddc_classes']}")
+print(f"  >= {CHECK_NUMBER} 条的分类: {output['ddc_under_check_number']['ddc_over_check_number_count']} 个，共 {output['ddc_under_check_number']['ddc_over_check_number_total_records']} 条记录")
+print(f"  < {CHECK_NUMBER} 条的分类:  {output['ddc_under_check_number']['ddc_under_check_number_count']}")
