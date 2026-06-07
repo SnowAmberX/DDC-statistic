@@ -71,9 +71,38 @@ TARGET_COLS = ['DDC', 'Title', 'description']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BOOK_DESC_PATTERN = re.compile(r'^book_descriptions_all(\d*)\.csv$', re.IGNORECASE)
 
+# 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099' 等）。
+# 凡 DDC 值在此列表中的行将被过滤掉。
+UNDEFINED_DDC = [
+    '008', 
+    '009', 
+    '040', 
+    '041',
+    '042', 
+    '043',
+    '044',
+    '045',
+    '046',
+    '047',
+    '048',
+    '049',
+    '434', 
+    '436', 
+    '444', 
+    '446', 
+    '454', 
+    '456', 
+    '464', 
+    '466', 
+    '474', 
+    '476', 
+    '484', 
+    '486'
+]
+
 # 是否启用“仅保留英语描述”过滤。
 # 这段逻辑用于剔除德语/法语等非英语摘要，适合只做英文数据集时开启。
-# 目前按你的要求先不用，默认关闭；如需启用改为 True。
+# 默认关闭；如需启用改为 True。
 ENABLE_ENGLISH_ONLY_FILTER = True
 
 
@@ -211,6 +240,17 @@ def main():
         #         return False
     else:
         print("\n=== 第二步（补3）：非英语过滤已关闭（按配置跳过）===")
+
+    if UNDEFINED_DDC:
+        print(f"\n=== 第二步（补4）：过滤未定义 DDC 分类 ===")
+        undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
+        before_udf = len(merged)
+        merged = merged[~merged['DDC'].astype(str).str.strip().isin(undefined_set)].reset_index(drop=True)
+        after_udf = len(merged)
+        print(f"过滤前: {before_udf} 条 -> 过滤后: {after_udf} 条，去除 {before_udf - after_udf} 条")
+        print(f"过滤的 DDC: {sorted(undefined_set)}")
+    else:
+        print("\n=== 第二步（补4）：未定义 DDC 过滤已关闭（UNDEFINED_DDC 为空）===")
 
     print("\n=== 第三步：按 DDC 排序 ===")
     # 整数部分补零至三位，如 2->002, 10->010, 572.1->572.1
