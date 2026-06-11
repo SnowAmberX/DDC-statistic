@@ -6,6 +6,13 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
 CHECK_NUMBER = 10
 
+# 未定义的 DDC 分类编号（与 merge_dedup_all3cols.py 保持一致）。
+# 这些 DDC 在实际分类体系中不存在，统计时应排除，不应作为"缺失"出现在报告中。
+UNDEFINED_DDC = [
+    '008', '009', '040', '041', '042', '043', '044', '045', '046', '047', '048', '049',
+    '434', '436', '444', '446', '454', '456', '464', '466', '474', '476', '484', '486'
+]
+
 print(f"读取: {INPUT_FILE} ...")
 df = pd.read_excel(INPUT_FILE)
 
@@ -47,7 +54,9 @@ all_ddc = {str(i).zfill(3) for i in range(1, 1000)}
 existing_ddc = set(ddc_counts['DDC'].apply(pad_ddc))
 # 只取纯整数三位码做对比（忽略带小数点的细分码）
 existing_int_ddc = {d for d in existing_ddc if '.' not in d}
-missing_ddc = sorted(all_ddc - existing_int_ddc)
+# 排除未定义 DDC（这些在实际分类体系中不存在，不应统计为"缺失"）
+undefined_set = {str(v).strip().zfill(3) for v in UNDEFINED_DDC}
+missing_ddc = sorted(all_ddc - existing_int_ddc - undefined_set)
 
 # 将完全缺失的三位整数 DDC 作为 0 条记录并入不足 CHECK_NUMBER 的详情
 missing_as_under_check_number = [
@@ -76,10 +85,12 @@ ddc_int_counts = (
 ddc_group_by_10 = []
 for i in range(0, 1000, 10):
     codes = [str(j).zfill(3) for j in range(i, i + 10)]
-    under_check_number_mask = ddc_int_counts.loc[codes] < CHECK_NUMBER
+    # 排除未定义 DDC（不在实际分类体系中的编号）
+    valid_codes = [c for c in codes if c not in undefined_set]
+    under_check_number_mask = ddc_int_counts.loc[valid_codes] < CHECK_NUMBER
     under_check_number_count = int(under_check_number_mask.sum())
     under_check_number_codes = [
-        code for code in codes if bool(under_check_number_mask.loc[code])
+        code for code in valid_codes if bool(under_check_number_mask.loc[code])
     ]
     ddc_group_by_10.append({
         'ddc_range': f"{codes[0]}-{codes[-1]}",
