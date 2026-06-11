@@ -220,7 +220,7 @@ def replace_statistics_section(readme_content: str, statistics_block: str) -> st
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Update README statistics section.")
-    parser.add_argument("--stats-file", default="statistics.json", help="JSON statistics file.")
+    parser.add_argument("--stats-file", default="/data/statistics.json", help="JSON statistics file.")
     parser.add_argument("--readme", default="README.md", help="README file to update.")
     args = parser.parse_args()
 
