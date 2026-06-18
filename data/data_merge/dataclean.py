@@ -3,22 +3,23 @@ import re
 
 def clean_text(text):
     """
-    核心清洗逻辑
+    Core cleaning logic: remove paired wrapping double quotes (Chinese and English),
+    preserve all UTF-8 characters.
     """
     if pd.isna(text) or not isinstance(text, str):
         return text
-    
-    # 1. 去除双引号 (包含中英文引号)
-    text = re.sub(r'["“”]', '', text)
-    
-    # 2. 去除连续的大写字母 (2个及以上)
-    text = re.sub(r'[A-Z]{2,}', '', text)
-    
-    # 3. 去除特殊符号/乱码（只保留英文字母、数字、常用标点和空格）
-    text = re.sub(r'[^a-zA-Z0-9\s,.\'\-]', '', text)
-    
-    # 4. 去除首尾多余空格
-    return text.strip()
+
+    text = text.strip()
+
+    # Remove paired English double quotes wrapping the text: "..."
+    if len(text) >= 2 and text[0] == '"' and text[-1] == '"':
+        text = text[1:-1].strip()
+
+    # Remove paired Chinese double quotes wrapping the text: “...”
+    if len(text) >= 2 and text[0] == '“' and text[-1] == '”':
+        text = text[1:-1].strip()
+
+    return text
 
 def process_excel_pro(input_file, output_file):
     # 读取 Excel 文件

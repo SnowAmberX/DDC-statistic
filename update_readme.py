@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -208,6 +209,28 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
     )
 
 
+def replace_update_timestamp(readme_content: str) -> str:
+    """Insert or update the 'Last updated' timestamp line at the top of README."""
+    tz_utc8 = timezone(timedelta(hours=8))
+    now_str = datetime.now(tz_utc8).strftime("%Y-%m-%d %H:%M:%S")
+    timestamp_line = f"> **Last updated: {now_str} (UTC+8)**\n"
+
+    # Match an existing timestamp line
+    pattern = re.compile(r"^> \*\*Last updated:.*\*\*\n?", re.MULTILINE)
+    if pattern.search(readme_content):
+        return pattern.sub(timestamp_line, readme_content, count=1)
+
+    # Insert after the first heading line (e.g. "# DDC Dataset Statistics")
+    heading_pattern = re.compile(r"^(# .+)$", re.MULTILINE)
+    match = heading_pattern.search(readme_content)
+    if match:
+        insert_pos = match.end()
+        return readme_content[:insert_pos] + "\n" + timestamp_line + "\n" + readme_content[insert_pos:].lstrip()
+
+    # Fallback: prepend
+    return timestamp_line + "\n" + readme_content
+
+
 def replace_statistics_section(readme_content: str, statistics_block: str) -> str:
     pattern = re.compile(r"(?ms)^## Statistics\s*\n.*?(?=^##\s|\Z)")
 
@@ -228,13 +251,18 @@ def main() -> None:
     readme_file = Path(args.readme)
 
     stats = json.loads(stats_file.read_text(encoding="utf-8"))
-    readme_content = readme_file.read_text(encoding="utf-8")
+    original_content = readme_file.read_text(encoding="utf-8")
+    readme_content = original_content
 
+    # 1) Update the timestamp at the top
+    readme_content = replace_update_timestamp(readme_content)
+
+    # 2) Update the statistics section
     new_statistics_block = build_statistics_block(stats)
-    new_readme_content = replace_statistics_section(readme_content, new_statistics_block)
+    readme_content = replace_statistics_section(readme_content, new_statistics_block)
 
-    if new_readme_content != readme_content:
-        readme_file.write_text(new_readme_content, encoding="utf-8")
+    if readme_content != original_content:
+        readme_file.write_text(readme_content, encoding="utf-8")
         print(f"Updated {readme_file}")
     else:
         print("README is already up to date.")
