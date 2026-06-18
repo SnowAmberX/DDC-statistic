@@ -232,6 +232,12 @@ def main():
         before_lang = len(merged)
         merged = merged[merged['description'].apply(is_english)].reset_index(drop=True)
         print(f"过滤前: {before_lang} 条 -> 过滤后: {len(merged)} 条，去除 {before_lang - len(merged)} 条")
+
+        # 同样过滤非英文 Title
+        before_title_filter = len(merged)
+        merged = merged[merged['Title'].apply(is_english)].reset_index(drop=True)
+        print(f"非英文标题过滤: 过滤前 {before_title_filter} 条 -> 过滤后 {len(merged)} 条，去除 {before_title_filter - len(merged)} 条")
+
         # # 旧版 langdetect 实现（已注释）：
         # def is_english(text):
         #     try:
@@ -274,7 +280,9 @@ def main():
     output_dir = os.path.abspath(os.path.join(BASE_DIR, '..'))
     os.makedirs(output_dir, exist_ok=True)
     output = os.path.join(output_dir, 'merged_dedup_all3cols.xlsx')
-    merged.to_excel(output, index=False, engine='xlsxwriter')
+    with pd.ExcelWriter(output, engine='xlsxwriter',
+                        engine_kwargs={'options': {'strings_to_formulas': False}}) as writer:
+        merged.to_excel(writer, index=False)
     print(f"\n完成！结果已保存至: {output}")
 
 

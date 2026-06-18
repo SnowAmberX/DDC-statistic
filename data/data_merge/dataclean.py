@@ -11,6 +11,12 @@ def clean_text(text):
 
     text = text.strip()
 
+    # Remove leading/trailing wiki/markdown formatting markers (= * # ~ _ |)
+    # These are uncommon punctuation, not part of the actual title/description content
+    text = re.sub(r'^[=\*#~_|]+', '', text)
+    text = re.sub(r'[=\*#~_|]+$', '', text)
+    text = text.strip()
+
     # Remove paired English double quotes wrapping the text: "..."
     if len(text) >= 2 and text[0] == '"' and text[-1] == '"':
         text = text[1:-1].strip()
