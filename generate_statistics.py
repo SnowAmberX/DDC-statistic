@@ -113,7 +113,7 @@ undefined_int_set = {str(v).strip().zfill(3) for v in UNDEFINED_DDC if '.' not i
 all_ddc = {str(i).zfill(3) for i in range(1, 1000)} - undefined_int_set
 existing_ddc = set(ddc_counts['DDC'].apply(pad_ddc))
 # 只取纯整数三位码做对比（忽略带小数点的细分码）
-existing_int_ddc = {d for d in existing_ddc if '.' not in d}
+existing_int_ddc = {d.split('.')[0] for d in existing_ddc}
 missing_ddc = sorted(all_ddc - existing_int_ddc)
 
 # 将完全缺失的三位整数 DDC 作为 0 条记录并入不足 CHECK_NUMBER 的详情
