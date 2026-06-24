@@ -40,6 +40,7 @@ def _normalize_ddc_list(value: Any) -> list[str]:
         if not ddc:
             continue
 
+        ddc = ddc.split('.')[0]
         if ddc.isdigit():
             ddc = ddc.zfill(3)
 
@@ -64,6 +65,7 @@ def _normalize_underfilled_items(items: Any) -> list[dict[str, Any]]:
         ddc = str(ddc_raw).strip()
         if not ddc:
             continue
+        ddc = ddc.split('.')[0]
         if ddc.isdigit():
             ddc = ddc.zfill(3)
 

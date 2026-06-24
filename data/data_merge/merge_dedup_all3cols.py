@@ -281,7 +281,7 @@ def main():
         print(f"\n=== 第二步（补4）：过滤未定义 DDC 分类 ===")
         undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
         before_udf = len(merged)
-        merged = merged[~merged['DDC'].astype(str).str.strip().str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+        merged = merged[~merged['DDC'].astype(str).str.strip().apply(lambda x: x.split('.')[0].zfill(3)).isin(undefined_set)].reset_index(drop=True)
         after_udf = len(merged)
         print(f"过滤前: {before_udf} 条 -> 过滤后: {after_udf} 条，去除 {before_udf - after_udf} 条")
         print(f"过滤的 DDC: {sorted(undefined_set)}")

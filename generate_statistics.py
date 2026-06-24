@@ -72,7 +72,7 @@ df = pd.read_excel(INPUT_FILE)
 if UNDEFINED_DDC:
     undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
     before = len(df)
-    df = df[~df['DDC'].astype(str).str.strip().str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+    df = df[~df['DDC'].astype(str).str.strip().apply(lambda x: x.split('.')[0].zfill(3)).isin(undefined_set)].reset_index(drop=True)
     print(f"已过滤未定义 DDC {sorted(undefined_set)}：{before} → {len(df)} 条")
 
 # ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
