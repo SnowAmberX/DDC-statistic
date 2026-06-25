@@ -40,9 +40,10 @@ def _normalize_ddc_list(value: Any) -> list[str]:
         if not ddc:
             continue
 
-        ddc = ddc.split('.')[0]
-        if ddc.isdigit():
-            ddc = ddc.zfill(3)
+        try:
+            ddc = str(int(float(ddc))).zfill(3)
+        except (ValueError, TypeError):
+            pass
 
         normalized.append(ddc)
 
@@ -65,9 +66,10 @@ def _normalize_underfilled_items(items: Any) -> list[dict[str, Any]]:
         ddc = str(ddc_raw).strip()
         if not ddc:
             continue
-        ddc = ddc.split('.')[0]
-        if ddc.isdigit():
-            ddc = ddc.zfill(3)
+        try:
+            ddc = str(int(float(ddc))).zfill(3)
+        except (ValueError, TypeError):
+            pass
 
         sample_number = item.get("current_count", item.get("sample_number", item.get("count", 0)))
         normalized.append({"ddc": ddc, "sample_number": _safe_int(sample_number, 0)})
@@ -103,6 +105,34 @@ def _normalize_grouped_items(items: Any) -> list[dict[str, Any]]:
             "ddc_range": ddc_range,
             "under_check_number_count": under_check_number_count,
             "ddc_list": ddc_list,
+        })
+
+    return normalized
+
+
+def _normalize_garbled_items(items: Any) -> list[dict[str, Any]]:
+    """Normalize the ddc_group_by_10_garbled raw list from statistics.json."""
+    if not isinstance(items, list):
+        return []
+
+    normalized: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+
+        ddc_range_raw = item.get("ddc_range")
+        if ddc_range_raw is None:
+            continue
+
+        ddc_range = str(ddc_range_raw).strip()
+        if not ddc_range:
+            continue
+
+        normalized.append({
+            "ddc_range": ddc_range,
+            "total_count": _safe_int(item.get("total_count", 0), 0),
+            "garbled_count": _safe_int(item.get("garbled_count", 0), 0),
+            "garbled_ratio": float(item.get("garbled_ratio", 0.0)),
         })
 
     return normalized
@@ -144,6 +174,35 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
             lines.append("| None | - | - |")
     else:
         lines.append("| None | - | - |")
+    return "\n".join(lines)
+
+
+def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
+    """Build a Markdown table for garbled text statistics by DDC range."""
+    lines = [
+        "| DDC Range | Total Records | Garbled Records | Garbled Ratio |",
+        "| --- | --- | --- | --- |",
+    ]
+    if groups:
+        non_zero_groups = [
+            item
+            for item in groups
+            if _safe_int(item.get("garbled_count", 0), 0) > 0
+        ]
+        if non_zero_groups:
+            for item in non_zero_groups:
+                ddc_range = str(item.get("ddc_range", ""))
+                total_count = _safe_int(item.get("total_count", 0), 0)
+                garbled_count = _safe_int(item.get("garbled_count", 0), 0)
+                ratio = item.get("garbled_ratio", 0.0)
+                ratio_str = f"{ratio:.2%}" if isinstance(ratio, (int, float)) else str(ratio)
+                lines.append(
+                    f"| {ddc_range} | {total_count} | {garbled_count} | {ratio_str} |"
+                )
+        else:
+            lines.append("| None | - | - | - |")
+    else:
+        lines.append("| None | - | - | - |")
     return "\n".join(lines)
 
 
@@ -194,6 +253,10 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
     grouped_ddc = _normalize_grouped_items(grouped_raw)
     grouped_table = _build_grouped_table(grouped_ddc, check_number)
 
+    garbled_raw = stats.get("ddc_group_by_10_garbled", [])
+    garbled_items = _normalize_garbled_items(garbled_raw)
+    garbled_table = _build_garbled_table(garbled_items)
+
     return (
         "## Statistics\n\n"
         "### DDC data distribution\n\n"
@@ -205,6 +268,8 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
         f"{table}\n\n"
         "### DDC data quality\n\n"
+        "**Garbled text by DDC group:**\n"
+        f"{garbled_table}\n\n"
         f"**Minimal length of description: {min_description_length}**\n\n"
         f"**Maximal length of description: {max_description_length}**\n\n"
         f"**Average length of description: {average_description_length}**\n"

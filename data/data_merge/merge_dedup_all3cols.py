@@ -288,16 +288,21 @@ def main():
     else:
         print("\n=== 第二步（补4）：未定义 DDC 过滤已关闭（UNDEFINED_DDC 为空）===")
 
-    print("\n=== 第三步：按 DDC 排序 ===")
-    # 整数部分补零至三位，如 2->002, 10->010, 572.1->572.1
-    def pad_ddc(val):
-        val = str(val).strip()
-        if '.' in val:
-            integer, decimal = val.split('.', 1)
-            return integer.zfill(3) + '.' + decimal
-        return val.zfill(3)
-    merged['DDC'] = merged['DDC'].apply(pad_ddc)
-    merged = merged.sort_values(by='DDC', na_position='last').reset_index(drop=True)
+    print("\n=== 第三步：DDC 取整并补零 ===")
+    before_ddc = len(merged)
+    merged['DDC'] = (
+        merged['DDC']
+        .astype(str)
+        .str.strip()
+        .str.split('.')
+        .str[0]
+    )
+    merged = merged[merged['DDC'].str.match(r'^\d+$')].reset_index(drop=True)
+    merged['DDC'] = merged['DDC'].astype(int)
+    merged['DDC'] = merged['DDC'].apply(lambda x: f"{x:03d}")
+    merged = merged.sort_values(by='DDC').reset_index(drop=True)
+    after_ddc = len(merged)
+    print(f"DDC 取整: 过滤前 {before_ddc} 条 -> 过滤后 {after_ddc} 条，去除 {before_ddc - after_ddc} 条")
     print("排序完成")
 
     print("\n=== 第四步：去重（DDC + Title + description 三列全相同才删除）===")

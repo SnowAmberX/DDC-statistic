@@ -72,7 +72,7 @@ df = pd.read_excel(INPUT_FILE)
 if UNDEFINED_DDC:
     undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
     before = len(df)
-    df = df[~df['DDC'].astype(str).str.strip().apply(lambda x: x.split('.')[0].zfill(3)).isin(undefined_set)].reset_index(drop=True)
+    df = df[~df['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
     print(f"已过滤未定义 DDC {sorted(undefined_set)}：{before} → {len(df)} 条")
 
 # ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
@@ -97,23 +97,59 @@ abstract_stats = {
     'total_records': len(df)
 }
 
-# ── 3. 汇总输出 ───────────────────────────────────────────────────────
-# 找出 001-999 中完全缺失的 DDC（整数部分补零后比对）
-def pad_ddc(val):
-    val = str(val).strip()
-    if '.' in val:
-        integer, decimal = val.split('.', 1)
-        return integer.zfill(3) + '.' + decimal
-    return val.zfill(3)
+# ── 乱码检测辅助函数 ──────────────────────────────────────────────────
+def _has_gbk_mojibake(text: str) -> bool:
+    """检测文本是否包含 GBK 乱码特征（latin-1 → utf-8 重编码检测）。
 
-def ddc_int_code(val):
-    return pad_ddc(val).split('.', 1)[0]
+    若文本中的 latin-1 字节能重新解码为有效的 utf-8 序列且结果不同，
+    说明原始文本很可能是 UTF-8 字节被错误解释为单字节编码的产物。"""
+    try:
+        redecoded = text.encode('latin-1').decode('utf-8')
+        return redecoded != text
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return False
 
-undefined_int_set = {str(v).strip().zfill(3) for v in UNDEFINED_DDC if '.' not in str(v)}
+
+def _detect_garbled_vectorized(df: pd.DataFrame) -> pd.Series:
+    """矢量化乱码检测，综合三种规则：
+    1. U+FFFD 替换字符
+    2. C1 控制字符 (\\x80-\\x9F)
+    3. GBK 乱码特征字符（latin-1 → utf-8 重编码检测）
+
+    返回布尔 Series，True 表示该行包含乱码。"""
+    title_str = df['Title'].astype(str)
+    desc_str = df['description'].astype(str)
+
+    # 规则1: U+FFFD 替换字符
+    has_fffd = (
+        title_str.str.contains('�', na=False, regex=False) |
+        desc_str.str.contains('�', na=False, regex=False)
+    )
+
+    # 规则2: C1 控制字符 \\x80-\\x9F（可能是引号/破折号等被错误编码）
+    has_c1 = (
+        title_str.str.contains(r'[\x80-\x9f]', na=False, regex=True) |
+        desc_str.str.contains(r'[\x80-\x9f]', na=False, regex=True)
+    )
+
+    # 规则3: GBK 乱码特征 — 先筛选出含 \\x80-\\xFF 字符的行，再逐行检测
+    has_latin1_supp = (
+        title_str.str.contains(r'[\x80-\xff]', na=False, regex=True) |
+        desc_str.str.contains(r'[\x80-\xff]', na=False, regex=True)
+    )
+    has_gbk = pd.Series(False, index=df.index, dtype=bool)
+    if has_latin1_supp.any():
+        combined = title_str + ' ' + desc_str
+        candidate_mask = has_latin1_supp & ~(has_fffd | has_c1)
+        has_gbk[candidate_mask] = combined[candidate_mask].apply(_has_gbk_mojibake).astype(bool)
+
+    return has_fffd | has_c1 | has_gbk
+
+
+undefined_int_set = {str(v).strip().zfill(3) for v in UNDEFINED_DDC}
 all_ddc = {str(i).zfill(3) for i in range(1, 1000)} - undefined_int_set
-existing_ddc = set(ddc_counts['DDC'].apply(pad_ddc))
-# 只取纯整数三位码做对比（忽略带小数点的细分码）
-existing_int_ddc = {d.split('.')[0] for d in existing_ddc}
+existing_ddc = set(ddc_counts['DDC'].astype(int).astype(str).str.zfill(3))
+existing_int_ddc = existing_ddc
 missing_ddc = sorted(all_ddc - existing_int_ddc)
 
 # 将完全缺失的三位整数 DDC 作为 0 条记录并入不足 CHECK_NUMBER 的详情
@@ -128,14 +164,14 @@ missing_as_under_check_number = [
 
 ddc_under_check_number_details = sorted(
     ddc_result + missing_as_under_check_number,
-    key=lambda item: (item['current_count'], pad_ddc(item['ddc']))
+    key=lambda item: (item['current_count'], str(int(float(item['ddc']))).zfill(3))
 )
 
 # 每 10 个 DDC 一组的记录数统计（000-009, 010-019, ..., 990-999）
 all_int_ddc = [str(i).zfill(3) for i in range(0, 1000)]
 ddc_int_counts = (
     df['DDC']
-    .apply(ddc_int_code)
+    .astype(int).astype(str).str.zfill(3)
     .value_counts()
     .reindex(all_int_ddc, fill_value=0)
 )
@@ -158,6 +194,27 @@ for i in range(0, 1000, 10):
         'under_check_number_ddc_list': under_check_number_codes
     })
 
+# ── 4. 乱码检测统计（DDC 每 10 个一组）───────────────────────────
+df['has_garbled'] = _detect_garbled_vectorized(df)
+
+ddc_group_by_10_garbled = []
+for i in range(0, 1000, 10):
+    codes = [str(j).zfill(3) for j in range(i, i + 10)]
+    codes = [c for c in codes if c not in undefined_int_set]
+    if not codes:
+        continue
+    mask = df['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
+    group_df = df[mask]
+    total_in_range = len(group_df)
+    garbled_in_range = int(group_df['has_garbled'].sum())
+    garbled_ratio = round(garbled_in_range / total_in_range, 4) if total_in_range > 0 else 0.0
+    ddc_group_by_10_garbled.append({
+        'ddc_range': f"{codes[0]}-{codes[-1]}",
+        'total_count': total_in_range,
+        'garbled_count': garbled_in_range,
+        'garbled_ratio': garbled_ratio
+    })
+
 output = {
     'check_number': CHECK_NUMBER,
     'abstract_stats': abstract_stats,
@@ -168,7 +225,8 @@ output = {
         'ddc_under_check_number_count': int(len(ddc_under_check_number_details)),
         'details': ddc_under_check_number_details
     },
-    'ddc_group_by_10': ddc_group_by_10
+    'ddc_group_by_10': ddc_group_by_10,
+    'ddc_group_by_10_garbled': ddc_group_by_10_garbled
 }
 
 output_path = os.path.join(SCRIPT_DIR, 'data', 'statistics.json')
@@ -186,3 +244,11 @@ print(f"  缺失列表: {missing_ddc[:20]}{'...' if len(missing_ddc) > 20 else '
 print(f"  总分类数: {output['ddc_under_check_number']['total_ddc_classes']}")
 print(f"  >= {CHECK_NUMBER} 条的分类: {output['ddc_under_check_number']['ddc_over_check_number_count']} 个，共 {output['ddc_under_check_number']['ddc_over_check_number_total_records']} 条记录")
 print(f"  < {CHECK_NUMBER} 条的分类:  {output['ddc_under_check_number']['ddc_under_check_number_count']}")
+
+total_garbled = int(df['has_garbled'].sum())
+garbled_ranges = sum(1 for g in ddc_group_by_10_garbled if g['garbled_count'] > 0)
+print(f"\n── 乱码检测统计 ──")
+print(f"  U+FFFD 替换字符: {int((df['Title'].astype(str).str.contains('�', na=False, regex=False) | df['description'].astype(str).str.contains('�', na=False, regex=False)).sum())}")
+print(f"  C1 控制字符 (\\x80-\\x9F): {int((df['Title'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True) | df['description'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True)).sum())}")
+print(f"  含乱码记录数（三种规则合并）: {total_garbled} / {len(df)} ({total_garbled/len(df)*100:.2f}%)")
+print(f"  受影响的 DDC 区间数: {garbled_ranges} / {len(ddc_group_by_10_garbled)}")
