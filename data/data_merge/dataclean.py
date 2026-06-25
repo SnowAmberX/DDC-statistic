@@ -18,17 +18,17 @@ def clean_text(text):
     text = re.sub(r'<[^>]*>', ' ', text)
 
     # ── 第3步：替换各种不可见/特殊空白字符为普通空格 ──
-    text = text.replace('\u00a0', ' ')   # 不间断空格 (NBSP)
-    text = text.replace('\u200b', '')    # 零宽空格
-    text = text.replace('\u200c', '')    # 零宽非连接符
-    text = text.replace('\u200d', '')    # 零宽连接符
-    text = text.replace('\ufeff', '')    # BOM / 零宽不换行空格
-    text = text.replace('\u2028', ' ')   # 行分隔符
-    text = text.replace('\u2029', ' ')   # 段分隔符
-    text = text.replace('\r\n', ' ')     # Windows 换行
-    text = text.replace('\r', ' ')       # 老 Mac 换行
-    text = text.replace('\n', ' ')       # Unix 换行
-    text = text.replace('\t', ' ')       # 制表符
+    # text = text.replace('\u00a0', ' ')   # 不间断空格 (NBSP)
+    # text = text.replace('\u200b', '')    # 零宽空格
+    # text = text.replace('\u200c', '')    # 零宽非连接符
+    # text = text.replace('\u200d', '')    # 零宽连接符
+    # text = text.replace('\ufeff', '')    # BOM / 零宽不换行空格
+    # text = text.replace('\u2028', ' ')   # 行分隔符
+    # text = text.replace('\u2029', ' ')   # 段分隔符
+    # text = text.replace('\r\n', ' ')     # Windows 换行
+    # text = text.replace('\r', ' ')       # 老 Mac 换行
+    # text = text.replace('\n', ' ')       # Unix 换行
+    # text = text.replace('\t', ' ')       # 制表符
 
     # ── 第4步：移除 ASCII 控制字符（0x00-0x1f），保留已处理过的 \t\n\r ──
     text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
