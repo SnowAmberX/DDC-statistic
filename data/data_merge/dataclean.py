@@ -1,28 +1,53 @@
 import pandas as pd
 import re
+from html import unescape
 
 def clean_text(text):
     """
-    Core cleaning logic: remove paired wrapping double quotes (Chinese and English),
-    preserve all UTF-8 characters.
+    Core cleaning logic: decode HTML entities, normalize whitespace,
+    remove invisible characters, and strip wrapping quotes.
     """
     if pd.isna(text) or not isinstance(text, str):
         return text
 
+    # ── 第1步：HTML 实体解码 ──
+    # &amp; → &  &lt; → <  &#160; → 不间断空格  等等
+    text = unescape(text)
+
+    # ── 第2步：移除 HTML/XML 标签 ──
+    text = re.sub(r'<[^>]*>', ' ', text)
+
+    # ── 第3步：替换各种不可见/特殊空白字符为普通空格 ──
+    text = text.replace('\u00a0', ' ')   # 不间断空格 (NBSP)
+    text = text.replace('\u200b', '')    # 零宽空格
+    text = text.replace('\u200c', '')    # 零宽非连接符
+    text = text.replace('\u200d', '')    # 零宽连接符
+    text = text.replace('\ufeff', '')    # BOM / 零宽不换行空格
+    text = text.replace('\u2028', ' ')   # 行分隔符
+    text = text.replace('\u2029', ' ')   # 段分隔符
+    text = text.replace('\r\n', ' ')     # Windows 换行
+    text = text.replace('\r', ' ')       # 老 Mac 换行
+    text = text.replace('\n', ' ')       # Unix 换行
+    text = text.replace('\t', ' ')       # 制表符
+
+    # ── 第4步：移除 ASCII 控制字符（0x00-0x1f），保留已处理过的 \t\n\r ──
+    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
+
+    # ── 第5步：规范化空白（连续多个空格合并为一个）──
+    text = re.sub(r' {2,}', ' ', text)
     text = text.strip()
 
-    # Remove leading/trailing wiki/markdown formatting markers (= * # ~ _ |)
-    # These are uncommon punctuation, not part of the actual title/description content
+    # ── 第6步：移除首尾 wiki/markdown 格式标记 (= * # ~ _ |) ──
     text = re.sub(r'^[=\*#~_|]+', '', text)
     text = re.sub(r'[=\*#~_|]+$', '', text)
     text = text.strip()
 
-    # Remove paired English double quotes wrapping the text: "..."
+    # ── 第7步：去掉配对的英文双引号包裹 ──
     if len(text) >= 2 and text[0] == '"' and text[-1] == '"':
         text = text[1:-1].strip()
 
-    # Remove paired Chinese double quotes wrapping the text: “...”
-    if len(text) >= 2 and text[0] == '“' and text[-1] == '”':
+    # ── 第8步：去掉配对的中文双引号包裹 ──
+    if len(text) >= 2 and text[0] == '\u201c' and text[-1] == '\u201d':
         text = text[1:-1].strip()
 
     return text
