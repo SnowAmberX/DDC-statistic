@@ -3,15 +3,40 @@
   "abstract_stats": {
     "max": 1286,
     "min": 15,
-    "mean": 98.48,
-    "total_records": 273374
+    "mean": 98.21,
+    "total_records": 272198
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 946,
-    "ddc_over_check_number_count": 945,
-    "ddc_over_check_number_total_records": 273365,
-    "ddc_under_check_number_count": 1,
+    "ddc_over_check_number_count": 940,
+    "ddc_over_check_number_total_records": 272152,
+    "ddc_under_check_number_count": 6,
     "details": [
+      {
+        "ddc": 606.0,
+        "current_count": 6,
+        "gap_to_check_number": 4
+      },
+      {
+        "ddc": 626.0,
+        "current_count": 7,
+        "gap_to_check_number": 3
+      },
+      {
+        "ddc": 766.0,
+        "current_count": 7,
+        "gap_to_check_number": 3
+      },
+      {
+        "ddc": 163.0,
+        "current_count": 8,
+        "gap_to_check_number": 2
+      },
+      {
+        "ddc": 24.0,
+        "current_count": 9,
+        "gap_to_check_number": 1
+      },
       {
         "ddc": 498.0,
         "current_count": 9,
@@ -32,8 +57,10 @@
     },
     {
       "ddc_range": "020-029",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "024"
+      ]
     },
     {
       "ddc_range": "030-039",
@@ -97,8 +124,10 @@
     },
     {
       "ddc_range": "160-169",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "163"
+      ]
     },
     {
       "ddc_range": "170-179",
@@ -319,8 +348,10 @@
     },
     {
       "ddc_range": "600-609",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "606"
+      ]
     },
     {
       "ddc_range": "610-619",
@@ -329,8 +360,10 @@
     },
     {
       "ddc_range": "620-629",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "626"
+      ]
     },
     {
       "ddc_range": "630-639",
@@ -399,8 +432,10 @@
     },
     {
       "ddc_range": "760-769",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "766"
+      ]
     },
     {
       "ddc_range": "770-779",
