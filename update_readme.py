@@ -181,7 +181,7 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
 def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
     """Build a Markdown table for garbled text statistics by DDC range."""
     lines = [
-        "| DDC Range | Total Records | Garbled Records | Clean Records | Garbled Ratio |",
+        "| DDC Range | Total Records | Garbled Records | Garbled Ratio | Clean Records |",
         "| --- | --- | --- | --- | --- |",
     ]
     if groups:
@@ -199,7 +199,7 @@ def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
                 ratio = item.get("garbled_ratio", 0.0)
                 ratio_str = f"{ratio:.2%}" if isinstance(ratio, (int, float)) else str(ratio)
                 lines.append(
-                    f"| {ddc_range} | {total_count} | {garbled_count} | {clean_count} | {ratio_str} |"
+                    f"| {ddc_range} | {total_count} | {garbled_count} | {ratio_str} | {clean_count} |"
                 )
         else:
             lines.append("| None | - | - | - | - |")
