@@ -92,7 +92,7 @@ jobs:
             exit 0
           fi
 
-          git add data/merged_dedup_all3cols.xlsx
+          git add data/merged_dedup_all3cols.xlsx data/merged_dedup_all3cols_clean.xlsx
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
