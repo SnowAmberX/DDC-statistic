@@ -132,6 +132,7 @@ def _normalize_garbled_items(items: Any) -> list[dict[str, Any]]:
             "ddc_range": ddc_range,
             "total_count": _safe_int(item.get("total_count", 0), 0),
             "garbled_count": _safe_int(item.get("garbled_count", 0), 0),
+            "clean_count": _safe_int(item.get("clean_count", 0), 0),
             "garbled_ratio": float(item.get("garbled_ratio", 0.0)),
         })
 
@@ -180,8 +181,8 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
 def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
     """Build a Markdown table for garbled text statistics by DDC range."""
     lines = [
-        "| DDC Range | Total Records | Garbled Records | Garbled Ratio |",
-        "| --- | --- | --- | --- |",
+        "| DDC Range | Total Records | Garbled Records | Clean Records | Garbled Ratio |",
+        "| --- | --- | --- | --- | --- |",
     ]
     if groups:
         non_zero_groups = [
@@ -194,15 +195,16 @@ def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
                 ddc_range = str(item.get("ddc_range", ""))
                 total_count = _safe_int(item.get("total_count", 0), 0)
                 garbled_count = _safe_int(item.get("garbled_count", 0), 0)
+                clean_count = _safe_int(item.get("clean_count", 0), 0)
                 ratio = item.get("garbled_ratio", 0.0)
                 ratio_str = f"{ratio:.2%}" if isinstance(ratio, (int, float)) else str(ratio)
                 lines.append(
-                    f"| {ddc_range} | {total_count} | {garbled_count} | {ratio_str} |"
+                    f"| {ddc_range} | {total_count} | {garbled_count} | {clean_count} | {ratio_str} |"
                 )
         else:
-            lines.append("| None | - | - | - |")
+            lines.append("| None | - | - | - | - |")
     else:
-        lines.append("| None | - | - | - |")
+        lines.append("| None | - | - | - | - |")
     return "\n".join(lines)
 
 

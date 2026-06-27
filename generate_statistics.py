@@ -75,6 +75,13 @@ if UNDEFINED_DDC:
     df = df[~df['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
     print(f"已过滤未定义 DDC {sorted(undefined_set)}：{before} → {len(df)} 条")
 
+# ── 读取去乱码版本 ──────────────────────────────────────────────────
+CLEAN_INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols_clean.xlsx')
+df_clean = pd.read_excel(CLEAN_INPUT_FILE)
+if UNDEFINED_DDC:
+    df_clean = df_clean[~df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+print(f"去乱码版本: {len(df_clean)} 条（已过滤未定义 DDC）")
+
 # ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
 ddc_counts = df.groupby('DDC').size().reset_index(name='count')
 under_check_number = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
@@ -208,10 +215,13 @@ for i in range(0, 1000, 10):
     total_in_range = len(group_df)
     garbled_in_range = int(group_df['has_garbled'].sum())
     garbled_ratio = round(garbled_in_range / total_in_range, 4) if total_in_range > 0 else 0.0
+    clean_mask = df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
+    clean_in_range = int(clean_mask.sum())
     ddc_group_by_10_garbled.append({
         'ddc_range': f"{codes[0]}-{codes[-1]}",
         'total_count': total_in_range,
         'garbled_count': garbled_in_range,
+        'clean_count': clean_in_range,
         'garbled_ratio': garbled_ratio
     })
 

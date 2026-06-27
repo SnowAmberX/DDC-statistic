@@ -136,6 +136,55 @@ UNDEFINED_DDC = [
 ENABLE_ENGLISH_ONLY_FILTER = True
 
 
+# ── 乱码检测辅助函数 ──────────────────────────────────────────────────
+def _has_gbk_mojibake(text: str) -> bool:
+    """检测文本是否包含 GBK 乱码特征（latin-1 → utf-8 重编码检测）。
+
+    若文本中的 latin-1 字节能重新解码为有效的 utf-8 序列且结果不同，
+    说明原始文本很可能是 UTF-8 字节被错误解释为单字节编码的产物。"""
+    try:
+        redecoded = text.encode('latin-1').decode('utf-8')
+        return redecoded != text
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return False
+
+
+def _detect_garbled_vectorized(df: pd.DataFrame) -> pd.Series:
+    """矢量化乱码检测，综合三种规则：
+    1. U+FFFD 替换字符
+    2. C1 控制字符 (\\x80-\\x9F)
+    3. GBK 乱码特征字符（latin-1 → utf-8 重编码检测）
+
+    返回布尔 Series，True 表示该行包含乱码。"""
+    title_str = df['Title'].astype(str)
+    desc_str = df['description'].astype(str)
+
+    # 规则1: U+FFFD 替换字符
+    has_fffd = (
+        title_str.str.contains('�', na=False, regex=False) |
+        desc_str.str.contains('�', na=False, regex=False)
+    )
+
+    # 规则2: C1 控制字符 \x80-\x9F（可能是引号/破折号等被错误编码）
+    has_c1 = (
+        title_str.str.contains(r'[\x80-\x9f]', na=False, regex=True) |
+        desc_str.str.contains(r'[\x80-\x9f]', na=False, regex=True)
+    )
+
+    # 规则3: GBK 乱码特征 — 先筛选出含 \x80-\xFF 字符的行，再逐行检测
+    has_latin1_supp = (
+        title_str.str.contains(r'[\x80-\xff]', na=False, regex=True) |
+        desc_str.str.contains(r'[\x80-\xff]', na=False, regex=True)
+    )
+    has_gbk = pd.Series(False, index=df.index, dtype=bool)
+    if has_latin1_supp.any():
+        combined = title_str + ' ' + desc_str
+        candidate_mask = has_latin1_supp & ~(has_fffd | has_c1)
+        has_gbk[candidate_mask] = combined[candidate_mask].apply(_has_gbk_mojibake).astype(bool)
+
+    return has_fffd | has_c1 | has_gbk
+
+
 def get_auto_book_description_files():
     candidates = []
     for name in os.listdir(BASE_DIR):
@@ -314,11 +363,29 @@ def main():
     # 输出到 data 目录（当前脚本目录的上一级）
     output_dir = os.path.abspath(os.path.join(BASE_DIR, '..'))
     os.makedirs(output_dir, exist_ok=True)
+
+    # ── 先保存未过滤版本（保留含乱码数据）──
     output = os.path.join(output_dir, 'merged_dedup_all3cols.xlsx')
     with pd.ExcelWriter(output, engine='xlsxwriter',
                         engine_kwargs={'options': {'strings_to_formulas': False}}) as writer:
         merged.to_excel(writer, index=False)
-    print(f"\n完成！结果已保存至: {output}")
+    print(f"\n未过滤版本已保存至: {output}")
+
+    # ── 乱码检测并输出去乱码版本 ──
+    print("\n=== 第五步：乱码检测并输出去乱码版本 ===")
+    has_garbled = _detect_garbled_vectorized(merged)
+    garbled_count = int(has_garbled.sum())
+    total_count = len(merged)
+    print(f"含乱码行数: {garbled_count} / {total_count}")
+    merged_clean = merged[~has_garbled].reset_index(drop=True)
+    print(f"排除乱码后: {len(merged_clean)} 条")
+
+    output_clean = os.path.join(output_dir, 'merged_dedup_all3cols_clean.xlsx')
+    with pd.ExcelWriter(output_clean, engine='xlsxwriter',
+                        engine_kwargs={'options': {'strings_to_formulas': False}}) as writer:
+        merged_clean.to_excel(writer, index=False)
+    print(f"去乱码版本已保存至: {output_clean}")
+    print(f"\n完成！")
 
 
 if __name__ == '__main__':
