@@ -84,6 +84,13 @@ if UNDEFINED_DDC:
     df_clean = df_clean[~df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
 print(f"去乱码版本: {len(df_clean)} 条（已过滤未定义 DDC）")
 
+# ── 读取未清洗版本（用于乱码检测）───────────────────────────────────
+print(f"读取未清洗文件: {INPUT_FILE} ...")
+df_unclean = pd.read_excel(INPUT_FILE)
+if UNDEFINED_DDC:
+    df_unclean = df_unclean[~df_unclean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+print(f"未清洗版本: {len(df_unclean)} 条（已过滤未定义 DDC）")
+
 # ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
 ddc_counts = df.groupby('DDC').size().reset_index(name='count')
 under_check_number = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
@@ -204,7 +211,7 @@ for i in range(0, 1000, 10):
     })
 
 # ── 4. 乱码检测统计（DDC 每 10 个一组）───────────────────────────
-df['has_garbled'] = _detect_garbled_vectorized(df)
+df_unclean['has_garbled'] = _detect_garbled_vectorized(df_unclean)
 
 ddc_group_by_10_garbled = []
 for i in range(0, 1000, 10):
@@ -212,8 +219,8 @@ for i in range(0, 1000, 10):
     codes = [c for c in codes if c not in undefined_int_set]
     if not codes:
         continue
-    mask = df['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
-    group_df = df[mask]
+    mask = df_unclean['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
+    group_df = df_unclean[mask]
     total_in_range = len(group_df)
     garbled_in_range = int(group_df['has_garbled'].sum())
     garbled_ratio = round(garbled_in_range / total_in_range, 4) if total_in_range > 0 else 0.0
@@ -257,10 +264,10 @@ print(f"  总分类数: {output['ddc_under_check_number']['total_ddc_classes']}"
 print(f"  >= {CHECK_NUMBER} 条的分类: {output['ddc_under_check_number']['ddc_over_check_number_count']} 个，共 {output['ddc_under_check_number']['ddc_over_check_number_total_records']} 条记录")
 print(f"  < {CHECK_NUMBER} 条的分类:  {output['ddc_under_check_number']['ddc_under_check_number_count']}")
 
-total_garbled = int(df['has_garbled'].sum())
+total_garbled = int(df_unclean['has_garbled'].sum())
 garbled_ranges = sum(1 for g in ddc_group_by_10_garbled if g['garbled_count'] > 0)
 print(f"\n── 乱码检测统计 ──")
-print(f"  U+FFFD 替换字符: {int((df['Title'].astype(str).str.contains('�', na=False, regex=False) | df['description'].astype(str).str.contains('�', na=False, regex=False)).sum())}")
-print(f"  C1 控制字符 (\\x80-\\x9F): {int((df['Title'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True) | df['description'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True)).sum())}")
-print(f"  含乱码记录数（三种规则合并）: {total_garbled} / {len(df)} ({total_garbled/len(df)*100:.2f}%)")
+print(f"  U+FFFD 替换字符: {int((df_unclean['Title'].astype(str).str.contains('�', na=False, regex=False) | df_unclean['description'].astype(str).str.contains('�', na=False, regex=False)).sum())}")
+print(f"  C1 控制字符 (\\x80-\\x9F): {int((df_unclean['Title'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True) | df_unclean['description'].astype(str).str.contains(r'[\x80-\x9f]', na=False, regex=True)).sum())}")
+print(f"  含乱码记录数（三种规则合并）: {total_garbled} / {len(df_unclean)} ({total_garbled/len(df_unclean)*100:.2f}%)")
 print(f"  受影响的 DDC 区间数: {garbled_ranges} / {len(ddc_group_by_10_garbled)}")
