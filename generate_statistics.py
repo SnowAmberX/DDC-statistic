@@ -4,6 +4,7 @@ import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
+CLEAN_INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols_clean.xlsx')
 CHECK_NUMBER = 10
 
 # 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099'）。
@@ -65,8 +66,10 @@ UNDEFINED_DDC = [
     '756'
 ]
 
-print(f"读取: {INPUT_FILE} ...")
-df = pd.read_excel(INPUT_FILE)
+# print(f"读取: {INPUT_FILE} ...")
+# df = pd.read_excel(INPUT_FILE)
+print(f"读取: {CLEAN_INPUT_FILE} ...")
+df = pd.read_excel(CLEAN_INPUT_FILE)
 
 # ── 0. 过滤未定义 DDC 分类 ───────────────────────────────────────────
 if UNDEFINED_DDC:
@@ -76,7 +79,6 @@ if UNDEFINED_DDC:
     print(f"已过滤未定义 DDC {sorted(undefined_set)}：{before} → {len(df)} 条")
 
 # ── 读取去乱码版本 ──────────────────────────────────────────────────
-CLEAN_INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols_clean.xlsx')
 df_clean = pd.read_excel(CLEAN_INPUT_FILE)
 if UNDEFINED_DDC:
     df_clean = df_clean[~df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
