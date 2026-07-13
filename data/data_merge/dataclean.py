@@ -52,6 +52,42 @@ def clean_text(text):
 
     return text
 
+
+def clean_dataframe(df, dedup=True):
+    """
+    对 DataFrame 中所有 object（字符串）列执行 clean_text 清洗。
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        待清洗的 DataFrame。
+    dedup : bool
+        是否在清洗前后各执行一次去重（默认 True），
+        防止清洗后产生重复行。
+
+    Returns
+    -------
+    pd.DataFrame
+        清洗后的 DataFrame（index 已 reset）。
+    """
+    before = len(df)
+    if dedup:
+        df = df.drop_duplicates().reset_index(drop=True)
+        print(f"  去重（清洗前）: 减少 {before - len(df)} 条")
+
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            df[col] = df[col].apply(clean_text)
+
+    if dedup:
+        after_clean = len(df)
+        df = df.drop_duplicates().reset_index(drop=True)
+        print(f"  去重（清洗后）: 减少 {after_clean - len(df)} 条")
+
+    print(f"  清洗完成: {before} 条 -> {len(df)} 条")
+    return df
+
+
 def process_excel_pro(input_file, output_file):
     # 读取 Excel 文件
     print(f"正在读取文件: {input_file}...")

@@ -3,7 +3,7 @@ import os
 import re
 # from langdetect import detect, LangDetectException  # 已注释，改用 fasttext
 import fasttext
-from dataclean import clean_text  # 复用已有的清洗逻辑
+from dataclean import clean_text, clean_dataframe  # 复用已有的清洗逻辑
 
 # 所有待合并的文件及其列映射
 # 统一目标列：DDC, Title, description
@@ -272,10 +272,9 @@ def main():
     merged = pd.concat(all_dfs, ignore_index=True)
     print(f"合并后总计: {len(merged)} 条")
 
-    print("\n=== 第二步（补）：文本清洗（Title + description）===")
+    print("\n=== 第二步（补）：文本清洗（调用 dataclean.clean_dataframe）===")
     before_clean = len(merged)
-    for col in ['Title', 'description']:
-        merged[col] = merged[col].apply(clean_text)
+    merged = clean_dataframe(merged, dedup=False)
     # 清洗后去掉 description 变为空或仅空白的行
     merged = merged[merged['description'].astype(str).str.strip() != ''].reset_index(drop=True)
     after_clean = len(merged)
