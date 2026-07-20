@@ -50,6 +50,10 @@ def clean_text(text):
     if len(text) >= 2 and text[0] == '\u201c' and text[-1] == '\u201d':
         text = text[1:-1].strip()
 
+    # ── 第9步：去掉"HTML:" 前缀 ──
+    if text.startswith("HTML:"):
+        text = text[5:].strip()
+
     return text
 
 
