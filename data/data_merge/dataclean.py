@@ -50,8 +50,12 @@ def clean_text(text):
     if len(text) >= 2 and text[0] == '\u201c' and text[-1] == '\u201d':
         text = text[1:-1].strip()
 
-    # ── 第9步：去掉"HTML:" 字符串 ──
-    text = re.sub(r'(?i)^HTML:\s*', '', text)
+    # ── 第9步：去掉 HTML: / AIM: / background：/  Aim and background： 字符串 ──
+    text = re.sub(r'(?i)^HTML[:：]\s*', '', text)
+    text = re.sub(r'(?i)^AIM[:：]\s*', '', text)
+    text = re.sub(r'(?i)^background[:：]\s*', '', text)
+    text = re.sub(r'(?i)^Aim and background[:：]\s*', '', text)
+    
 
     return text
 
