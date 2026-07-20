@@ -4,19 +4,14 @@
     "max": 1286,
     "min": 15,
     "mean": 97.81,
-    "total_records": 271084
+    "total_records": 271087
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 945,
-    "ddc_over_check_number_count": 941,
-    "ddc_over_check_number_total_records": 271050,
-    "ddc_under_check_number_count": 4,
+    "ddc_over_check_number_count": 942,
+    "ddc_over_check_number_total_records": 271060,
+    "ddc_under_check_number_count": 3,
     "details": [
-      {
-        "ddc": 766,
-        "current_count": 7,
-        "gap_to_check_number": 3
-      },
       {
         "ddc": 163,
         "current_count": 9,
@@ -418,10 +413,8 @@
     },
     {
       "ddc_range": "760-769",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "766"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "770-779",
@@ -1067,10 +1060,10 @@
     },
     {
       "ddc_range": "760-769",
-      "total_count": 410,
+      "total_count": 413,
       "garbled_count": 4,
-      "clean_count": 406,
-      "garbled_ratio": 0.0098
+      "clean_count": 409,
+      "garbled_ratio": 0.0097
     },
     {
       "ddc_range": "770-779",
