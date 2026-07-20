@@ -4,30 +4,14 @@
     "max": 1286,
     "min": 15,
     "mean": 97.81,
-    "total_records": 271087
+    "total_records": 271060
   },
   "ddc_under_check_number": {
-    "total_ddc_classes": 945,
+    "total_ddc_classes": 942,
     "ddc_over_check_number_count": 942,
     "ddc_over_check_number_total_records": 271060,
-    "ddc_under_check_number_count": 3,
-    "details": [
-      {
-        "ddc": 163,
-        "current_count": 9,
-        "gap_to_check_number": 1
-      },
-      {
-        "ddc": 606,
-        "current_count": 9,
-        "gap_to_check_number": 1
-      },
-      {
-        "ddc": 626,
-        "current_count": 9,
-        "gap_to_check_number": 1
-      }
-    ]
+    "ddc_under_check_number_count": 0,
+    "details": []
   },
   "ddc_group_by_10": [
     {
@@ -107,10 +91,8 @@
     },
     {
       "ddc_range": "160-169",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "163"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "170-179",
@@ -329,10 +311,8 @@
     },
     {
       "ddc_range": "600-609",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "606"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "610-619",
@@ -341,10 +321,8 @@
     },
     {
       "ddc_range": "620-629",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "626"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "630-639",
@@ -640,10 +618,10 @@
     },
     {
       "ddc_range": "160-169",
-      "total_count": 251,
+      "total_count": 242,
       "garbled_count": 5,
-      "clean_count": 246,
-      "garbled_ratio": 0.0199
+      "clean_count": 237,
+      "garbled_ratio": 0.0207
     },
     {
       "ddc_range": "170-179",
@@ -948,10 +926,10 @@
     },
     {
       "ddc_range": "600-609",
-      "total_count": 943,
+      "total_count": 934,
       "garbled_count": 17,
-      "clean_count": 926,
-      "garbled_ratio": 0.018
+      "clean_count": 917,
+      "garbled_ratio": 0.0182
     },
     {
       "ddc_range": "610-619",
@@ -962,9 +940,9 @@
     },
     {
       "ddc_range": "620-629",
-      "total_count": 12480,
+      "total_count": 12471,
       "garbled_count": 7,
-      "clean_count": 12473,
+      "clean_count": 12464,
       "garbled_ratio": 0.0006
     },
     {
