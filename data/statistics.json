@@ -4,25 +4,14 @@
     "max": 1286,
     "min": 15,
     "mean": 98.02,
-    "total_records": 269470
+    "total_records": 269475
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 942,
-    "ddc_over_check_number_count": 940,
-    "ddc_over_check_number_total_records": 269453,
-    "ddc_under_check_number_count": 2,
-    "details": [
-      {
-        "ddc": 19,
-        "current_count": 8,
-        "gap_to_check_number": 2
-      },
-      {
-        "ddc": 773,
-        "current_count": 9,
-        "gap_to_check_number": 1
-      }
-    ]
+    "ddc_over_check_number_count": 942,
+    "ddc_over_check_number_total_records": 269475,
+    "ddc_under_check_number_count": 0,
+    "details": []
   },
   "ddc_group_by_10": [
     {
@@ -32,10 +21,8 @@
     },
     {
       "ddc_range": "010-019",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "019"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "020-029",
@@ -409,10 +396,8 @@
     },
     {
       "ddc_range": "770-779",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "773"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "780-789",
@@ -535,9 +520,9 @@
     },
     {
       "ddc_range": "010-019",
-      "total_count": 534,
+      "total_count": 537,
       "garbled_count": 6,
-      "clean_count": 528,
+      "clean_count": 531,
       "garbled_ratio": 0.0112
     },
     {
@@ -872,9 +857,9 @@
     {
       "ddc_range": "500-509",
       "total_count": 12395,
-      "garbled_count": 16,
-      "clean_count": 12379,
-      "garbled_ratio": 0.0013
+      "garbled_count": 15,
+      "clean_count": 12380,
+      "garbled_ratio": 0.0012
     },
     {
       "ddc_range": "510-519",
@@ -1060,10 +1045,10 @@
     },
     {
       "ddc_range": "770-779",
-      "total_count": 1395,
+      "total_count": 1396,
       "garbled_count": 27,
-      "clean_count": 1368,
-      "garbled_ratio": 0.0194
+      "clean_count": 1369,
+      "garbled_ratio": 0.0193
     },
     {
       "ddc_range": "780-789",
