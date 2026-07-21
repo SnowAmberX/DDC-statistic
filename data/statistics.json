@@ -3,15 +3,26 @@
   "abstract_stats": {
     "max": 1286,
     "min": 15,
-    "mean": 97.81,
-    "total_records": 271060
+    "mean": 98.02,
+    "total_records": 269470
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 942,
-    "ddc_over_check_number_count": 942,
-    "ddc_over_check_number_total_records": 271060,
-    "ddc_under_check_number_count": 0,
-    "details": []
+    "ddc_over_check_number_count": 940,
+    "ddc_over_check_number_total_records": 269453,
+    "ddc_under_check_number_count": 2,
+    "details": [
+      {
+        "ddc": 19,
+        "current_count": 8,
+        "gap_to_check_number": 2
+      },
+      {
+        "ddc": 773,
+        "current_count": 9,
+        "gap_to_check_number": 1
+      }
+    ]
   },
   "ddc_group_by_10": [
     {
@@ -21,8 +32,10 @@
     },
     {
       "ddc_range": "010-019",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "019"
+      ]
     },
     {
       "ddc_range": "020-029",
@@ -396,8 +409,10 @@
     },
     {
       "ddc_range": "770-779",
-      "under_check_number_count": 0,
-      "under_check_number_ddc_list": []
+      "under_check_number_count": 1,
+      "under_check_number_ddc_list": [
+        "773"
+      ]
     },
     {
       "ddc_range": "780-789",
@@ -513,45 +528,45 @@
   "ddc_group_by_10_garbled": [
     {
       "ddc_range": "000-007",
-      "total_count": 7157,
+      "total_count": 7153,
       "garbled_count": 7,
-      "clean_count": 7150,
+      "clean_count": 7146,
       "garbled_ratio": 0.001
     },
     {
       "ddc_range": "010-019",
-      "total_count": 540,
+      "total_count": 534,
       "garbled_count": 6,
-      "clean_count": 534,
-      "garbled_ratio": 0.0111
+      "clean_count": 528,
+      "garbled_ratio": 0.0112
     },
     {
       "ddc_range": "020-029",
-      "total_count": 1017,
+      "total_count": 1008,
       "garbled_count": 19,
-      "clean_count": 998,
-      "garbled_ratio": 0.0187
+      "clean_count": 989,
+      "garbled_ratio": 0.0188
     },
     {
       "ddc_range": "030-039",
-      "total_count": 302,
+      "total_count": 297,
       "garbled_count": 10,
-      "clean_count": 292,
-      "garbled_ratio": 0.0331
+      "clean_count": 287,
+      "garbled_ratio": 0.0337
     },
     {
       "ddc_range": "050-059",
-      "total_count": 151,
+      "total_count": 150,
       "garbled_count": 4,
-      "clean_count": 147,
-      "garbled_ratio": 0.0265
+      "clean_count": 146,
+      "garbled_ratio": 0.0267
     },
     {
       "ddc_range": "060-069",
-      "total_count": 188,
+      "total_count": 186,
       "garbled_count": 10,
-      "clean_count": 178,
-      "garbled_ratio": 0.0532
+      "clean_count": 176,
+      "garbled_ratio": 0.0538
     },
     {
       "ddc_range": "070-079",
@@ -569,59 +584,59 @@
     },
     {
       "ddc_range": "091-099",
-      "total_count": 144,
+      "total_count": 143,
       "garbled_count": 3,
-      "clean_count": 141,
-      "garbled_ratio": 0.0208
+      "clean_count": 140,
+      "garbled_ratio": 0.021
     },
     {
       "ddc_range": "100-109",
-      "total_count": 815,
+      "total_count": 805,
       "garbled_count": 14,
-      "clean_count": 801,
-      "garbled_ratio": 0.0172
+      "clean_count": 791,
+      "garbled_ratio": 0.0174
     },
     {
       "ddc_range": "110-119",
-      "total_count": 970,
+      "total_count": 964,
       "garbled_count": 23,
-      "clean_count": 947,
-      "garbled_ratio": 0.0237
+      "clean_count": 941,
+      "garbled_ratio": 0.0239
     },
     {
       "ddc_range": "120-129",
-      "total_count": 1358,
+      "total_count": 1351,
       "garbled_count": 49,
-      "clean_count": 1309,
-      "garbled_ratio": 0.0361
+      "clean_count": 1302,
+      "garbled_ratio": 0.0363
     },
     {
       "ddc_range": "130-139",
-      "total_count": 1016,
+      "total_count": 1007,
       "garbled_count": 22,
-      "clean_count": 994,
-      "garbled_ratio": 0.0217
+      "clean_count": 985,
+      "garbled_ratio": 0.0218
     },
     {
       "ddc_range": "140-149",
-      "total_count": 1020,
+      "total_count": 1016,
       "garbled_count": 28,
-      "clean_count": 992,
-      "garbled_ratio": 0.0275
+      "clean_count": 988,
+      "garbled_ratio": 0.0276
     },
     {
       "ddc_range": "150-159",
-      "total_count": 6366,
+      "total_count": 6365,
       "garbled_count": 13,
-      "clean_count": 6353,
+      "clean_count": 6352,
       "garbled_ratio": 0.002
     },
     {
       "ddc_range": "160-169",
-      "total_count": 242,
+      "total_count": 237,
       "garbled_count": 5,
-      "clean_count": 237,
-      "garbled_ratio": 0.0207
+      "clean_count": 232,
+      "garbled_ratio": 0.0211
     },
     {
       "ddc_range": "170-179",
@@ -646,205 +661,205 @@
     },
     {
       "ddc_range": "200-209",
-      "total_count": 1914,
-      "garbled_count": 51,
-      "clean_count": 1863,
-      "garbled_ratio": 0.0266
+      "total_count": 1901,
+      "garbled_count": 48,
+      "clean_count": 1853,
+      "garbled_ratio": 0.0252
     },
     {
       "ddc_range": "210-219",
-      "total_count": 1023,
+      "total_count": 1013,
       "garbled_count": 17,
-      "clean_count": 1006,
-      "garbled_ratio": 0.0166
+      "clean_count": 996,
+      "garbled_ratio": 0.0168
     },
     {
       "ddc_range": "220-229",
-      "total_count": 1254,
+      "total_count": 1191,
       "garbled_count": 14,
-      "clean_count": 1240,
-      "garbled_ratio": 0.0112
+      "clean_count": 1177,
+      "garbled_ratio": 0.0118
     },
     {
       "ddc_range": "230-239",
-      "total_count": 1485,
+      "total_count": 1467,
       "garbled_count": 13,
-      "clean_count": 1472,
-      "garbled_ratio": 0.0088
+      "clean_count": 1454,
+      "garbled_ratio": 0.0089
     },
     {
       "ddc_range": "240-249",
-      "total_count": 1072,
+      "total_count": 1052,
       "garbled_count": 2,
-      "clean_count": 1070,
+      "clean_count": 1050,
       "garbled_ratio": 0.0019
     },
     {
       "ddc_range": "250-259",
-      "total_count": 1009,
+      "total_count": 1000,
       "garbled_count": 13,
-      "clean_count": 996,
-      "garbled_ratio": 0.0129
+      "clean_count": 987,
+      "garbled_ratio": 0.013
     },
     {
       "ddc_range": "260-269",
-      "total_count": 1122,
+      "total_count": 1120,
       "garbled_count": 22,
-      "clean_count": 1100,
+      "clean_count": 1098,
       "garbled_ratio": 0.0196
     },
     {
       "ddc_range": "270-279",
-      "total_count": 1014,
+      "total_count": 1011,
       "garbled_count": 25,
-      "clean_count": 989,
+      "clean_count": 986,
       "garbled_ratio": 0.0247
     },
     {
       "ddc_range": "280-289",
-      "total_count": 951,
+      "total_count": 947,
       "garbled_count": 25,
-      "clean_count": 926,
-      "garbled_ratio": 0.0263
+      "clean_count": 922,
+      "garbled_ratio": 0.0264
     },
     {
       "ddc_range": "290-299",
-      "total_count": 1435,
+      "total_count": 1432,
       "garbled_count": 13,
-      "clean_count": 1422,
+      "clean_count": 1419,
       "garbled_ratio": 0.0091
     },
     {
       "ddc_range": "300-309",
-      "total_count": 4860,
+      "total_count": 4859,
       "garbled_count": 12,
-      "clean_count": 4848,
+      "clean_count": 4847,
       "garbled_ratio": 0.0025
     },
     {
       "ddc_range": "310-319",
-      "total_count": 733,
+      "total_count": 724,
       "garbled_count": 11,
-      "clean_count": 722,
-      "garbled_ratio": 0.015
+      "clean_count": 713,
+      "garbled_ratio": 0.0152
     },
     {
       "ddc_range": "320-329",
-      "total_count": 19927,
+      "total_count": 19789,
       "garbled_count": 23,
-      "clean_count": 19904,
+      "clean_count": 19766,
       "garbled_ratio": 0.0012
     },
     {
       "ddc_range": "330-339",
-      "total_count": 31078,
+      "total_count": 30775,
       "garbled_count": 21,
-      "clean_count": 31057,
+      "clean_count": 30754,
       "garbled_ratio": 0.0007
     },
     {
       "ddc_range": "340-349",
-      "total_count": 5464,
+      "total_count": 5435,
       "garbled_count": 42,
-      "clean_count": 5422,
+      "clean_count": 5393,
       "garbled_ratio": 0.0077
     },
     {
       "ddc_range": "350-359",
-      "total_count": 9261,
+      "total_count": 9204,
       "garbled_count": 38,
-      "clean_count": 9223,
+      "clean_count": 9166,
       "garbled_ratio": 0.0041
     },
     {
       "ddc_range": "360-369",
-      "total_count": 2843,
+      "total_count": 2836,
       "garbled_count": 29,
-      "clean_count": 2814,
+      "clean_count": 2807,
       "garbled_ratio": 0.0102
     },
     {
       "ddc_range": "370-379",
-      "total_count": 2857,
+      "total_count": 2850,
       "garbled_count": 30,
-      "clean_count": 2827,
+      "clean_count": 2820,
       "garbled_ratio": 0.0105
     },
     {
       "ddc_range": "380-389",
-      "total_count": 2667,
+      "total_count": 2645,
       "garbled_count": 24,
-      "clean_count": 2643,
-      "garbled_ratio": 0.009
+      "clean_count": 2621,
+      "garbled_ratio": 0.0091
     },
     {
       "ddc_range": "390-399",
-      "total_count": 1228,
+      "total_count": 1222,
       "garbled_count": 19,
-      "clean_count": 1209,
+      "clean_count": 1203,
       "garbled_ratio": 0.0155
     },
     {
       "ddc_range": "400-409",
-      "total_count": 1140,
+      "total_count": 1129,
       "garbled_count": 20,
-      "clean_count": 1120,
-      "garbled_ratio": 0.0175
+      "clean_count": 1109,
+      "garbled_ratio": 0.0177
     },
     {
       "ddc_range": "410-419",
-      "total_count": 1833,
+      "total_count": 1824,
       "garbled_count": 1,
-      "clean_count": 1832,
+      "clean_count": 1823,
       "garbled_ratio": 0.0005
     },
     {
       "ddc_range": "420-429",
-      "total_count": 1690,
+      "total_count": 1680,
       "garbled_count": 11,
-      "clean_count": 1679,
+      "clean_count": 1669,
       "garbled_ratio": 0.0065
     },
     {
       "ddc_range": "430-439",
-      "total_count": 565,
+      "total_count": 559,
       "garbled_count": 3,
-      "clean_count": 562,
-      "garbled_ratio": 0.0053
+      "clean_count": 556,
+      "garbled_ratio": 0.0054
     },
     {
       "ddc_range": "440-449",
-      "total_count": 773,
+      "total_count": 769,
       "garbled_count": 5,
-      "clean_count": 768,
+      "clean_count": 764,
       "garbled_ratio": 0.0065
     },
     {
       "ddc_range": "450-459",
-      "total_count": 412,
+      "total_count": 411,
       "garbled_count": 2,
-      "clean_count": 410,
+      "clean_count": 409,
       "garbled_ratio": 0.0049
     },
     {
       "ddc_range": "460-469",
-      "total_count": 455,
+      "total_count": 452,
       "garbled_count": 3,
-      "clean_count": 452,
+      "clean_count": 449,
       "garbled_ratio": 0.0066
     },
     {
       "ddc_range": "470-479",
-      "total_count": 286,
+      "total_count": 284,
       "garbled_count": 2,
-      "clean_count": 284,
+      "clean_count": 282,
       "garbled_ratio": 0.007
     },
     {
       "ddc_range": "480-489",
-      "total_count": 288,
+      "total_count": 286,
       "garbled_count": 1,
-      "clean_count": 287,
+      "clean_count": 285,
       "garbled_ratio": 0.0035
     },
     {
@@ -856,184 +871,184 @@
     },
     {
       "ddc_range": "500-509",
-      "total_count": 12564,
+      "total_count": 12395,
       "garbled_count": 16,
-      "clean_count": 12548,
+      "clean_count": 12379,
       "garbled_ratio": 0.0013
     },
     {
       "ddc_range": "510-519",
-      "total_count": 2513,
+      "total_count": 2499,
       "garbled_count": 24,
-      "clean_count": 2489,
+      "clean_count": 2475,
       "garbled_ratio": 0.0096
     },
     {
       "ddc_range": "520-529",
-      "total_count": 4372,
+      "total_count": 4308,
       "garbled_count": 21,
-      "clean_count": 4351,
-      "garbled_ratio": 0.0048
+      "clean_count": 4287,
+      "garbled_ratio": 0.0049
     },
     {
       "ddc_range": "530-539",
-      "total_count": 1768,
+      "total_count": 1758,
       "garbled_count": 23,
-      "clean_count": 1745,
-      "garbled_ratio": 0.013
+      "clean_count": 1735,
+      "garbled_ratio": 0.0131
     },
     {
       "ddc_range": "540-549",
-      "total_count": 1301,
+      "total_count": 1281,
       "garbled_count": 16,
-      "clean_count": 1285,
-      "garbled_ratio": 0.0123
+      "clean_count": 1265,
+      "garbled_ratio": 0.0125
     },
     {
       "ddc_range": "550-559",
-      "total_count": 1593,
+      "total_count": 1575,
       "garbled_count": 5,
-      "clean_count": 1588,
-      "garbled_ratio": 0.0031
+      "clean_count": 1570,
+      "garbled_ratio": 0.0032
     },
     {
       "ddc_range": "560-569",
-      "total_count": 1285,
+      "total_count": 1280,
       "garbled_count": 13,
-      "clean_count": 1272,
-      "garbled_ratio": 0.0101
+      "clean_count": 1267,
+      "garbled_ratio": 0.0102
     },
     {
       "ddc_range": "570-579",
-      "total_count": 11839,
+      "total_count": 11834,
       "garbled_count": 11,
-      "clean_count": 11828,
+      "clean_count": 11823,
       "garbled_ratio": 0.0009
     },
     {
       "ddc_range": "580-589",
-      "total_count": 1158,
+      "total_count": 1151,
       "garbled_count": 0,
-      "clean_count": 1158,
+      "clean_count": 1151,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "590-599",
-      "total_count": 1480,
+      "total_count": 1474,
       "garbled_count": 1,
-      "clean_count": 1479,
+      "clean_count": 1473,
       "garbled_ratio": 0.0007
     },
     {
       "ddc_range": "600-609",
-      "total_count": 934,
+      "total_count": 928,
       "garbled_count": 17,
-      "clean_count": 917,
-      "garbled_ratio": 0.0182
+      "clean_count": 911,
+      "garbled_ratio": 0.0183
     },
     {
       "ddc_range": "610-619",
-      "total_count": 14699,
+      "total_count": 14690,
       "garbled_count": 8,
-      "clean_count": 14691,
+      "clean_count": 14682,
       "garbled_ratio": 0.0005
     },
     {
       "ddc_range": "620-629",
-      "total_count": 12471,
+      "total_count": 12463,
       "garbled_count": 7,
-      "clean_count": 12464,
+      "clean_count": 12456,
       "garbled_ratio": 0.0006
     },
     {
       "ddc_range": "630-639",
-      "total_count": 1684,
+      "total_count": 1657,
       "garbled_count": 10,
-      "clean_count": 1674,
-      "garbled_ratio": 0.0059
+      "clean_count": 1647,
+      "garbled_ratio": 0.006
     },
     {
       "ddc_range": "640-649",
-      "total_count": 1630,
+      "total_count": 1616,
       "garbled_count": 0,
-      "clean_count": 1630,
+      "clean_count": 1616,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "650-659",
-      "total_count": 5752,
+      "total_count": 5746,
       "garbled_count": 9,
-      "clean_count": 5743,
+      "clean_count": 5737,
       "garbled_ratio": 0.0016
     },
     {
       "ddc_range": "660-669",
-      "total_count": 1539,
+      "total_count": 1492,
       "garbled_count": 0,
-      "clean_count": 1539,
+      "clean_count": 1492,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "670-679",
-      "total_count": 1036,
+      "total_count": 1024,
       "garbled_count": 0,
-      "clean_count": 1036,
+      "clean_count": 1024,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "680-689",
-      "total_count": 1098,
+      "total_count": 1086,
       "garbled_count": 0,
-      "clean_count": 1098,
+      "clean_count": 1086,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "690-699",
-      "total_count": 1129,
+      "total_count": 1122,
       "garbled_count": 3,
-      "clean_count": 1126,
+      "clean_count": 1119,
       "garbled_ratio": 0.0027
     },
     {
       "ddc_range": "700-709",
-      "total_count": 2591,
+      "total_count": 2580,
       "garbled_count": 28,
-      "clean_count": 2563,
-      "garbled_ratio": 0.0108
+      "clean_count": 2552,
+      "garbled_ratio": 0.0109
     },
     {
       "ddc_range": "710-719",
-      "total_count": 694,
+      "total_count": 693,
       "garbled_count": 14,
-      "clean_count": 680,
+      "clean_count": 679,
       "garbled_ratio": 0.0202
     },
     {
       "ddc_range": "720-729",
-      "total_count": 2022,
+      "total_count": 2012,
       "garbled_count": 14,
-      "clean_count": 2008,
-      "garbled_ratio": 0.0069
+      "clean_count": 1998,
+      "garbled_ratio": 0.007
     },
     {
       "ddc_range": "730-739",
-      "total_count": 1265,
+      "total_count": 1261,
       "garbled_count": 14,
-      "clean_count": 1251,
+      "clean_count": 1247,
       "garbled_ratio": 0.0111
     },
     {
       "ddc_range": "740-749",
-      "total_count": 2351,
+      "total_count": 2341,
       "garbled_count": 23,
-      "clean_count": 2328,
+      "clean_count": 2318,
       "garbled_ratio": 0.0098
     },
     {
       "ddc_range": "750-759",
-      "total_count": 1301,
+      "total_count": 1296,
       "garbled_count": 9,
-      "clean_count": 1292,
+      "clean_count": 1287,
       "garbled_ratio": 0.0069
     },
     {
@@ -1045,30 +1060,30 @@
     },
     {
       "ddc_range": "770-779",
-      "total_count": 1401,
+      "total_count": 1395,
       "garbled_count": 27,
-      "clean_count": 1374,
-      "garbled_ratio": 0.0193
+      "clean_count": 1368,
+      "garbled_ratio": 0.0194
     },
     {
       "ddc_range": "780-789",
-      "total_count": 1895,
+      "total_count": 1888,
       "garbled_count": 24,
-      "clean_count": 1871,
+      "clean_count": 1864,
       "garbled_ratio": 0.0127
     },
     {
       "ddc_range": "790-799",
-      "total_count": 30921,
+      "total_count": 30772,
       "garbled_count": 72,
-      "clean_count": 30849,
+      "clean_count": 30700,
       "garbled_ratio": 0.0023
     },
     {
       "ddc_range": "800-809",
-      "total_count": 2690,
+      "total_count": 2689,
       "garbled_count": 4,
-      "clean_count": 2686,
+      "clean_count": 2685,
       "garbled_ratio": 0.0015
     },
     {
@@ -1080,9 +1095,9 @@
     },
     {
       "ddc_range": "820-829",
-      "total_count": 2542,
+      "total_count": 2541,
       "garbled_count": 2,
-      "clean_count": 2540,
+      "clean_count": 2539,
       "garbled_ratio": 0.0008
     },
     {
@@ -1101,9 +1116,9 @@
     },
     {
       "ddc_range": "850-859",
-      "total_count": 145,
+      "total_count": 144,
       "garbled_count": 0,
-      "clean_count": 145,
+      "clean_count": 144,
       "garbled_ratio": 0.0
     },
     {
@@ -1122,86 +1137,86 @@
     },
     {
       "ddc_range": "880-889",
-      "total_count": 241,
+      "total_count": 235,
       "garbled_count": 1,
-      "clean_count": 240,
-      "garbled_ratio": 0.0041
+      "clean_count": 234,
+      "garbled_ratio": 0.0043
     },
     {
       "ddc_range": "890-899",
-      "total_count": 497,
+      "total_count": 494,
       "garbled_count": 4,
-      "clean_count": 493,
-      "garbled_ratio": 0.008
+      "clean_count": 490,
+      "garbled_ratio": 0.0081
     },
     {
       "ddc_range": "900-909",
-      "total_count": 1062,
+      "total_count": 1057,
       "garbled_count": 0,
-      "clean_count": 1062,
+      "clean_count": 1057,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "910-919",
-      "total_count": 1195,
+      "total_count": 1191,
       "garbled_count": 2,
-      "clean_count": 1193,
+      "clean_count": 1189,
       "garbled_ratio": 0.0017
     },
     {
       "ddc_range": "920-929",
-      "total_count": 614,
+      "total_count": 613,
       "garbled_count": 0,
-      "clean_count": 614,
+      "clean_count": 613,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "930-939",
-      "total_count": 1593,
+      "total_count": 1581,
       "garbled_count": 1,
-      "clean_count": 1592,
+      "clean_count": 1580,
       "garbled_ratio": 0.0006
     },
     {
       "ddc_range": "940-949",
-      "total_count": 2216,
+      "total_count": 2206,
       "garbled_count": 0,
-      "clean_count": 2216,
+      "clean_count": 2206,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "950-959",
-      "total_count": 2007,
+      "total_count": 1996,
       "garbled_count": 3,
-      "clean_count": 2004,
+      "clean_count": 1993,
       "garbled_ratio": 0.0015
     },
     {
       "ddc_range": "960-969",
-      "total_count": 1084,
+      "total_count": 1077,
       "garbled_count": 0,
-      "clean_count": 1084,
+      "clean_count": 1077,
       "garbled_ratio": 0.0
     },
     {
       "ddc_range": "970-979",
-      "total_count": 1767,
+      "total_count": 1759,
       "garbled_count": 1,
-      "clean_count": 1766,
+      "clean_count": 1758,
       "garbled_ratio": 0.0006
     },
     {
       "ddc_range": "980-989",
-      "total_count": 851,
+      "total_count": 846,
       "garbled_count": 1,
-      "clean_count": 850,
+      "clean_count": 845,
       "garbled_ratio": 0.0012
     },
     {
       "ddc_range": "990-999",
-      "total_count": 755,
+      "total_count": 748,
       "garbled_count": 0,
-      "clean_count": 755,
+      "clean_count": 748,
       "garbled_ratio": 0.0
     }
   ]
