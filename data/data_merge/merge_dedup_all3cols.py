@@ -357,9 +357,9 @@ def main():
     print(f"DDC 取整: 过滤前 {before_ddc} 条 -> 过滤后 {after_ddc} 条，去除 {before_ddc - after_ddc} 条")
     print("排序完成")
 
-    print("\n=== 第四步：去重（DDC + Title + description 三列全相同才删除）===")
+    print("\n=== 第四步：去重（DDC + description 两列全相同才删除）===")
     before = len(merged)
-    merged = merged.drop_duplicates(subset=['DDC', 'Title', 'description']).reset_index(drop=True)
+    merged = merged.drop_duplicates(subset=['DDC', 'description']).reset_index(drop=True)
     after = len(merged)
     print(f"去重前: {before} 条 -> 去重后: {after} 条，减少 {before - after} 条")
 
