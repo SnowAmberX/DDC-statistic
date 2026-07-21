@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare release files
+        run: |
+          mkdir -p release
+          cp data/merged_dedup_all3cols.xlsx release/dataset.xlsx
+          cp data/merged_dedup_all3cols_clean.xlsx release/dataset_clean.xlsx
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          files: |
+            release/dataset.xlsx
+            release/dataset_clean.xlsx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
