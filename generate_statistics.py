@@ -5,7 +5,7 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
 CLEAN_INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols_clean.xlsx')
-CHECK_NUMBER = 10
+CHECK_NUMBER = 50
 
 # 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099'）。
 # 这些编号会被过滤掉，且不会出现在缺失分类统计中。
