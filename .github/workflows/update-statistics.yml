@@ -2,14 +2,16 @@ name: Update DDC Statistics
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 8 */3 * *"
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
   update-statistics:
+    if: github.event_name != 'push' || startsWith(github.event.head_commit.message, 'update:')
     runs-on: ubuntu-latest
     env:
       DATASET_DIR: data
