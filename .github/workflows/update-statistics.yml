@@ -2,7 +2,11 @@ name: Update DDC Statistics
 
 on:
   workflow_dispatch:
-  push:
+  workflow_run:
+    workflows:
+      - auto_data_merge
+    types:
+      - completed
     branches:
       - main
 
@@ -11,7 +15,9 @@ permissions:
 
 jobs:
   update-statistics:
-    if: github.event_name != 'push' || startsWith(github.event.head_commit.message, 'update:')
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
       DATASET_DIR: data
@@ -39,6 +45,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: main
+          fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
           persist-credentials: false
 
