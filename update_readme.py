@@ -212,6 +212,7 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
     abstract_stats = stats.get("abstract_stats", {})
     ddc_under_check_number = stats.get("ddc_under_check_number", {})
     ddc_under_check_number_count = ddc_under_check_number.get("ddc_under_check_number_count", 0)
+    ddc_over_check_number_count = ddc_under_check_number.get("ddc_over_check_number_count", 0)
 
     valid_sample_total = _safe_int(
         stats.get(
@@ -265,6 +266,7 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         f"DDC that already having {check_number} samples will not show details of the distribution.\n\n"
         f"**Vaild samples number in total: {valid_sample_total}**\n\n"
         f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_check_number_count} \n\n"
+        f"DDC nodes that satisfy the requirement of {check_number} samples: {ddc_over_check_number_count}\n\n"
         f"**DDC grouped by 10 (count of DDC < {check_number}):**\n"
         f"{grouped_table}\n\n"
         f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
