@@ -4,12 +4,12 @@
     "max": 1286,
     "min": 15,
     "mean": 97.78,
-    "total_records": 276439
+    "total_records": 276440
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 975,
     "ddc_over_check_number_count": 733,
-    "ddc_over_check_number_total_records": 267640,
+    "ddc_over_check_number_total_records": 267641,
     "ddc_under_check_number_count": 242,
     "details": [
       {
@@ -2375,9 +2375,9 @@
     {
       "ddc_range": "500-509",
       "total_count": 12395,
-      "garbled_count": 16,
-      "clean_count": 12379,
-      "garbled_ratio": 0.0013
+      "garbled_count": 15,
+      "clean_count": 12380,
+      "garbled_ratio": 0.0012
     },
     {
       "ddc_range": "510-519",
