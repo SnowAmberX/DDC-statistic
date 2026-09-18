@@ -6,7 +6,7 @@ import fasttext
 from dataclean import clean_text, clean_dataframe  # 复用已有的清洗逻辑
 
 # 所有待合并的文件及其列映射
-# 统一目标列：DDC, Title, description
+# 统一目标列：DDC, Title, description, remark
 FILES = [
     {
         'path': '0-49.xlsx',
@@ -67,7 +67,7 @@ FILES = [
     },
 ]
 
-TARGET_COLS = ['DDC', 'Title', 'description']
+TARGET_COLS = ['DDC', 'Title', 'description', 'remark']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BOOK_DESC_PATTERN = re.compile(r'^book_descriptions_all(\d*)\.csv$', re.IGNORECASE)
 
@@ -206,6 +206,7 @@ def load_and_normalize(file_cfg):
         'title': 'Title',
         'abstract': 'description',
         'desc': 'description',
+        'remark': 'remark',
     }
     auto_rename = {}
     for col in df.columns:
@@ -321,14 +322,35 @@ def main():
     merged = merged[merged['DDC'].str.match(r'^\d+$')].reset_index(drop=True)
     merged['DDC'] = merged['DDC'].astype(int)
     merged['DDC'] = merged['DDC'].apply(lambda x: f"{x:03d}")
-    merged = merged.sort_values(by='DDC').reset_index(drop=True)
+    merged = merged.sort_values(by='DDC', kind='stable').reset_index(drop=True)
     after_ddc = len(merged)
     print(f"DDC 取整: 过滤前 {before_ddc} 条 -> 过滤后 {after_ddc} 条，去除 {before_ddc - after_ddc} 条")
     print("排序完成")
 
     print("\n=== 第四步：去重（DDC + description 两列全相同才删除）===")
     before = len(merged)
-    merged = merged.drop_duplicates(subset=['DDC', 'description']).reset_index(drop=True)
+    dedup_keys = ['DDC', 'description']
+    merged['_merge_order'] = range(len(merged))
+    nonblank_remark = merged['remark'].fillna('').astype(str).str.strip().ne('')
+    preferred_remarks = (
+        merged.loc[nonblank_remark, dedup_keys + ['remark']]
+        .drop_duplicates(subset=dedup_keys, keep='first')
+        .rename(columns={'remark': '_preferred_remark'})
+    )
+    merged = merged.merge(
+        preferred_remarks,
+        on=dedup_keys,
+        how='left',
+        sort=False,
+        validate='many_to_one',
+    )
+    merged = merged.sort_values('_merge_order', kind='stable')
+    has_preferred_remark = merged['_preferred_remark'].notna()
+    merged.loc[has_preferred_remark, 'remark'] = merged.loc[
+        has_preferred_remark, '_preferred_remark'
+    ]
+    merged = merged.drop_duplicates(subset=dedup_keys, keep='first')
+    merged = merged.drop(columns=['_preferred_remark', '_merge_order']).reset_index(drop=True)
     after = len(merged)
     print(f"去重前: {before} 条 -> 去重后: {after} 条，减少 {before - after} 条")
 
