@@ -134,6 +134,8 @@ def _normalize_garbled_items(items: Any) -> list[dict[str, Any]]:
             "garbled_count": _safe_int(item.get("garbled_count", 0), 0),
             "clean_count": _safe_int(item.get("clean_count", 0), 0),
             "garbled_ratio": float(item.get("garbled_ratio", 0.0)),
+            "ai_count": _safe_int(item.get("ai_count", 0), 0),
+            "ai_ratio": float(item.get("ai_ratio", 0.0)),
         })
 
     return normalized
@@ -181,14 +183,17 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
 def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
     """Build a Markdown table for garbled text statistics by DDC range."""
     lines = [
-        "| DDC Range | Total Records | Garbled Records | Garbled Ratio | Clean Records |",
-        "| --- | --- | --- | --- | --- |",
+        "| DDC Range | Total Records | Garbled Records | Garbled Ratio | Clean Records | AI Records | AI Ratio |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     if groups:
         non_zero_groups = [
             item
             for item in groups
-            if _safe_int(item.get("garbled_count", 0), 0) > 0
+            if (
+                _safe_int(item.get("garbled_count", 0), 0) > 0
+                or _safe_int(item.get("ai_count", 0), 0) > 0
+            )
         ]
         if non_zero_groups:
             for item in non_zero_groups:
@@ -198,13 +203,16 @@ def _build_garbled_table(groups: list[dict[str, Any]]) -> str:
                 clean_count = _safe_int(item.get("clean_count", 0), 0)
                 ratio = item.get("garbled_ratio", 0.0)
                 ratio_str = f"{ratio:.2%}" if isinstance(ratio, (int, float)) else str(ratio)
+                ai_count = _safe_int(item.get("ai_count", 0), 0)
+                ai_ratio = item.get("ai_ratio", 0.0)
+                ai_ratio_str = f"{ai_ratio:.2%}" if isinstance(ai_ratio, (int, float)) else str(ai_ratio)
                 lines.append(
-                    f"| {ddc_range} | {total_count} | {garbled_count} | {ratio_str} | {clean_count} |"
+                    f"| {ddc_range} | {total_count} | {garbled_count} | {ratio_str} | {clean_count} | {ai_count} | {ai_ratio_str} |"
                 )
         else:
-            lines.append("| None | - | - | - | - |")
+            lines.append("| None | - | - | - | - | - | - |")
     else:
-        lines.append("| None | - | - | - | - |")
+        lines.append("| None | - | - | - | - | - | - |")
     return "\n".join(lines)
 
 
@@ -272,7 +280,7 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
         f"{table}\n\n"
         "### DDC data quality\n\n"
-        "**Garbled text by DDC group:**\n"
+        "**Garbled text and AI-generated content by DDC group:**\n"
         f"{garbled_table}\n\n"
         f"**Minimal length of description: {min_description_length}**\n\n"
         f"**Maximal length of description: {max_description_length}**\n\n"

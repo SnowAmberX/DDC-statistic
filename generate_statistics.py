@@ -6,6 +6,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
 CLEAN_INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols_clean.xlsx')
 CHECK_NUMBER = 50
+AI_GENERATED_REMARK = 'ai-generated'
 
 # 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099'）。
 # 这些编号会被过滤掉，且不会出现在缺失分类统计中。
@@ -197,6 +198,20 @@ for i in range(0, 1000, 10):
     total_in_range = len(group_df)
     garbled_in_range = int(group_df['has_garbled'].sum())
     garbled_ratio = round(garbled_in_range / total_in_range, 4) if total_in_range > 0 else 0.0
+    ai_generated_mask = (
+        group_df['remark']
+        .fillna('')
+        .astype(str)
+        .str.strip()
+        .str.casefold()
+        .eq(AI_GENERATED_REMARK)
+    )
+    ai_generated_in_range = int(ai_generated_mask.sum())
+    ai_generated_ratio = (
+        round(ai_generated_in_range / total_in_range, 4)
+        if total_in_range > 0
+        else 0.0
+    )
     clean_mask = df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
     clean_in_range = int(clean_mask.sum())
     ddc_group_by_10_garbled.append({
@@ -204,7 +219,9 @@ for i in range(0, 1000, 10):
         'total_count': total_in_range,
         'garbled_count': garbled_in_range,
         'clean_count': clean_in_range,
-        'garbled_ratio': garbled_ratio
+        'garbled_ratio': garbled_ratio,
+        'ai_count': ai_generated_in_range,
+        'ai_ratio': ai_generated_ratio
     })
 
 output = {
