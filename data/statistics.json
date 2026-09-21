@@ -3,14 +3,14 @@
   "abstract_stats": {
     "max": 1286,
     "min": 15,
-    "mean": 97.8,
-    "total_records": 276566
+    "mean": 97.84,
+    "total_records": 276881
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 975,
-    "ddc_over_check_number_count": 735,
-    "ddc_over_check_number_total_records": 267764,
-    "ddc_under_check_number_count": 240,
+    "ddc_over_check_number_count": 747,
+    "ddc_over_check_number_total_records": 268520,
+    "ddc_under_check_number_count": 228,
     "details": [
       {
         "ddc": 35,
@@ -608,17 +608,7 @@
         "gap_to_check_number": 15
       },
       {
-        "ddc": 756,
-        "current_count": 35,
-        "gap_to_check_number": 15
-      },
-      {
         "ddc": 854,
-        "current_count": 35,
-        "gap_to_check_number": 15
-      },
-      {
-        "ddc": 857,
         "current_count": 35,
         "gap_to_check_number": 15
       },
@@ -628,27 +618,7 @@
         "gap_to_check_number": 15
       },
       {
-        "ddc": 14,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
         "ddc": 85,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
-        "ddc": 197,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
-        "ddc": 397,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
-        "ddc": 462,
         "current_count": 36,
         "gap_to_check_number": 14
       },
@@ -658,29 +628,9 @@
         "gap_to_check_number": 14
       },
       {
-        "ddc": 675,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
-        "ddc": 882,
-        "current_count": 36,
-        "gap_to_check_number": 14
-      },
-      {
         "ddc": 906,
         "current_count": 36,
         "gap_to_check_number": 14
-      },
-      {
-        "ddc": 157,
-        "current_count": 37,
-        "gap_to_check_number": 13
-      },
-      {
-        "ddc": 178,
-        "current_count": 37,
-        "gap_to_check_number": 13
       },
       {
         "ddc": 186,
@@ -688,7 +638,17 @@
         "gap_to_check_number": 13
       },
       {
-        "ddc": 468,
+        "ddc": 197,
+        "current_count": 37,
+        "gap_to_check_number": 13
+      },
+      {
+        "ddc": 397,
+        "current_count": 37,
+        "gap_to_check_number": 13
+      },
+      {
+        "ddc": 462,
         "current_count": 37,
         "gap_to_check_number": 13
       },
@@ -698,19 +658,19 @@
         "gap_to_check_number": 13
       },
       {
+        "ddc": 675,
+        "current_count": 37,
+        "gap_to_check_number": 13
+      },
+      {
         "ddc": 713,
         "current_count": 37,
         "gap_to_check_number": 13
       },
       {
-        "ddc": 867,
+        "ddc": 882,
         "current_count": 37,
         "gap_to_check_number": 13
-      },
-      {
-        "ddc": 84,
-        "current_count": 38,
-        "gap_to_check_number": 12
       },
       {
         "ddc": 156,
@@ -718,17 +678,12 @@
         "gap_to_check_number": 12
       },
       {
-        "ddc": 169,
+        "ddc": 157,
         "current_count": 38,
         "gap_to_check_number": 12
       },
       {
-        "ddc": 441,
-        "current_count": 38,
-        "gap_to_check_number": 12
-      },
-      {
-        "ddc": 457,
+        "ddc": 178,
         "current_count": 38,
         "gap_to_check_number": 12
       },
@@ -743,27 +698,32 @@
         "gap_to_check_number": 12
       },
       {
-        "ddc": 848,
+        "ddc": 857,
         "current_count": 38,
         "gap_to_check_number": 12
       },
       {
-        "ddc": 86,
+        "ddc": 169,
         "current_count": 39,
         "gap_to_check_number": 11
       },
       {
-        "ddc": 148,
+        "ddc": 441,
         "current_count": 39,
         "gap_to_check_number": 11
       },
       {
-        "ddc": 768,
+        "ddc": 457,
         "current_count": 39,
         "gap_to_check_number": 11
       },
       {
         "ddc": 816,
+        "current_count": 39,
+        "gap_to_check_number": 11
+      },
+      {
+        "ddc": 867,
         "current_count": 39,
         "gap_to_check_number": 11
       },
@@ -778,32 +738,7 @@
         "gap_to_check_number": 11
       },
       {
-        "ddc": 13,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 72,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 104,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 162,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
         "ddc": 220,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 483,
         "current_count": 40,
         "gap_to_check_number": 10
       },
@@ -811,26 +746,6 @@
         "ddc": 718,
         "current_count": 40,
         "gap_to_check_number": 10
-      },
-      {
-        "ddc": 772,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 926,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 999,
-        "current_count": 40,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": 24,
-        "current_count": 41,
-        "gap_to_check_number": 9
       },
       {
         "ddc": 166,
@@ -848,12 +763,12 @@
         "gap_to_check_number": 9
       },
       {
-        "ddc": 742,
+        "ddc": 763,
         "current_count": 41,
         "gap_to_check_number": 9
       },
       {
-        "ddc": 763,
+        "ddc": 772,
         "current_count": 41,
         "gap_to_check_number": 9
       },
@@ -873,6 +788,11 @@
         "gap_to_check_number": 8
       },
       {
+        "ddc": 148,
+        "current_count": 42,
+        "gap_to_check_number": 8
+      },
+      {
         "ddc": 151,
         "current_count": 42,
         "gap_to_check_number": 8
@@ -888,7 +808,17 @@
         "gap_to_check_number": 8
       },
       {
+        "ddc": 162,
+        "current_count": 42,
+        "gap_to_check_number": 8
+      },
+      {
         "ddc": 290,
+        "current_count": 42,
+        "gap_to_check_number": 8
+      },
+      {
+        "ddc": 468,
         "current_count": 42,
         "gap_to_check_number": 8
       },
@@ -903,7 +833,17 @@
         "gap_to_check_number": 8
       },
       {
+        "ddc": 999,
+        "current_count": 42,
+        "gap_to_check_number": 8
+      },
+      {
         "ddc": 34,
+        "current_count": 43,
+        "gap_to_check_number": 7
+      },
+      {
+        "ddc": 72,
         "current_count": 43,
         "gap_to_check_number": 7
       },
@@ -939,6 +879,11 @@
       },
       {
         "ddc": 29,
+        "current_count": 44,
+        "gap_to_check_number": 6
+      },
+      {
+        "ddc": 86,
         "current_count": 44,
         "gap_to_check_number": 6
       },
@@ -986,6 +931,11 @@
         "ddc": 896,
         "current_count": 44,
         "gap_to_check_number": 6
+      },
+      {
+        "ddc": 84,
+        "current_count": 45,
+        "gap_to_check_number": 5
       },
       {
         "ddc": 137,
@@ -1093,12 +1043,12 @@
         "gap_to_check_number": 3
       },
       {
-        "ddc": 774,
+        "ddc": 789,
         "current_count": 47,
         "gap_to_check_number": 3
       },
       {
-        "ddc": 789,
+        "ddc": 848,
         "current_count": 47,
         "gap_to_check_number": 3
       },
@@ -1113,32 +1063,12 @@
         "gap_to_check_number": 3
       },
       {
-        "ddc": 905,
-        "current_count": 47,
-        "gap_to_check_number": 3
-      },
-      {
         "ddc": 30,
         "current_count": 48,
         "gap_to_check_number": 2
       },
       {
         "ddc": 55,
-        "current_count": 48,
-        "gap_to_check_number": 2
-      },
-      {
-        "ddc": 61,
-        "current_count": 48,
-        "gap_to_check_number": 2
-      },
-      {
-        "ddc": 87,
-        "current_count": 48,
-        "gap_to_check_number": 2
-      },
-      {
-        "ddc": 125,
         "current_count": 48,
         "gap_to_check_number": 2
       },
@@ -1163,12 +1093,17 @@
         "gap_to_check_number": 2
       },
       {
-        "ddc": 890,
+        "ddc": 768,
         "current_count": 48,
         "gap_to_check_number": 2
       },
       {
-        "ddc": 925,
+        "ddc": 774,
+        "current_count": 48,
+        "gap_to_check_number": 2
+      },
+      {
+        "ddc": 890,
         "current_count": 48,
         "gap_to_check_number": 2
       },
@@ -1178,12 +1113,7 @@
         "gap_to_check_number": 1
       },
       {
-        "ddc": 74,
-        "current_count": 49,
-        "gap_to_check_number": 1
-      },
-      {
-        "ddc": 311,
+        "ddc": 61,
         "current_count": 49,
         "gap_to_check_number": 1
       },
@@ -1193,17 +1123,27 @@
         "gap_to_check_number": 1
       },
       {
+        "ddc": 742,
+        "current_count": 49,
+        "gap_to_check_number": 1
+      },
+      {
         "ddc": 853,
         "current_count": 49,
         "gap_to_check_number": 1
       },
       {
-        "ddc": 899,
+        "ddc": 905,
         "current_count": 49,
         "gap_to_check_number": 1
       },
       {
         "ddc": 924,
+        "current_count": 49,
+        "gap_to_check_number": 1
+      },
+      {
+        "ddc": 925,
         "current_count": 49,
         "gap_to_check_number": 1
       },
@@ -1224,17 +1164,13 @@
     },
     {
       "ddc_range": "010-019",
-      "under_check_number_count": 2,
-      "under_check_number_ddc_list": [
-        "013",
-        "014"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "020-029",
-      "under_check_number_count": 2,
+      "under_check_number_count": 1,
       "under_check_number_ddc_list": [
-        "024",
         "029"
       ]
     },
@@ -1278,12 +1214,11 @@
     },
     {
       "ddc_range": "070-079",
-      "under_check_number_count": 9,
+      "under_check_number_count": 8,
       "under_check_number_ddc_list": [
         "071",
         "072",
         "073",
-        "074",
         "075",
         "076",
         "077",
@@ -1293,7 +1228,7 @@
     },
     {
       "ddc_range": "080-089",
-      "under_check_number_count": 10,
+      "under_check_number_count": 9,
       "under_check_number_ddc_list": [
         "080",
         "081",
@@ -1302,7 +1237,6 @@
         "084",
         "085",
         "086",
-        "087",
         "088",
         "089"
       ]
@@ -1322,10 +1256,9 @@
     },
     {
       "ddc_range": "100-109",
-      "under_check_number_count": 2,
+      "under_check_number_count": 1,
       "under_check_number_ddc_list": [
-        "100",
-        "104"
+        "100"
       ]
     },
     {
@@ -1338,9 +1271,8 @@
     },
     {
       "ddc_range": "120-129",
-      "under_check_number_count": 2,
+      "under_check_number_count": 1,
       "under_check_number_ddc_list": [
-        "125",
         "127"
       ]
     },
@@ -1493,9 +1425,8 @@
     },
     {
       "ddc_range": "310-319",
-      "under_check_number_count": 3,
+      "under_check_number_count": 2,
       "under_check_number_ddc_list": [
-        "311",
         "313",
         "318"
       ]
@@ -1606,11 +1537,10 @@
     },
     {
       "ddc_range": "480-489",
-      "under_check_number_count": 6,
+      "under_check_number_count": 5,
       "under_check_number_ddc_list": [
         "480",
         "481",
-        "483",
         "485",
         "487",
         "488"
@@ -1791,11 +1721,10 @@
     },
     {
       "ddc_range": "750-759",
-      "under_check_number_count": 3,
+      "under_check_number_count": 2,
       "under_check_number_ddc_list": [
         "753",
-        "754",
-        "756"
+        "754"
       ]
     },
     {
@@ -1942,14 +1871,13 @@
     },
     {
       "ddc_range": "890-899",
-      "under_check_number_count": 6,
+      "under_check_number_count": 5,
       "under_check_number_ddc_list": [
         "890",
         "893",
         "894",
         "896",
-        "897",
-        "899"
+        "897"
       ]
     },
     {
@@ -1968,11 +1896,10 @@
     },
     {
       "ddc_range": "920-929",
-      "under_check_number_count": 3,
+      "under_check_number_count": 2,
       "under_check_number_ddc_list": [
         "924",
-        "925",
-        "926"
+        "925"
       ]
     },
     {
@@ -2028,19 +1955,19 @@
     },
     {
       "ddc_range": "010-019",
-      "total_count": 766,
+      "total_count": 816,
       "garbled_count": 6,
-      "clean_count": 760,
-      "garbled_ratio": 0.0078,
+      "clean_count": 810,
+      "garbled_ratio": 0.0074,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
     {
       "ddc_range": "020-029",
-      "total_count": 1015,
+      "total_count": 1056,
       "garbled_count": 19,
-      "clean_count": 996,
-      "garbled_ratio": 0.0187,
+      "clean_count": 1037,
+      "garbled_ratio": 0.018,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
@@ -2064,30 +1991,30 @@
     },
     {
       "ddc_range": "060-069",
-      "total_count": 493,
+      "total_count": 494,
       "garbled_count": 10,
-      "clean_count": 483,
-      "garbled_ratio": 0.0203,
+      "clean_count": 484,
+      "garbled_ratio": 0.0202,
       "ai_count": 98,
-      "ai_ratio": 0.1988
+      "ai_ratio": 0.1984
     },
     {
       "ddc_range": "070-079",
-      "total_count": 694,
+      "total_count": 698,
       "garbled_count": 3,
-      "clean_count": 691,
+      "clean_count": 695,
       "garbled_ratio": 0.0043,
       "ai_count": 150,
-      "ai_ratio": 0.2161
+      "ai_ratio": 0.2149
     },
     {
       "ddc_range": "080-089",
-      "total_count": 380,
+      "total_count": 417,
       "garbled_count": 0,
-      "clean_count": 380,
+      "clean_count": 417,
       "garbled_ratio": 0.0,
       "ai_count": 85,
-      "ai_ratio": 0.2237
+      "ai_ratio": 0.2038
     },
     {
       "ddc_range": "090-099",
@@ -2100,10 +2027,10 @@
     },
     {
       "ddc_range": "100-109",
-      "total_count": 854,
+      "total_count": 883,
       "garbled_count": 14,
-      "clean_count": 840,
-      "garbled_ratio": 0.0164,
+      "clean_count": 869,
+      "garbled_ratio": 0.0159,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
@@ -2118,10 +2045,10 @@
     },
     {
       "ddc_range": "120-129",
-      "total_count": 1403,
+      "total_count": 1418,
       "garbled_count": 49,
-      "clean_count": 1354,
-      "garbled_ratio": 0.0349,
+      "clean_count": 1369,
+      "garbled_ratio": 0.0346,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
@@ -2136,39 +2063,39 @@
     },
     {
       "ddc_range": "140-149",
-      "total_count": 1062,
+      "total_count": 1065,
       "garbled_count": 28,
-      "clean_count": 1034,
-      "garbled_ratio": 0.0264,
+      "clean_count": 1037,
+      "garbled_ratio": 0.0263,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
     {
       "ddc_range": "150-159",
-      "total_count": 6481,
+      "total_count": 6482,
       "garbled_count": 13,
-      "clean_count": 6468,
+      "clean_count": 6469,
       "garbled_ratio": 0.002,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
     {
       "ddc_range": "160-169",
-      "total_count": 405,
+      "total_count": 408,
       "garbled_count": 5,
-      "clean_count": 400,
+      "clean_count": 403,
       "garbled_ratio": 0.0123,
       "ai_count": 80,
-      "ai_ratio": 0.1975
+      "ai_ratio": 0.1961
     },
     {
       "ddc_range": "170-179",
-      "total_count": 671,
+      "total_count": 672,
       "garbled_count": 0,
-      "clean_count": 671,
+      "clean_count": 672,
       "garbled_ratio": 0.0,
       "ai_count": 56,
-      "ai_ratio": 0.0835
+      "ai_ratio": 0.0833
     },
     {
       "ddc_range": "180-189",
@@ -2181,9 +2108,9 @@
     },
     {
       "ddc_range": "190-199",
-      "total_count": 466,
+      "total_count": 467,
       "garbled_count": 0,
-      "clean_count": 466,
+      "clean_count": 467,
       "garbled_ratio": 0.0,
       "ai_count": 1,
       "ai_ratio": 0.0021
@@ -2289,10 +2216,10 @@
     },
     {
       "ddc_range": "310-319",
-      "total_count": 798,
+      "total_count": 802,
       "garbled_count": 11,
-      "clean_count": 787,
-      "garbled_ratio": 0.0138,
+      "clean_count": 791,
+      "garbled_ratio": 0.0137,
       "ai_count": 6,
       "ai_ratio": 0.0075
     },
@@ -2361,9 +2288,9 @@
     },
     {
       "ddc_range": "390-399",
-      "total_count": 1312,
+      "total_count": 1313,
       "garbled_count": 19,
-      "clean_count": 1293,
+      "clean_count": 1294,
       "garbled_ratio": 0.0145,
       "ai_count": 79,
       "ai_ratio": 0.0602
@@ -2406,30 +2333,30 @@
     },
     {
       "ddc_range": "440-449",
-      "total_count": 841,
+      "total_count": 842,
       "garbled_count": 5,
-      "clean_count": 836,
+      "clean_count": 837,
       "garbled_ratio": 0.0059,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
     {
       "ddc_range": "450-459",
-      "total_count": 556,
+      "total_count": 557,
       "garbled_count": 2,
-      "clean_count": 554,
+      "clean_count": 555,
       "garbled_ratio": 0.0036,
       "ai_count": 94,
-      "ai_ratio": 0.1691
+      "ai_ratio": 0.1688
     },
     {
       "ddc_range": "460-469",
-      "total_count": 624,
+      "total_count": 630,
       "garbled_count": 3,
-      "clean_count": 621,
+      "clean_count": 627,
       "garbled_ratio": 0.0048,
       "ai_count": 159,
-      "ai_ratio": 0.2548
+      "ai_ratio": 0.2524
     },
     {
       "ddc_range": "470-479",
@@ -2442,12 +2369,12 @@
     },
     {
       "ddc_range": "480-489",
-      "total_count": 420,
+      "total_count": 463,
       "garbled_count": 1,
-      "clean_count": 419,
-      "garbled_ratio": 0.0024,
+      "clean_count": 462,
+      "garbled_ratio": 0.0022,
       "ai_count": 48,
-      "ai_ratio": 0.1143
+      "ai_ratio": 0.1037
     },
     {
       "ddc_range": "490-499",
@@ -2613,9 +2540,9 @@
     },
     {
       "ddc_range": "670-679",
-      "total_count": 1052,
+      "total_count": 1053,
       "garbled_count": 0,
-      "clean_count": 1052,
+      "clean_count": 1053,
       "garbled_ratio": 0.0,
       "ai_count": 2,
       "ai_ratio": 0.0019
@@ -2676,37 +2603,37 @@
     },
     {
       "ddc_range": "740-749",
-      "total_count": 2341,
+      "total_count": 2349,
       "garbled_count": 23,
-      "clean_count": 2318,
+      "clean_count": 2326,
       "garbled_ratio": 0.0098,
       "ai_count": 0,
       "ai_ratio": 0.0
     },
     {
       "ddc_range": "750-759",
-      "total_count": 1354,
+      "total_count": 1369,
       "garbled_count": 9,
-      "clean_count": 1345,
+      "clean_count": 1360,
       "garbled_ratio": 0.0066,
       "ai_count": 33,
-      "ai_ratio": 0.0244
+      "ai_ratio": 0.0241
     },
     {
       "ddc_range": "760-769",
-      "total_count": 524,
+      "total_count": 533,
       "garbled_count": 7,
-      "clean_count": 517,
-      "garbled_ratio": 0.0134,
+      "clean_count": 526,
+      "garbled_ratio": 0.0131,
       "ai_count": 50,
-      "ai_ratio": 0.0954
+      "ai_ratio": 0.0938
     },
     {
       "ddc_range": "770-779",
-      "total_count": 1463,
+      "total_count": 1465,
       "garbled_count": 27,
-      "clean_count": 1436,
-      "garbled_ratio": 0.0185,
+      "clean_count": 1438,
+      "garbled_ratio": 0.0184,
       "ai_count": 59,
       "ai_ratio": 0.0403
     },
@@ -2766,30 +2693,30 @@
     },
     {
       "ddc_range": "840-849",
-      "total_count": 435,
+      "total_count": 444,
       "garbled_count": 0,
-      "clean_count": 435,
+      "clean_count": 444,
       "garbled_ratio": 0.0,
       "ai_count": 129,
-      "ai_ratio": 0.2966
+      "ai_ratio": 0.2905
     },
     {
       "ddc_range": "850-859",
-      "total_count": 455,
+      "total_count": 458,
       "garbled_count": 0,
-      "clean_count": 455,
+      "clean_count": 458,
       "garbled_ratio": 0.0,
       "ai_count": 155,
-      "ai_ratio": 0.3407
+      "ai_ratio": 0.3384
     },
     {
       "ddc_range": "860-869",
-      "total_count": 402,
+      "total_count": 404,
       "garbled_count": 0,
-      "clean_count": 402,
+      "clean_count": 404,
       "garbled_ratio": 0.0,
       "ai_count": 169,
-      "ai_ratio": 0.4204
+      "ai_ratio": 0.4183
     },
     {
       "ddc_range": "870-879",
@@ -2802,27 +2729,27 @@
     },
     {
       "ddc_range": "880-889",
-      "total_count": 422,
+      "total_count": 423,
       "garbled_count": 1,
-      "clean_count": 421,
+      "clean_count": 422,
       "garbled_ratio": 0.0024,
       "ai_count": 109,
-      "ai_ratio": 0.2583
+      "ai_ratio": 0.2577
     },
     {
       "ddc_range": "890-899",
-      "total_count": 696,
+      "total_count": 698,
       "garbled_count": 5,
-      "clean_count": 691,
+      "clean_count": 693,
       "garbled_ratio": 0.0072,
       "ai_count": 94,
-      "ai_ratio": 0.1351
+      "ai_ratio": 0.1347
     },
     {
       "ddc_range": "900-909",
-      "total_count": 1128,
+      "total_count": 1130,
       "garbled_count": 0,
-      "clean_count": 1128,
+      "clean_count": 1130,
       "garbled_ratio": 0.0,
       "ai_count": 0,
       "ai_ratio": 0.0
@@ -2838,12 +2765,12 @@
     },
     {
       "ddc_range": "920-929",
-      "total_count": 694,
+      "total_count": 711,
       "garbled_count": 1,
-      "clean_count": 693,
+      "clean_count": 710,
       "garbled_ratio": 0.0014,
       "ai_count": 29,
-      "ai_ratio": 0.0418
+      "ai_ratio": 0.0408
     },
     {
       "ddc_range": "930-939",
@@ -2901,12 +2828,12 @@
     },
     {
       "ddc_range": "990-999",
-      "total_count": 836,
+      "total_count": 838,
       "garbled_count": 0,
-      "clean_count": 836,
+      "clean_count": 838,
       "garbled_ratio": 0.0,
       "ai_count": 33,
-      "ai_ratio": 0.0395
+      "ai_ratio": 0.0394
     }
   ]
 }
