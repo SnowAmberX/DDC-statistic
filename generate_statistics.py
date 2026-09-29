@@ -131,7 +131,7 @@ def _detect_garbled_vectorized(df: pd.DataFrame) -> pd.Series:
     if has_latin1_supp.any():
         combined = title_str + ' ' + desc_str
         candidate_mask = has_latin1_supp & ~(has_fffd | has_c1)
-        has_gbk[candidate_mask] = combined[candidate_mask].apply(_has_gbk_mojibake).astype(bool)
+        has_gbk.loc[candidate_mask] = combined[candidate_mask].apply(_has_gbk_mojibake).astype(bool)
 
     return has_fffd | has_c1 | has_gbk
 
