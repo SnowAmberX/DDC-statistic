@@ -68,7 +68,7 @@ DDC,Title,Description,remark
 834,Goethe's Italian Journey,Johann Wolfgang von Goethe's travelogue and essay collection documenting his two-year stay in Italy and its impact on his artistic vision.,ai-generated
 834,Max Frisch: Sketches and Essays,"A collection of autobiographical and reflective essays by Swiss-German writer Max Frisch, on identity, memory, and modern life.",ai-generated
 834,Heinrich B?ll: Essays on Peace and Society,"Nobel Prize-winning author Heinrich B?ll's essays on post-war Germany, pacifism, and social justice.",ai-generated
-834,G¨¹nter Grass: Essays on Writing and Politics,G¨¹nter Grass's collected essays blending personal memoir with commentary on German history and political life.,ai-generated
+834,Gunter Grass: Essays on Writing and Politics,Gunter Grass's collected essays blending personal memoir with commentary on German history and political life.,ai-generated
 834,Schopenhauer on Reading and Books,"Arthur Schopenhauer's literary essays on the art of reading, the nature of genius, and the value of written works.",ai-generated
 834,Christa Wolf: Essays on Feminism and Literature,"East German writer Christa Wolf's critical essays on women's writing, identity, and German literary history.",ai-generated
 834,W.G. Sebald: On the Natural History of Destruction,W.G. Sebald's long essay on the Allied bombing of German cities and its representation in post-war literature and cultural memory.,ai-generated
@@ -81,7 +81,7 @@ DDC,Title,Description,remark
 838,Bertolt Brecht's Working Journals,"Brecht's private notebooks and journals documenting his creative process, political ideas, and daily life during years of exile.",ai-generated
 838,Thomas Mann's Diaries: 1918-1939,"Selected diary entries from Thomas Mann, recording his personal life, literary work, and response to the rise of Nazism in Germany.",ai-generated
 838,Georg Christoph Lichtenberg: Waste Books,"The collected aphorisms, notes, and satirical observations from Lichtenberg's private notebooks, a classic of German Enlightenment prose.",ai-generated
-838,Kafka's Letters to Felice,"Franz Kafka's extensive correspondence with his fianc¨¦e Felice Bauer, revealing his personal anxieties and struggles with love and commitment.",ai-generated
+838,Kafka's Letters to Felice,"Franz Kafka's extensive correspondence with his fiancee Felice Bauer, revealing his personal anxieties and struggles with love and commitment.",ai-generated
 838,Hermann Hesse: Letters from Magliaso,"A selection of Hermann Hesse's letters written from his home in Ticino, reflecting on aging, spirituality, and literary work.",ai-generated
 838,Frankfurt School: Exile Correspondence,"Selected letters exchanged between Theodor Adorno, Max Horkheimer, and other Frankfurt School thinkers during their exile years.",ai-generated
 838,Arthur Schopenhauer: Parerga and Paralipomena,"A collection of Schopenhauer's shorter philosophical essays, aphorisms, and miscellaneous observations on life and human nature.",ai-generated
@@ -90,10 +90,10 @@ DDC,Title,Description,remark
 838,Robert Musil: Diaries and Working Notes,"Robert Musil's private journals and working notes for his novel The Man Without Qualities, exploring intellectual and personal themes.",ai-generated
 838,Letters of Thomas Bernhard,"The collected correspondence of Austrian writer Thomas Bernhard, featuring his acerbic views on literature, society, and Austrian culture.",ai-generated
 838,Johann Gottfried Herder: Folk Song Fragments,"Herder's collected notes, transcriptions, and essays on folk poetry and national cultural identity across German-speaking regions.",ai-generated
-838,G¨¹nter Grass: Sketchbook & Creative Notes,"A collection of G¨¹nter Grass's drawings, journal entries, and working notes from his creative process across novels and political essays.",ai-generated
+838,Gunter Grass: Sketchbook & Creative Notes,"A collection of Gunter Grass's drawings, journal entries, and working notes from his creative process across novels and political essays.",ai-generated
 838,Christa Wolf: A Model Childhood: Research Notes,"Christa Wolf's personal notebooks and research materials for her autobiographical work, documenting childhood in Nazi Germany.",ai-generated
 838,Alfred D?blin: Berlin Diary,"Alfred D?blin's journalistic notes and urban observations of 1920s Berlin, complementing his novel Berlin Alexanderplatz.",ai-generated
-838,Rilke's Letters to Lou Andreas-Salom¨¦,"Rilke's intimate correspondence with the thinker Lou Andreas-Salom¨¦, exploring art, love, and spiritual life.",ai-generated
+838,Rilke's Letters to Lou Andreas-Salome,"Rilke's intimate correspondence with the thinker Lou Andreas-Salome, exploring art, love, and spiritual life.",ai-generated
 838,Max Frisch: Notebooks 1946-1949,"Max Frisch's private journals from his post-war years, featuring self-reflection, travel notes, and early story ideas.",ai-generated
 838,Schiller and Goethe: The Correspondence,"The celebrated intellectual correspondence between Schiller and Goethe, documenting their friendship and collaboration on Weimar classicism.",ai-generated
 838,Elias Canetti: The Human Province,"Elias Canetti's collection of aphorisms, notes, and philosophical observations on human behavior, society, and power.",ai-generated
@@ -174,7 +174,7 @@ DDC,Title,Description,remark
 893,Coptic Apocalypse of Paul,A Gnostic apocalyptic text in Coptic describing Paul's ascent through the heavens and revelation of cosmic mysteries.,ai-generated
 893,The Story of the Eloquent Peasant,"An ancient Egyptian narrative about a peasant who appeals to the pharaoh with powerful speeches, exploring themes of justice and rhetorical power.",ai-generated
 893,The Book of Breathings,"A late ancient Egyptian funerary text related to the Book of the Dead, designed to restore breath and life to the deceased in the underworld.",ai-generated
-897,The Navajo Creation Story,"The foundational Din¨¦ (Navajo) creation narrative, recounting the emergence of the people through successive worlds and the establishment of cosmic order.",ai-generated
+897,The Navajo Creation Story,"The foundational Dine (Navajo) creation narrative, recounting the emergence of the people through successive worlds and the establishment of cosmic order.",ai-generated
 897,Cherokee Myths and Sacred Stories,"A collection of traditional oral narratives from the Cherokee nation, including creation myths, animal tales, and explanations of natural phenomena.",ai-generated
 897,Lakota Sioux Ghost Dance Songs,"Traditional ceremonial songs of the Lakota people associated with the Ghost Dance movement, expressing spiritual renewal and hope for cultural survival.",ai-generated
 897,Inuit Tales of the Arctic,"Traditional oral stories from Inuit communities of Alaska and northern Canada, featuring trickster figures, sea spirits, and tales of survival on the ice.",ai-generated
@@ -217,36 +217,36 @@ DDC,Title,Description,remark
 831,Friedrich Schlegel: Athenaeum Poems and Fragments,"Friedrich Schlegel's romantic poetry and critical fragments, articulating the early Romantic vision of progressive universal poetry.",ai-generated
 831,Nelly Sachs: Poems of Exile and Memory,"Nelly Sachs' poetry of exile and Holocaust memory, exploring Jewish identity, suffering, and the hope for redemption.",ai-generated
 831,Hans Magnus Enzensberger: Political Poems,"Hans Magnus Enzensberger's satirical and intellectual political poetry, engaging with modern society, media, and historical memory.",ai-generated
-831,Annette von Droste-H¨¹lshoff: Selected Poems,"The major lyric works of Annette von Droste-H¨¹lshoff, the greatest German woman poet of the 19th century, blending nature observation and religious meditation.",ai-generated
-831,German Expressionist Poetry Anthology,"A collection of German expressionist poetry from the early 20th century, featuring works by Benn, Trakl, Heym, and Lasker-Sch¨¹ler.",ai-generated
+831,Annette von Droste-Hulshoff: Selected Poems,"The major lyric works of Annette von Droste-Hulshoff, the greatest German woman poet of the 19th century, blending nature observation and religious meditation.",ai-generated
+831,German Expressionist Poetry Anthology,"A collection of German expressionist poetry from the early 20th century, featuring works by Benn, Trakl, Heym, and Lasker-Schuler.",ai-generated
 831,Goethe: West-Eastern Divan,"Johann Wolfgang von Goethe's late collection of poetry inspired by Persian and Arabic literature, exploring love, wisdom, and cross-cultural understanding.",ai-generated
 831,Clemens Brentano: Poems and Folk Ballads,"Clemens Brentano's romantic poetry and folk adaptations, a central voice of the Heidelberg Romantic school.",ai-generated
 831,Sarah Kirsch: Winter Poems,"Sarah Kirsch's intimate lyric poetry of nature, memory, and personal life, a leading voice of post-war East German literature.",ai-generated
 831,Wolfram von Eschenbach: Parzival,"Wolfram von Eschenbach's Arthurian epic poem, telling the story of Parzival's quest for the Holy Grail, a masterpiece of medieval German literature.",ai-generated
 831,Rilke: The Book of Hours,"Rainer Maria Rilke's early devotional poetry cycle, exploring faith, longing, and the search for God in the beauty of the natural world.",ai-generated
-861,The Song of My Cid,"The great medieval Spanish epic poem, recounting the exploits of Rodrigo D¨ªaz de Vivar, El Cid, during the Reconquista, the foundational work of Spanish literature.",ai-generated
+861,The Song of My Cid,"The great medieval Spanish epic poem, recounting the exploits of Rodrigo Diaz de Vivar, El Cid, during the Reconquista, the foundational work of Spanish literature.",ai-generated
 861,Garcilaso de la Vega: Sonnets and Elegies,"The major lyric works of Garcilaso de la Vega, who introduced Italian Renaissance poetic forms to Spanish Golden Age literature.",ai-generated
-861,Fray Luis de Le¨®n: Odes and Sacred Poetry,"The spiritual poetry of Fray Luis de Le¨®n, blending humanist learning with profound religious devotion and classical form.",ai-generated
-861,G¨®ngora: Soledades,"Luis de G¨®ngora's complex, erudite baroque masterpiece, a long narrative poem renowned for its elaborate style, wordplay, and sensory imagery.",ai-generated
+861,Fray Luis de Leon: Odes and Sacred Poetry,"The spiritual poetry of Fray Luis de Leon, blending humanist learning with profound religious devotion and classical form.",ai-generated
+861,Gongora: Soledades,"Luis de Gongora's complex, erudite baroque masterpiece, a long narrative poem renowned for its elaborate style, wordplay, and sensory imagery.",ai-generated
 861,San Juan de la Cruz: Dark Night of the Soul,"St. John of the Cross' mystical poetry describing the soul's journey to union with God, a pinnacle of Spanish mystical literature.",ai-generated
-861,Federico Garc¨ªa Lorca: Gypsy Ballads,"Federico Garc¨ªa Lorca's celebrated collection of Andalusian ballads, blending flamenco rhythm, tragic passion, and vivid folk imagery.",ai-generated
+861,Federico Garcia Lorca: Gypsy Ballads,"Federico Garcia Lorca's celebrated collection of Andalusian ballads, blending flamenco rhythm, tragic passion, and vivid folk imagery.",ai-generated
 861,Antonio Machado: Fields of Castile,"Antonio Machado's major poetry collection, reflecting on the Spanish landscape, history, and national identity with quiet lyricism and philosophical depth.",ai-generated
 861,Pablo Neruda: Twenty Love Poems and a Song of Despair,"Pablo Neruda's early collection of love poetry, one of the most widely read works of Spanish-language literature.",ai-generated
 861,Lope de Vega: Rimas Sacras y Profanas,"Lope de Vega's collection of both secular and sacred lyric poetry, showcasing the versatility of the great Golden Age playwright and poet.",ai-generated
-861,Juan Ram¨®n Jim¨¦nez: Platero and I,"Juan Ram¨®n Jim¨¦nez's lyrical prose-poem about his donkey Platero, a tender portrait of Andalusian village life and personal reflection.",ai-generated
+861,Juan Ramon Jimenez: Platero and I,"Juan Ramon Jimenez's lyrical prose-poem about his donkey Platero, a tender portrait of Andalusian village life and personal reflection.",ai-generated
 861,Jorge Luis Borges: Selected Poems,"The poetic works of Jorge Luis Borges, exploring time, memory, mythology, and intellectual themes in concise, erudite verse.",ai-generated
 861,The Spanish Romancero,"The full collection of traditional Spanish ballads passed down orally, featuring epic tales, love stories, and frontier ballads of the Reconquista.",ai-generated
 861,Octavio Paz: The Labyrinth of Solitude,"Octavio Paz's book-length poetic essay exploring Mexican identity, history, and the human condition, a landmark of Latin American literature.",ai-generated
 861,Francisco de Quevedo: Sonnets and Satires,"Francisco de Quevedo's baroque poetry, including philosophical sonnets and sharp satirical verse, a defining voice of the Spanish Golden Age.",ai-generated
 861,Alfonsina Storni: Selected Poems,"The major works of Alfonsina Storni, a pioneering Argentine woman poet whose verse explores love, feminism, and personal struggle.",ai-generated
-861,C¨¢ntico Espiritual,"St. John of the Cross' extended mystical poem describing the soul's intimate union with God, paired with his prose commentary on the Dark Night.",ai-generated
-861,C¨¦sar Vallejo: Trilce,"C¨¦sar Vallejo's experimental, deeply personal modernist poetry collection, exploring suffering, alienation, and the limits of language.",ai-generated
+861,Cantico Espiritual,"St. John of the Cross' extended mystical poem describing the soul's intimate union with God, paired with his prose commentary on the Dark Night.",ai-generated
+861,Cesar Vallejo: Trilce,"Cesar Vallejo's experimental, deeply personal modernist poetry collection, exploring suffering, alienation, and the limits of language.",ai-generated
 861,Garcilaso de la Vega: Eclogues,"Garcilaso de la Vega's three pastoral eclogues, adapting classical pastoral tradition to Spanish Renaissance poetry.",ai-generated
-861,Federico Garc¨ªa Lorca: Poet in New York,"Lorca's surreal, politically charged poetry written during his visit to New York, confronting modernity, capitalism, and racial injustice.",ai-generated
-861,Nicol¨¢s Guill¨¦n: Motifs of Sound,"Nicol¨¢s Guill¨¦n's Afro-Cuban poetry, blending African musical rhythms, social commentary, and celebration of Black Cuban identity.",ai-generated
-861,Spanish Baroque Poetry Anthology,"A comprehensive collection of 17th-century Spanish baroque poetry, featuring works by G¨®ngora, Quevedo, Lope de Vega, and Sor Juana In¨¦s de la Cruz.",ai-generated
-861,Sor Juana In¨¦s de la Cruz: First Dream,"Sor Juana In¨¦s de la Cruz's ambitious philosophical poem exploring human knowledge and the pursuit of understanding, a masterpiece of colonial Spanish literature.",ai-generated
-861,Juan Ram¨®n Jim¨¦nez: Diary of a Newlywed Poet,"Juan Ram¨®n Jim¨¦nez's intimate poetic journal, blending lyric verse with personal reflection on love, art, and daily life.",ai-generated
+861,Federico Garcia Lorca: Poet in New York,"Lorca's surreal, politically charged poetry written during his visit to New York, confronting modernity, capitalism, and racial injustice.",ai-generated
+861,Nicolas Guillen: Motifs of Sound,"Nicolas Guillen's Afro-Cuban poetry, blending African musical rhythms, social commentary, and celebration of Black Cuban identity.",ai-generated
+861,Spanish Baroque Poetry Anthology,"A comprehensive collection of 17th-century Spanish baroque poetry, featuring works by Gongora, Quevedo, Lope de Vega, and Sor Juana Ines de la Cruz.",ai-generated
+861,Sor Juana Ines de la Cruz: First Dream,"Sor Juana Ines de la Cruz's ambitious philosophical poem exploring human knowledge and the pursuit of understanding, a masterpiece of colonial Spanish literature.",ai-generated
+861,Juan Ramon Jimenez: Diary of a Newlywed Poet,"Juan Ramon Jimenez's intimate poetic journal, blending lyric verse with personal reflection on love, art, and daily life.",ai-generated
 861,Medieval Galician-Portuguese Lyric Anthology,"A collection of medieval cantigas and lyric poetry in Galician-Portuguese, the earliest vernacular lyric of the Iberian Peninsula.",ai-generated
 861,Mario Benedetti: Love Poems,"Selected love poetry by Mario Benedetti, the Uruguayan poet known for his accessible, warm verse exploring everyday love and political solidarity.",ai-generated
 894,The Secret History of the Mongols,"The foundational Mongolian historical epic and literary chronicle, recounting the life of Genghis Khan and the rise of the Mongol Empire, composed in the 13th century.",ai-generated
@@ -256,7 +256,7 @@ DDC,Title,Description,remark
 894,The Book of Dede Korkut,"The foundational Oghuz Turkic epic cycle, preserving medieval nomadic values, heroic tales, and oral literary traditions of the Anatolian and Central Asian Turkic peoples.",ai-generated
 894,Silappatikaram,"The ancient Tamil epic by Ilango Adigal, telling the tragic love story of Kovalan and Kannaki, a cornerstone of classical Dravidian literature.",ai-generated
 894,Manimekalai,"The Tamil Buddhist epic sequel to Silappatikaram, following the spiritual journey of the courtesan Manimekalai and exploring Buddhist philosophical themes.",ai-generated
-894,The Orkhon Inscriptions: Literary Translations,"The earliest surviving Old Turkic literary texts, inscribed on stone stelae in the Orkhon valley, recording the history and rhetorical art of the G?kt¨¹rk khaganate.",ai-generated
+894,The Orkhon Inscriptions: Literary Translations,"The earliest surviving Old Turkic literary texts, inscribed on stone stelae in the Orkhon valley, recording the history and rhetorical art of the G?kturk khaganate.",ai-generated
 894,Sami Joik and Oral Poetry Anthology,"A collection of traditional Sami joik chants and oral poetry from the circumpolar Hyperborean region, reflecting indigenous spiritual life and nomadic reindeer herding culture.",ai-generated
 894,The Mongolian Epic of Geser,"The Mongolian version of the pan-Asian Geser epic, recounting the deeds of the warrior king Geser as he battles demons and restores cosmic order.",ai-generated
 894,Alvar Bhakti Hymns,"A collection of devotional Tamil poems by the twelve Alvar saints of southern India, foundational to the Bhakti movement and Dravidian religious literary tradition.",ai-generated
@@ -266,7 +266,7 @@ DDC,Title,Description,remark
 894,Buryat Geser Epic,"The Buryat Mongolian version of the Geser epic, featuring distinct regional variations and shamanic cultural elements from the Lake Baikal region.",ai-generated
 894,Yakut Olonkho Epics,"Traditional oral heroic epics of the Sakha (Yakut) people of Siberia, part of the Altaic Turkic literary tradition, featuring mythic heroes and cosmic battles.",ai-generated
 894,Ezhuthachan's Malayalam Ramayana,"The classic Malayalam adaptation of the Ramayana by Thunchaththu Ezhuthachan, a landmark work of Dravidian south Indian literature and Bhakti poetry.",ai-generated
-894,J¨¢nos Vit¨¦z,"S¨¢ndor Pet?fi's Hungarian national epic poem, a defining work of Uralic romantic literature, following the adventures of the heroic knight J¨¢nos across magical lands.",ai-generated
+894,Janos Vitez,"Sandor Pet?fi's Hungarian national epic poem, a defining work of Uralic romantic literature, following the adventures of the heroic knight Janos across magical lands.",ai-generated
 894,Evenki Shamanic Narratives,"A collection of oral narratives and shamanic songs from the Evenki people of Siberia, representing the Hyperborean Tungusic literary and spiritual tradition.",ai-generated
 894,The Epic of Alpamysh,"The widespread Turkic heroic epic shared across Kazakh, Uzbek, and Karakalpak cultures, recounting the life and adventures of the warrior Alpamysh.",ai-generated
 894,Tamil Sangam Poetry Anthology,"A collection of ancient Tamil court and folk poetry from the Sangam period, the oldest surviving Dravidian literary corpus, covering love, war, and nature.",ai-generated
@@ -280,7 +280,7 @@ DDC,Title,Description,remark
 764,Serigraphy as Fine Art,"An exploration of screen printing as a fine art medium, featuring works by major 20th-century artists including Warhol, Lichtenstein, and Haring, with technical analysis of their methods.",ai-generated
 764,1870s Chromolithographer's Technical Manual,"A facsimile of the classic 19th-century professional manual, detailing stone preparation, color separation, registration, and finishing processes for chromolithographic production.",ai-generated
 764,Silk Screen Printing for Beginners,"An introductory guide to basic serigraphy techniques, including DIY equipment construction, paper stencil methods, and printing on paper, fabric, and other common surfaces.",ai-generated
-764,The Golden Age of Chromolithographic Posters,"A visual survey of late 19th and early 20th-century advertising posters produced via chromolithography, featuring iconic designs from Toulouse-Lautrec, Mucha, and Ch¨¦ret.",ai-generated
+764,The Golden Age of Chromolithographic Posters,"A visual survey of late 19th and early 20th-century advertising posters produced via chromolithography, featuring iconic designs from Toulouse-Lautrec, Mucha, and Cheret.",ai-generated
 764,Advanced Serigraphy: Photographic Techniques,"A technical guide to advanced screen printing methods, including photographic stencils, halftone printing, discharge inks, and mixed media experimental approaches.",ai-generated
 764,Chromolithography in Victorian Children's Books,"An examination of chromolithographic illustration in 19th-century children's literature, analyzing the role of color printing in shaping early picture book aesthetics.",ai-generated
 764,The Screen Printer's Studio Companion,"A practical reference for professional serigraphers, covering studio setup, safety protocols, color theory for print, troubleshooting common defects, and edition management.",ai-generated
@@ -300,55 +300,55 @@ DDC,Title,Description,remark
 764,Screen Printing for Street Art and Murals,"A practical guide to using serigraphy for large-scale public art, including stencil scaling, outdoor weather-resistant inks, and mural production techniques.",ai-generated
 764,Conservation of Antique Chromolithographs,"A technical manual for paper conservators, detailing methods for cleaning, repairing, and stabilizing 19th-century chromolithographs, and addressing common deterioration issues.",ai-generated
 842,Le Cid,"Pierre Corneille's tragicomedy of honor, love, and duty, the defining masterpiece of French classical tragedy and a cornerstone of 17th-century French theater.",ai-generated
-842,Ph¨¨dre,"Jean Racine's celebrated tragic play, retelling the myth of Phaedra and Hippolytus, renowned for its psychological depth and rigorous alexandrine verse form.",ai-generated
-842,Tartuffe,"Moli¨¨re's classic satirical comedy exposing religious hypocrisy, one of the most performed and influential works of French comic theater.",ai-generated
-842,The Misanthrope,"Moli¨¨re's comedy of manners examining sincerity and social pretense, following the disillusioned Alceste and his conflict with 17th-century Parisian high society.",ai-generated
+842,Phedre,"Jean Racine's celebrated tragic play, retelling the myth of Phaedra and Hippolytus, renowned for its psychological depth and rigorous alexandrine verse form.",ai-generated
+842,Tartuffe,"Moliere's classic satirical comedy exposing religious hypocrisy, one of the most performed and influential works of French comic theater.",ai-generated
+842,The Misanthrope,"Moliere's comedy of manners examining sincerity and social pretense, following the disillusioned Alceste and his conflict with 17th-century Parisian high society.",ai-generated
 842,Cyrano de Bergerac,"Edmond Rostand's romantic heroic comedy about the brilliant, large-nosed poet and swordsman, a beloved masterpiece of late 19th-century French theater.",ai-generated
 842,Waiting for Godot,"Samuel Beckett's absurdist tragicomedy, a landmark of 20th-century theater, following two men as they wait endlessly for a figure named Godot who never arrives.",ai-generated
 842,No Exit,"Jean-Paul Sartre's existentialist one-act play set in hell, exploring the nature of damnation and human interaction through three damned souls trapped together for eternity.",ai-generated
-842,The Bald Soprano,"Eug¨¨ne Ionesco's absurdist anti-play, a foundational work of the Theater of the Absurd that parodies bourgeois life and the gradual breakdown of meaningful language.",ai-generated
+842,The Bald Soprano,"Eugene Ionesco's absurdist anti-play, a foundational work of the Theater of the Absurd that parodies bourgeois life and the gradual breakdown of meaningful language.",ai-generated
 842,Andromaque,"Jean Racine's first major tragedy, based on Greek myth, exploring themes of grief, obsession, and political power in the aftermath of the Trojan War.",ai-generated
-842,The Miser,"Moli¨¨re's classic comedy about a greedy old man and his schemes to control his children's marriages, a timeless satire of avarice and social climbing.",ai-generated
+842,The Miser,"Moliere's classic comedy about a greedy old man and his schemes to control his children's marriages, a timeless satire of avarice and social climbing.",ai-generated
 842,Hernani,"Victor Hugo's romantic drama that sparked the famous Battle of Hernani, breaking the strict rules of classical French theater and inaugurating the Romantic movement on stage.",ai-generated
-842,Rhinoceros,"Eug¨¨ne Ionesco's absurdist play about a town where people gradually turn into rhinoceroses, a powerful allegory of fascism and mass conformity.",ai-generated
-842,The School for Wives,"Moli¨¨re's comedy about a man who raises his fianc¨¦e in total seclusion to ensure her fidelity, only to have his carefully laid plan backfire in humiliating fashion.",ai-generated
+842,Rhinoceros,"Eugene Ionesco's absurdist play about a town where people gradually turn into rhinoceroses, a powerful allegory of fascism and mass conformity.",ai-generated
+842,The School for Wives,"Moliere's comedy about a man who raises his fiancee in total seclusion to ensure her fidelity, only to have his carefully laid plan backfire in humiliating fashion.",ai-generated
 842,Britannicus,"Jean Racine's historical tragedy set in ancient Rome, exploring the corruption of imperial power through the young Nero and his dysfunctional imperial family.",ai-generated
 842,The Maids,"Jean Genet's provocative play based on a real murder case, following two maids who act out violent fantasies of power and revenge against their wealthy mistress.",ai-generated
-842,The Imaginary Invalid,"Moli¨¨re's final comedy, satirizing the medical profession and hypochondria, written and first performed shortly before the playwright's own death.",ai-generated
+842,The Imaginary Invalid,"Moliere's final comedy, satirizing the medical profession and hypochondria, written and first performed shortly before the playwright's own death.",ai-generated
 842,Cinna,"Pierre Corneille's historical tragedy about political conspiracy and clemency in ancient Rome, exploring the tension between tyranny and republican virtue.",ai-generated
 842,The Game of Love and Chance,"Pierre de Marivaux's classic comedy of identity and love, following two aristocrats who switch places with their servants to test each other's true character.",ai-generated
 842,The Balcony,"Jean Genet's surreal political play set in a brothel during a revolution, exploring power, illusion, and the theatricality of political authority.",ai-generated
 842,Athalie,"Jean Racine's final tragedy, a biblical drama about the queen Athalie and her struggle for power, widely regarded as one of the greatest achievements of French classical theater.",ai-generated
-842,The Tricks of Scapin,Moli¨¨re's farcical comedy following the scheming servant Scapin as he manipulates two stubborn fathers to help their children marry against their will.,ai-generated
+842,The Tricks of Scapin,Moliere's farcical comedy following the scheming servant Scapin as he manipulates two stubborn fathers to help their children marry against their will.,ai-generated
 842,Happy Days,"Samuel Beckett's absurdist play about a woman buried up to her waist in sand, who maintains cheerful banality as her situation grows increasingly hopeless.",ai-generated
 842,The Barber of Seville,"Pierre Beaumarchais's iconic comedy about the clever barber Figaro, a precursor to the French Revolution that satirizes class privilege and aristocratic authority.",ai-generated
-842,The Chairs,"Eug¨¨ne Ionesco's absurdist play about an old couple who invite invisible guests to hear a great orator's speech, exploring themes of futility and the meaning of human existence.",ai-generated
+842,The Chairs,"Eugene Ionesco's absurdist play about an old couple who invite invisible guests to hear a great orator's speech, exploring themes of futility and the meaning of human existence.",ai-generated
 842,Horace,"Pierre Corneille's classical tragedy about Roman patriotism and family loyalty, centered on the legendary combat between the Horatii and Curiatii brotherhoods.",ai-generated
-866,Letters of Saint Teresa of ¨¢vila,"The collected spiritual and personal letters of Saint Teresa of ¨¢vila, offering intimate insight into her mystical experiences, monastic reforms, and daily convent life.",ai-generated
+866,Letters of Saint Teresa of avila,"The collected spiritual and personal letters of Saint Teresa of avila, offering intimate insight into her mystical experiences, monastic reforms, and daily convent life.",ai-generated
 866,Letters of Miguel de Cervantes,"The surviving personal and professional correspondence of Miguel de Cervantes, including letters to patrons, friends, and publishers, alongside biographical context for his literary works.",ai-generated
-866,Letters of Luis de G¨®ngora,"The personal and literary correspondence of Luis de G¨®ngora, the great baroque poet, revealing his literary theories, artistic rivalries, and life at the Spanish royal court.",ai-generated
-866,Reply to Sor Filotea and Other Letters,"Sor Juana In¨¦s de la Cruz's famous epistolary defense of women's right to education, plus selected personal letters from the colonial Mexican poet and scholar.",ai-generated
+866,Letters of Luis de Gongora,"The personal and literary correspondence of Luis de Gongora, the great baroque poet, revealing his literary theories, artistic rivalries, and life at the Spanish royal court.",ai-generated
+866,Reply to Sor Filotea and Other Letters,"Sor Juana Ines de la Cruz's famous epistolary defense of women's right to education, plus selected personal letters from the colonial Mexican poet and scholar.",ai-generated
 866,Letters of Francisco de Quevedo,"The satirical and personal letters of Francisco de Quevedo, showcasing his sharp wit, political views, and turbulent life in Golden Age Madrid.",ai-generated
-866,Moroccan Letters,"Jos¨¦ Cadalso's classic epistolary novel, presenting a fictional correspondence between a Moroccan traveler and his friend, offering satirical commentary on 18th-century Spanish society.",ai-generated
-866,Letters of Gustavo Adolfo B¨¦cquer,"The personal letters of Gustavo Adolfo B¨¦cquer, the romantic poet, including love letters and reflections on art, poetry, and his struggles as a young writer.",ai-generated
+866,Moroccan Letters,"Jose Cadalso's classic epistolary novel, presenting a fictional correspondence between a Moroccan traveler and his friend, offering satirical commentary on 18th-century Spanish society.",ai-generated
+866,Letters of Gustavo Adolfo Becquer,"The personal letters of Gustavo Adolfo Becquer, the romantic poet, including love letters and reflections on art, poetry, and his struggles as a young writer.",ai-generated
 866,Letters of Antonio Machado,"The collected correspondence of Antonio Machado, the Generation of '98 poet, featuring reflections on Spanish identity, poetry, and life during the Spanish Civil War.",ai-generated
-866,Letters of Federico Garc¨ªa Lorca,"The personal and professional letters of Federico Garc¨ªa Lorca, offering insight into his theatrical work, political views, and life in 1920s and 1930s Spain.",ai-generated
-866,War Letters of Miguel Hern¨¢ndez,"The wartime letters of poet Miguel Hern¨¢ndez written from the Republican front lines and later Francoist prison, documenting his experiences and political commitment.",ai-generated
+866,Letters of Federico Garcia Lorca,"The personal and professional letters of Federico Garcia Lorca, offering insight into his theatrical work, political views, and life in 1920s and 1930s Spain.",ai-generated
+866,War Letters of Miguel Hernandez,"The wartime letters of poet Miguel Hernandez written from the Republican front lines and later Francoist prison, documenting his experiences and political commitment.",ai-generated
 866,Letters of Lope de Vega,"The extensive personal and professional correspondence of Lope de Vega, the prolific Golden Age playwright, covering his theatrical career, personal relationships, and life in Madrid.",ai-generated
-866,Letters of Emilia Pardo Baz¨¢n,"The collected letters of Emilia Pardo Baz¨¢n, the 19th-century novelist and essayist, discussing literature, feminism, and Galician cultural identity.",ai-generated
-866,Letters of Relation from the Conquest of Mexico,"Hern¨¢n Cort¨¦s' five official letters to Emperor Charles V, recounting his conquest of Mexico and offering a firsthand narrative of the Spanish encounter with the Aztec Empire.",ai-generated
-866,Letters of Juan Ram¨®n Jim¨¦nez,"The correspondence of Juan Ram¨®n Jim¨¦nez, the Nobel Prize-winning poet, including letters to other writers and reflections on his poetic philosophy and life in exile.",ai-generated
+866,Letters of Emilia Pardo Bazan,"The collected letters of Emilia Pardo Bazan, the 19th-century novelist and essayist, discussing literature, feminism, and Galician cultural identity.",ai-generated
+866,Letters of Relation from the Conquest of Mexico,"Hernan Cortes' five official letters to Emperor Charles V, recounting his conquest of Mexico and offering a firsthand narrative of the Spanish encounter with the Aztec Empire.",ai-generated
+866,Letters of Juan Ramon Jimenez,"The correspondence of Juan Ramon Jimenez, the Nobel Prize-winning poet, including letters to other writers and reflections on his poetic philosophy and life in exile.",ai-generated
 866,Spiritual Letters of Saint John of the Cross,"The mystical letters of Saint John of the Cross, written to fellow mystics and disciples, offering guidance on the contemplative life and the dark night of the soul.",ai-generated
-866,Letters of Camilo Jos¨¦ Cela,"The collected letters of Camilo Jos¨¦ Cela, the 20th-century Nobel Prize novelist, featuring his acerbic observations on Spanish society and literary life.",ai-generated
-866,Letters of Pedro Calder¨®n de la Barca,"The surviving correspondence of Pedro Calder¨®n de la Barca, the great Golden Age playwright, shedding light on his theatrical career and service at the Habsburg court.",ai-generated
+866,Letters of Camilo Jose Cela,"The collected letters of Camilo Jose Cela, the 20th-century Nobel Prize novelist, featuring his acerbic observations on Spanish society and literary life.",ai-generated
+866,Letters of Pedro Calderon de la Barca,"The surviving correspondence of Pedro Calderon de la Barca, the great Golden Age playwright, shedding light on his theatrical career and service at the Habsburg court.",ai-generated
 866,Exile Letters of Rafael Alberti,"The letters of poet Rafael Alberti written during his long exile after the Spanish Civil War, reflecting on memory, homeland, and lifelong political commitment.",ai-generated
 866,Letters of Gaspar Melchor de Jovellanos,"The intellectual correspondence of Gaspar Melchor de Jovellanos, the Enlightenment thinker, discussing education, law, and political reform in 18th-century Spain.",ai-generated
 866,Letters of Rosario Castellanos,"The personal and professional letters of Rosario Castellanos, the Mexican writer and diplomat, exploring themes of gender, indigenous identity, and Mexican society.",ai-generated
 866,Letters of Francisco Goya,"The surviving personal letters of the painter Francisco Goya, offering glimpses into his artistic process, political views, and life in Spain and Bordeaux exile.",ai-generated
 866,Generation of '27: Selected Correspondence,"A collection of letters exchanged between the major poets of the Generation of '27, documenting their artistic movement, friendships, and intellectual debates.",ai-generated
 866,Letters of Isabel de Guevara,"The letters of Isabel de Guevara, one of the few women writers of the Spanish conquest era, offering a rare female perspective on life in early colonial America.",ai-generated
-866,Letters of P¨ªo Baroja,"The correspondence of P¨ªo Baroja, the prominent Generation of '98 novelist, featuring his cynical observations on Spanish life, history, and the craft of fiction.",ai-generated
-866,Letters of Mar¨ªa Zambrano,"The philosophical and personal letters of Mar¨ªa Zambrano, the 20th-century Spanish thinker, exploring poetry, politics, and existential questions in times of exile.",ai-generated
+866,Letters of Pio Baroja,"The correspondence of Pio Baroja, the prominent Generation of '98 novelist, featuring his cynical observations on Spanish life, history, and the craft of fiction.",ai-generated
+866,Letters of Maria Zambrano,"The philosophical and personal letters of Maria Zambrano, the 20th-century Spanish thinker, exploring poetry, politics, and existential questions in times of exile.",ai-generated
 871,The Aeneid,"Virgil's epic national poem of Rome, following the journey of Aeneas from Troy to Italy and the founding of the Roman people, the greatest epic of Latin literature.",ai-generated
 871,The Odes of Horace,"Quintus Horatius Flaccus' collected lyric odes, exploring themes of love, wine, friendship, mortality, and the quiet life, masterpieces of Augustan poetry.",ai-generated
 871,Metamorphoses,Ovid's epic narrative poem tracing mythological transformations from the creation of the world to the apotheosis of Julius Caesar.,ai-generated
@@ -378,7 +378,7 @@ DDC,Title,Description,remark
 854,De Vulgari Eloquentia,"Dante's Latin essay on the origins and structure of vernacular language, arguing for the literary value of Italian dialects and establishing early linguistic theory.",ai-generated
 854,De Vita Solitaria,"Petrarch's philosophical essay praising the contemplative life of solitude, contrasting the peace of scholarly retirement with the chaos of public and urban life.",ai-generated
 854,Secretum,"Petrarch's fictional dialogue between himself and Saint Augustine, examining the conflict between worldly ambition and spiritual devotion through introspective debate.",ai-generated
-854,Discourses on the First Decade of Titus Livius,"Niccol¨° Machiavelli's political essay analyzing republican government, drawing lessons from ancient Roman history to explain political dynamics and civic virtue.",ai-generated
+854,Discourses on the First Decade of Titus Livius,"Niccolo Machiavelli's political essay analyzing republican government, drawing lessons from ancient Roman history to explain political dynamics and civic virtue.",ai-generated
 854,Ricordi,"Francesco Guicciardini's collection of aphorisms and political reflections, offering pragmatic observations on power, human nature, and 16th-century Italian statecraft.",ai-generated
 854,Il Saggiatore,"Galileo Galilei's scientific and polemical essay on comets and the nature of scientific inquiry, defending the experimental method against Aristotelian orthodoxy.",ai-generated
 854,Operette Morali,"Giacomo Leopardi's collection of philosophical dialogues and essays, exploring existential pessimism, the limits of human knowledge, and the nature of happiness.",ai-generated
@@ -399,21 +399,21 @@ DDC,Title,Description,remark
 854,The Myth of the Overman,"Gabriele D'Annunzio's essay of aesthetic philosophy, celebrating individual greatness and the heroic ideal against bourgeois mediocrity.",ai-generated
 854,Other People's Trades,"Primo Levi's essay collection blending scientific observation with personal reflection, exploring themes of work, nature, and human dignity across different professions.",ai-generated
 854,The Art of Joy,"Goliarda Sapienza's reflective essay on creativity, gender, and personal freedom, drawn from her own experience as an actress and writer in 20th-century Italy.",ai-generated
-865,On the American Indians,"Bartolom¨¦ de las Casas' famous speech and treatise delivered before the Spanish court, denouncing the exploitation of indigenous peoples in the Americas.",ai-generated
-865,The Speech of the Cid,"The climactic oration of Rodrigo D¨ªaz de Vivar from medieval Spanish epic tradition, rallying his followers before battle and embodying Castilian heroic ideals.",ai-generated
+865,On the American Indians,"Bartolome de las Casas' famous speech and treatise delivered before the Spanish court, denouncing the exploitation of indigenous peoples in the Americas.",ai-generated
+865,The Speech of the Cid,"The climactic oration of Rodrigo Diaz de Vivar from medieval Spanish epic tradition, rallying his followers before battle and embodying Castilian heroic ideals.",ai-generated
 865,Speeches of the Spanish Civil War,"A collection of major political and military speeches from the 1936-1939 conflict, featuring orations by both Republican and Nationalist leaders.",ai-generated
-865,No Pasar¨¢n: Speeches of Dolores Ib¨¢rruri,"The collected political speeches of the Communist leader known as La Pasionaria, defining Republican resistance during the Spanish Civil War.",ai-generated
+865,No Pasaran: Speeches of Dolores Ibarruri,"The collected political speeches of the Communist leader known as La Pasionaria, defining Republican resistance during the Spanish Civil War.",ai-generated
 865,Inaugural Address of King Juan Carlos I,"The 1975 speech marking the beginning of the Spanish transition to democracy, outlining a vision of national reconciliation and constitutional government.",ai-generated
 865,On the Power of the Pope and the Emperor,"Francisco de Vitoria's theological and political lecture-speeches, establishing early theories of international law and the rights of native peoples.",ai-generated
 865,Speeches of Manuel Aza?a,"The collected parliamentary and public addresses of the Second Republic president, articulating liberal democratic ideals and Spanish republicanism.",ai-generated
 865,The Farewell Speech of Christopher Columbus,"The address delivered by Columbus before the Spanish monarchs on his return from his first voyage, presenting his discoveries and advocating for further exploration.",ai-generated
 865,Golden Age Orations: Spanish Humanist Speeches,"A collection of rhetorical speeches from 16th-century Spanish humanists, delivered at universities, court, and civic ceremonies across Castile and Aragon.",ai-generated
-865,Speech on the Death of Garc¨ªa Lorca,"A collection of eulogies and public speeches delivered in response to the assassination of Federico Garc¨ªa Lorca, mourning the poet and condemning political violence.",ai-generated
+865,Speech on the Death of Garcia Lorca,"A collection of eulogies and public speeches delivered in response to the assassination of Federico Garcia Lorca, mourning the poet and condemning political violence.",ai-generated
 865,Speeches of Philip II,"The official addresses and decrees of the Spanish Habsburg monarch, delivered to the Cortes and council, reflecting imperial policy and religious orthodoxy.",ai-generated
 865,University Orations of Miguel de Unamuno,"The collected academic and philosophical speeches of the Basque thinker, delivered at the University of Salamanca on literature, education, and national identity.",ai-generated
-865,The Speech at Gernika,"The famous address by Jos¨¦ Antonio Aguirre condemning the 1937 bombing of Guernica, delivered to the international community as Basque president.",ai-generated
+865,The Speech at Gernika,"The famous address by Jose Antonio Aguirre condemning the 1937 bombing of Guernica, delivered to the international community as Basque president.",ai-generated
 865,Cortes Speeches of the 19th Century,"A selection of parliamentary orations from Spain's 19th-century constitutional era, covering debates over liberal reform, colonial policy, and national identity.",ai-generated
-865,Speeches on Art and Society: Ortega y Gasset,"Selected public lectures by Jos¨¦ Ortega y Gasset, exploring mass culture, artistic crisis, and the direction of modern European civilization.",ai-generated
+865,Speeches on Art and Society: Ortega y Gasset,"Selected public lectures by Jose Ortega y Gasset, exploring mass culture, artistic crisis, and the direction of modern European civilization.",ai-generated
 865,The Speech of Pelagius of Asturias,"The traditional rallying oration attributed to Pelagius before the Battle of Covadonga, the foundational myth of the Spanish Reconquista.",ai-generated
 865,Campaign Speeches of the Carlist Wars,"Political and military speeches from the 19th-century Carlist conflicts, articulating traditionalist, legitimist, and liberal political positions.",ai-generated
 865,Addresses of the Spanish Enlightenment,"Public speeches and academic discourses from 18th-century Spanish reformers, advocating for scientific progress, educational reform, and economic modernization.",ai-generated
@@ -422,8 +422,8 @@ DDC,Title,Description,remark
 865,The Proclamation of the Second Spanish Republic,"The official 1931 speech announcing the end of the monarchy and the establishment of the republic, delivered in Madrid by provisional government leaders.",ai-generated
 865,Medieval Castilian Forensic Speeches,"A collection of surviving legal speeches from medieval Castilian courts, illustrating early Spanish rhetorical practice and judicial procedure.",ai-generated
 865,Commemorative Speeches of the Spanish Golden Age,"Festive orations delivered for royal weddings, military victories, and civic celebrations in 16th and 17th-century Spain.",ai-generated
-865,Speeches of Adolfo Su¨¢rez,"The key political addresses of the prime minister who led Spain's transition to democracy, including his 1977 speech to the first democratically elected Cortes.",ai-generated
-865,On Poetry and the People: Speeches of Federico Garc¨ªa Lorca,"The public lectures and speeches of the poet, addressing folk culture, theatrical renewal, and the social responsibility of the artist.",ai-generated
+865,Speeches of Adolfo Suarez,"The key political addresses of the prime minister who led Spain's transition to democracy, including his 1977 speech to the first democratically elected Cortes.",ai-generated
+865,On Poetry and the People: Speeches of Federico Garcia Lorca,"The public lectures and speeches of the poet, addressing folk culture, theatrical renewal, and the social responsibility of the artist.",ai-generated
 906,Managing a Historical Society: A Practical Guide,"A comprehensive handbook for operating local and national historical societies, covering governance, programming, membership, and financial management.",ai-generated
 906,Archives and Records Management for Historical Organizations,"A technical guide to preserving, organizing, and providing access to historical documents, covering archival standards, digitization, and collection care.",ai-generated
 906,The American Historical Association: A History and Organizational Study,"An institutional history of the AHA, examining its role in shaping historical scholarship, professional standards, and public history policy.",ai-generated
@@ -475,7 +475,7 @@ DDC,Title,Description,remark
 882,The Knights,"Aristophanes' political comedy satirizing the demagogue Cleon, depicting a contest for the favor of an old man representing the Athenian people.",ai-generated
 882,Peace,"Aristophanes' comedy celebrating the end of the first phase of the Peloponnesian War, following a farmer who flies to heaven to free the goddess Peace.",ai-generated
 857,The Decameron,"Giovanni Boccaccio's collection of one hundred tales told by young Florentines fleeing the plague, blending earthy humor, social satire, and vivid storytelling.",ai-generated
-857,La Mandragola,"Niccol¨° Machiavelli's satirical comedy about a young man who schemes to seduce the beautiful wife of a foolish old man, mocking marriage and religious hypocrisy.",ai-generated
+857,La Mandragola,"Niccolo Machiavelli's satirical comedy about a young man who schemes to seduce the beautiful wife of a foolish old man, mocking marriage and religious hypocrisy.",ai-generated
 857,Orlando Furioso,"Ludovico Ariosto's chivalric epic infused with ironic humor and playful satire of medieval romance conventions, following the wandering knight Orlando.",ai-generated
 857,The Servant of Two Masters,"Carlo Goldoni's classic commedia dell'arte comedy about a clever servant who juggles two employers, a landmark of 18th-century Italian humorous theater.",ai-generated
 857,The Mistress of the Inn,"Carlo Goldoni's witty comedy about a sharp-witted innkeeper who manipulates her aristocratic suitors, celebrating female intelligence and satirizing male vanity.",ai-generated
@@ -503,7 +503,7 @@ DDC,Title,Description,remark
 816,Letters of Emily Dickinson,"The extensive personal letters of Emily Dickinson, written to family, friends, and literary correspondents, revealing her reclusive life, poetic process, and intimate thoughts.",ai-generated
 816,Selected Letters of Henry David Thoreau,"The correspondence of Henry David Thoreau, documenting his life at Walden Pond, his philosophical views, and his involvement in transcendentalist and abolitionist circles.",ai-generated
 816,Letters of Ralph Waldo Emerson,"The collected correspondence of Ralph Waldo Emerson, featuring his philosophical reflections, literary criticism, and leadership of the American transcendentalist movement.",ai-generated
-816,Letters from an American Farmer,"J. Hector St. John de Cr¨¨vecoeur's epistolary work describing life in colonial America, exploring frontier society, American identity, and the condition of agriculture.",ai-generated
+816,Letters from an American Farmer,"J. Hector St. John de Crevecoeur's epistolary work describing life in colonial America, exploring frontier society, American identity, and the condition of agriculture.",ai-generated
 816,Letters of Abraham Lincoln,"The personal and political correspondence of Abraham Lincoln, including letters to generals, cabinet members, and citizens, documenting his leadership during the Civil War.",ai-generated
 816,Letters of Mark Twain,"Selected personal and humorous letters of Samuel Langhorne Clemens, showcasing his wit, travel observations, and behind-the-scenes commentary on his literary career.",ai-generated
 816,Letters of Ernest Hemingway,"The personal and professional correspondence of Ernest Hemingway, revealing his life as an expatriate writer, his literary method, and relationships with other 20th-century authors.",ai-generated
@@ -529,26 +529,26 @@ DDC,Title,Description,remark
 867,Exemplary Novels,"Miguel de Cervantes' collection of short stories blending humor, irony, and social commentary, exploring deception, love, and the gap between appearance and reality.",ai-generated
 867,Dialogue of the Dogs,"Cervantes' satirical prose dialogue between two dogs who gain the power of speech, observing and commenting on human vice and absurdity.",ai-generated
 867,La Celestina,"Fernando de Rojas' tragicomic satirical drama about an old procuress and two young lovers, a landmark work mocking romantic idealism and social convention.",ai-generated
-867,Greguer¨ªas,"Ram¨®n G¨®mez de la Serna's collection of short, whimsical humorous observations and miniatures, pioneering a surreal, aphoristic style of Spanish humor.",ai-generated
-867,The Regent's Wife,"Leopoldo Alas Clar¨ªn's satirical realist novel dissecting provincial Spanish society, mocking clerical hypocrisy, social pretension, and the narrowness of small-town life.",ai-generated
-867,Fortunata and Jacinta,"Benito P¨¦rez Gald¨®s' sprawling satirical realist novel exploring class, marriage, and social mobility in 19th-century Madrid, with sharp portraits of urban life.",ai-generated
-867,The Family of Pascual Duarte,"Camilo Jos¨¦ Cela's darkly humorous and brutal first novel satirizing rural Spanish poverty and violence, a landmark of post-Civil War literature.",ai-generated
-867,Nazar¨ªn,"Benito P¨¦rez Gald¨®s' satirical yet compassionate novel about a naive priest who tries to live in absolute poverty, exploring religious idealism and its reception by society.",ai-generated
+867,Greguerias,"Ramon Gomez de la Serna's collection of short, whimsical humorous observations and miniatures, pioneering a surreal, aphoristic style of Spanish humor.",ai-generated
+867,The Regent's Wife,"Leopoldo Alas Clarin's satirical realist novel dissecting provincial Spanish society, mocking clerical hypocrisy, social pretension, and the narrowness of small-town life.",ai-generated
+867,Fortunata and Jacinta,"Benito Perez Galdos' sprawling satirical realist novel exploring class, marriage, and social mobility in 19th-century Madrid, with sharp portraits of urban life.",ai-generated
+867,The Family of Pascual Duarte,"Camilo Jose Cela's darkly humorous and brutal first novel satirizing rural Spanish poverty and violence, a landmark of post-Civil War literature.",ai-generated
+867,Nazarin,"Benito Perez Galdos' satirical yet compassionate novel about a naive priest who tries to live in absolute poverty, exploring religious idealism and its reception by society.",ai-generated
 867,Don Quixote,"Cervantes' foundational satirical novel mocking chivalric romance, following the deluded knight and his squire through a series of absurd misadventures across Spain.",ai-generated
-867,Satirical Letters of Jos¨¦ Cadalso,"Jos¨¦ Cadalso's series of satirical epistolary essays criticizing 18th-century Spanish society, education, and cultural backwardness.",ai-generated
+867,Satirical Letters of Jose Cadalso,"Jose Cadalso's series of satirical epistolary essays criticizing 18th-century Spanish society, education, and cultural backwardness.",ai-generated
 867,The Illustrious Maid,"Tirso de Molina's satirical Golden Age comedy about a clever peasant woman who outwits nobles and commoners alike, subverting class and gender expectations.",ai-generated
 867,The Trickster of Seville,"Tirso de Molina's original dramatic satire of Don Juan, following the legendary womanizer and his eventual damnation, blending dark humor with moral commentary.",ai-generated
-867,Grotesques and Fantasies,"Ram¨®n del Valle-Incl¨¢n's collection of esperpento plays and stories, using grotesque, absurdist humor to satirize early 20th-century Spanish society.",ai-generated
-867,The Hive,"Camilo Jos¨¦ Cela's fragmented satirical novel depicting life in post-Civil War Madrid, capturing the chaos, poverty, and human absurdity of the city.",ai-generated
-867,Golden Age Spanish Satirical Poetry,"An anthology of satirical verse from the Spanish Golden Age, featuring works by Quevedo, G¨®ngora, and Lope de Vega mocking social types and human vanity.",ai-generated
+867,Grotesques and Fantasies,"Ramon del Valle-Inclan's collection of esperpento plays and stories, using grotesque, absurdist humor to satirize early 20th-century Spanish society.",ai-generated
+867,The Hive,"Camilo Jose Cela's fragmented satirical novel depicting life in post-Civil War Madrid, capturing the chaos, poverty, and human absurdity of the city.",ai-generated
+867,Golden Age Spanish Satirical Poetry,"An anthology of satirical verse from the Spanish Golden Age, featuring works by Quevedo, Gongora, and Lope de Vega mocking social types and human vanity.",ai-generated
 867,The Journey of Parnassus,"Cervantes' satirical allegorical poem in which he travels to Mount Parnassus, commenting on contemporary poets and the state of Spanish literature.",ai-generated
-867,Andanzas y Visiones,"Ram¨®n G¨®mez de la Serna's collection of humorous travel sketches and surreal visions, showcasing his playful, observational style of modern Spanish humor.",ai-generated
-867,La Barraca Satirical Sketches,"Selected humorous and satirical short pieces from Federico Garc¨ªa Lorca's early work, mocking bourgeois society and traditional Spanish mores.",ai-generated
-867,The Memoirs of a Scoundrel,"Mateo Alem¨¢n's classic picaresque satirical novel following Guzm¨¢n de Alfarache, offering a moral critique of 16th-century Spanish society.",ai-generated
+867,Andanzas y Visiones,"Ramon Gomez de la Serna's collection of humorous travel sketches and surreal visions, showcasing his playful, observational style of modern Spanish humor.",ai-generated
+867,La Barraca Satirical Sketches,"Selected humorous and satirical short pieces from Federico Garcia Lorca's early work, mocking bourgeois society and traditional Spanish mores.",ai-generated
+867,The Memoirs of a Scoundrel,"Mateo Aleman's classic picaresque satirical novel following Guzman de Alfarache, offering a moral critique of 16th-century Spanish society.",ai-generated
 867,Lazarillo de Tormes,"The anonymous foundational Spanish picaresque novella, a sharp satirical account of a poor boy serving a series of masters, exposing hypocrisy across all social classes.",ai-generated
-867,Satirical Works of Sor Juana In¨¦s de la Cruz,"Humorous and satirical poems and prose by Sor Juana, mocking gender prejudice, intellectual pretension, and religious hypocrisy in colonial Mexico.",ai-generated
-867,Selected Satirical Short Stories,"A collection of witty, darkly humorous short stories by Arturo P¨¦rez-Reverte, satirizing modern Spanish society, history, and human nature.",ai-generated
-867,The Great Galeoto,"Ram¨®n del Valle-Incl¨¢n's esperpento play using grotesque, dark humor to satirize Spanish provincial society, gossip, and the destructive power of social opinion.",ai-generated
+867,Satirical Works of Sor Juana Ines de la Cruz,"Humorous and satirical poems and prose by Sor Juana, mocking gender prejudice, intellectual pretension, and religious hypocrisy in colonial Mexico.",ai-generated
+867,Selected Satirical Short Stories,"A collection of witty, darkly humorous short stories by Arturo Perez-Reverte, satirizing modern Spanish society, history, and human nature.",ai-generated
+867,The Great Galeoto,"Ramon del Valle-Inclan's esperpento play using grotesque, dark humor to satirize Spanish provincial society, gossip, and the destructive power of social opinion.",ai-generated
 881,The Iliad,"Homer's great epic poem of the Trojan War, recounting the wrath of Achilles and the final year of the siege of Troy, the foundational work of Western literature.",ai-generated
 881,The Odyssey,"Homer's epic narrative of Odysseus' ten-year journey home to Ithaca after the Trojan War, exploring themes of homecoming, identity, and human endurance.",ai-generated
 881,Theogony,"Hesiod's didactic epic poem recounting the origins of the gods and the creation of the world, the primary source for Greek mythology and cosmogony.",ai-generated
@@ -734,7 +734,7 @@ DDC,Title,Description,remark
 839,Fairy Tales of Hans Christian Andersen,"The classic collection of fairy tales by the Danish author, including The Little Mermaid and The Ugly Duckling, works of world-renowned Danish literature.",ai-generated
 839,The Red Room,"August Strindberg's satirical Swedish novel about artistic and political life in 19th-century Stockholm, a foundational work of modern Swedish prose.",ai-generated
 839,Peer Gynt,"Henrik Ibsen's epic Norwegian verse drama following the wanderings of the roguish Peer Gynt, a masterpiece of modern Scandinavian literature.",ai-generated
-839,Icelandic Family Sagas: Selected Tales,"A collection of the greatest Icelandic sagas, including Nj¨¢l's Saga and Laxd?la Saga, narratives of Viking Age Icelandic life and conflict.",ai-generated
+839,Icelandic Family Sagas: Selected Tales,"A collection of the greatest Icelandic sagas, including Njal's Saga and Laxd?la Saga, narratives of Viking Age Icelandic life and conflict.",ai-generated
 839,Low German Folk Tales and Legends,"A collection of traditional oral stories from the Low German-speaking regions of northern Germany, preserving regional folk narrative traditions.",ai-generated
 839,Frisian Oral Poetry and Folk Stories,"An anthology of traditional poetry and tales in West Frisian, representing the indigenous literary heritage of the Frisian people.",ai-generated
 839,The Brothers Lionheart,"Astrid Lindgren's Swedish children's fantasy novel about two brothers who die and enter a magical afterlife, exploring themes of courage and death.",ai-generated
@@ -892,7 +892,7 @@ DDC,Title,Description,remark
 890,The Jataka Tales,"A collection of ancient Buddhist birth stories in Pali, recounting the previous lives of the Buddha across many incarnations.",ai-generated
 890,The Epic of Manas,"One of the longest epics in the world, this Kyrgyz oral poem recounts the exploits of the hero Manas and his descendants across generations.",ai-generated
 890,The Book of Songs,"The oldest collection of Chinese poetry, compiled in ancient China, containing over three hundred poems from the Zhou dynasty and earlier traditions.",ai-generated
-890,The Tain,"The great Irish epic of the Ulster Cycle, recounting the cattle raid of Queen Medb and the heroic exploits of the warrior C¨² Chulainn.",ai-generated
+890,The Tain,"The great Irish epic of the Ulster Cycle, recounting the cattle raid of Queen Medb and the heroic exploits of the warrior Cu Chulainn.",ai-generated
 890,The Mongolian Epic of Geser,"The Mongolian version of the pan-Asian Geser epic, recounting the deeds of warrior-king Geser as he battles demons and restores cosmic order.",ai-generated
 890,The Malay Annals,"The classic chronicle of the Malacca Sultanate, a foundational work of Malay historiography and literary prose.",ai-generated
 890,Thai Folk Tales of the Spirit World,"A collection of traditional Thai folk stories featuring ghosts, spirits, and moral lessons reflecting Theravada Buddhist traditions.",ai-generated
@@ -990,7 +990,7 @@ DDC,Title,Description,remark
 890,The Jataka Tales,"A collection of ancient Buddhist birth stories in Pali, recounting the previous lives of the Buddha across many incarnations.",ai-generated
 890,The Epic of Manas,"One of the longest epics in the world, this Kyrgyz oral poem recounts the exploits of the hero Manas and his descendants across generations.",ai-generated
 890,The Book of Songs,"The oldest collection of Chinese poetry, compiled in ancient China, containing over three hundred poems from the Zhou dynasty and earlier traditions.",ai-generated
-890,The Tain,"The great Irish epic of the Ulster Cycle, recounting the cattle raid of Queen Medb and the heroic exploits of the warrior C¨² Chulainn.",ai-generated
+890,The Tain,"The great Irish epic of the Ulster Cycle, recounting the cattle raid of Queen Medb and the heroic exploits of the warrior Cu Chulainn.",ai-generated
 890,The Mongolian Epic of Geser,"The Mongolian version of the pan-Asian Geser epic, recounting the deeds of warrior-king Geser as he battles demons and restores cosmic order.",ai-generated
 890,The Malay Annals,"The classic chronicle of the Malacca Sultanate, a foundational work of Malay historiography and literary prose.",ai-generated
 890,Thai Folk Tales of the Spirit World,"A collection of traditional Thai folk stories featuring ghosts, spirits, and moral lessons reflecting Theravada Buddhist traditions.",ai-generated
