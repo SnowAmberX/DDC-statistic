@@ -1,6 +1,7 @@
 """
-用途：验证数据合并流程能够兼容并保留 remark 列。
+用途：验证数据合并流程能够规范化标准列名并保留 remark 列。
 核心职责：
+- 验证标准列名不受大小写和首尾空格影响。
 - 验证历史三列输入会补充空 remark。
 - 验证新四列输入会保留已有 remark。
 - 验证重复记录会优先保留非空 remark。
@@ -29,6 +30,36 @@ import merge_dedup_all3cols as merge_script
 
 
 class LoadAndNormalizeRemarkTest(unittest.TestCase):
+    def test_normalizes_canonical_headers_ignoring_case_and_whitespace(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pd.DataFrame(
+                [
+                    {
+                        " dDc ": "888",
+                        " TITLE ": "Moralia",
+                        " Description ": "A complete collection of classical essays.",
+                        " REMARK ": "ai-generated",
+                    }
+                ]
+            ).to_csv(Path(temp_dir) / "mixed_headers.csv", index=False)
+
+            with patch.object(merge_script, "BASE_DIR", temp_dir):
+                result = merge_script.load_and_normalize(
+                    {"path": "mixed_headers.csv"}
+                )
+
+        self.assertEqual(
+            result.to_dict(orient="records"),
+            [
+                {
+                    "DDC": 888,
+                    "Title": "Moralia",
+                    "description": "A complete collection of classical essays.",
+                    "remark": "ai-generated",
+                }
+            ],
+        )
+
     def test_fills_missing_remark_with_blank(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             pd.DataFrame(

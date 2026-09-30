@@ -204,6 +204,7 @@ def load_and_normalize(file_cfg):
         'mds_code': 'DDC',
         'ddc': 'DDC',
         'title': 'Title',
+        'description': 'description',
         'abstract': 'description',
         'desc': 'description',
         'remark': 'remark',
