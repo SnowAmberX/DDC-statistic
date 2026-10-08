@@ -4,25 +4,14 @@
     "max": 1286,
     "min": 15,
     "mean": 96.97,
-    "total_records": 280802
+    "total_records": 280804
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 975,
-    "ddc_over_check_number_count": 973,
-    "ddc_over_check_number_total_records": 280704,
-    "ddc_under_check_number_count": 2,
-    "details": [
-      {
-        "ddc": 397,
-        "current_count": 49,
-        "gap_to_check_number": 1
-      },
-      {
-        "ddc": 472,
-        "current_count": 49,
-        "gap_to_check_number": 1
-      }
-    ]
+    "ddc_over_check_number_count": 975,
+    "ddc_over_check_number_total_records": 280804,
+    "ddc_under_check_number_count": 0,
+    "details": []
   },
   "ddc_group_by_10": [
     {
@@ -217,10 +206,8 @@
     },
     {
       "ddc_range": "390-399",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "397"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "400-409",
@@ -259,10 +246,8 @@
     },
     {
       "ddc_range": "470-479",
-      "under_check_number_count": 1,
-      "under_check_number_ddc_list": [
-        "472"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "480-489",
@@ -870,12 +855,12 @@
     },
     {
       "ddc_range": "390-399",
-      "total_count": 1331,
+      "total_count": 1332,
       "garbled_count": 19,
-      "clean_count": 1312,
+      "clean_count": 1313,
       "garbled_ratio": 0.0143,
-      "ai_count": 97,
-      "ai_ratio": 0.0729
+      "ai_count": 98,
+      "ai_ratio": 0.0736
     },
     {
       "ddc_range": "400-409",
@@ -942,12 +927,12 @@
     },
     {
       "ddc_range": "470-479",
-      "total_count": 521,
+      "total_count": 522,
       "garbled_count": 2,
-      "clean_count": 519,
+      "clean_count": 520,
       "garbled_ratio": 0.0038,
-      "ai_count": 99,
-      "ai_ratio": 0.19
+      "ai_count": 100,
+      "ai_ratio": 0.1916
     },
     {
       "ddc_range": "480-489",
