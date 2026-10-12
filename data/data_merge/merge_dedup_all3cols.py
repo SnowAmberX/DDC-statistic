@@ -117,6 +117,7 @@ UNDEFINED_DDC = [
 # 这段逻辑用于剔除德语/法语等非英语摘要，适合只做英文数据集时开启。
 # 默认关闭；如需启用改为 True。
 ENABLE_ENGLISH_ONLY_FILTER = True
+AI_GENERATED_REMARK = 'ai-generated'
 
 
 # ── 乱码检测辅助函数 ──────────────────────────────────────────────────
@@ -235,6 +236,23 @@ def load_and_normalize(file_cfg):
     df = df[TARGET_COLS]
 
     return df
+
+
+def export_ai_free_version(merged_clean, output_dir):
+    """额外导出去乱码且无 AI 标记的版本，供全量整合或已有数据刷新使用。"""
+    print("\n=== 第六步：输出去乱码且无 AI 的版本 ===")
+    ai_generated_mask = (
+        merged_clean['remark'].fillna('').astype(str).str.strip().str.casefold()
+        .eq(AI_GENERATED_REMARK)
+    )
+    merged_clean_no_ai = merged_clean[~ai_generated_mask].reset_index(drop=True)
+    output_clean_no_ai = os.path.join(output_dir, 'merged_dedup_all3cols_clean_no_ai.xlsx')
+    with pd.ExcelWriter(output_clean_no_ai, engine='xlsxwriter',
+                        engine_kwargs={'options': {'strings_to_formulas': False}}) as writer:
+        merged_clean_no_ai.to_excel(writer, index=False)
+    print(f"去除 AI 标记记录: {int(ai_generated_mask.sum())} 条，剩余 {len(merged_clean_no_ai)} 条")
+    print(f"去乱码且无 AI 版本已保存至: {output_clean_no_ai}")
+    return output_clean_no_ai
 
 
 def main():
@@ -401,6 +419,9 @@ def main():
                         engine_kwargs={'options': {'strings_to_formulas': False}}) as writer:
         merged_clean.to_excel(writer, index=False)
     print(f"去乱码版本已保存至: {output_clean}")
+
+    # 在去重和乱码过滤后额外导出无 AI 版本，保留原有两个版本。
+    export_ai_free_version(merged_clean, output_dir)
     print(f"\n完成！")
 
 

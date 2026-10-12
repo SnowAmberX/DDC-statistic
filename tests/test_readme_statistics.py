@@ -4,6 +4,19 @@ import update_readme
 
 
 class GarbledAndAiStatisticsTableTest(unittest.TestCase):
+    def test_displays_total_ai_ratio_and_ai_free_download_under_data_quality(self) -> None:
+        block = update_readme.build_statistics_block({
+            "ai_stats": {"total_records": 200, "ai_count": 35, "ai_ratio": 0.175},
+        })
+
+        self.assertIn(
+            "### DDC data quality\n\n**Overall AI-generated ratio: 17.50% (35 / 200 records)**",
+            block,
+        )
+        self.assertIn("DL1, DL2 and DL3", block)
+        self.assertIn("before garbled-text removal", block)
+        self.assertIn("data/merged_dedup_all3cols_clean_no_ai.xlsx", block)
+
     def test_builds_garbled_and_ai_table(self) -> None:
         groups = update_readme._normalize_garbled_items(
             [

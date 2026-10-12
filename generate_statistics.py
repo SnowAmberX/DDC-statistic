@@ -65,6 +65,18 @@ if UNDEFINED_DDC:
     df_unclean = df_unclean[~df_unclean['DDC'].isin(undefined_set)].reset_index(drop=True)
 print(f"未清洗版本: {len(df_unclean)} 条（已过滤未定义 DDC）")
 
+# 总 AI 率与质量表使用同一口径，涵盖所有层级且在乱码过滤前统计。
+all_ai_generated_mask = (
+    df_unclean['remark'].fillna('').astype(str).str.strip().str.casefold()
+    .eq(AI_GENERATED_REMARK)
+)
+ai_count = int(all_ai_generated_mask.sum())
+ai_stats = {
+    'total_records': len(df_unclean),
+    'ai_count': ai_count,
+    'ai_ratio': round(ai_count / len(df_unclean), 4) if len(df_unclean) else 0.0,
+}
+
 # ── 1. DL3 统计（只看不足 CHECK_NUMBER 条的三位分类）────────────────
 # 内容统计继续使用完整数据，分类报表仅使用原始三位编码。
 df_dl3 = df[df['DDC'].str.fullmatch(r'[0-9]{3}', na=False)].copy()
@@ -198,15 +210,7 @@ for i in range(0, 1000, 10):
     total_in_range = len(group_df)
     garbled_in_range = int(group_df['has_garbled'].sum())
     garbled_ratio = round(garbled_in_range / total_in_range, 4) if total_in_range > 0 else 0.0
-    ai_generated_mask = (
-        group_df['remark']
-        .fillna('')
-        .astype(str)
-        .str.strip()
-        .str.casefold()
-        .eq(AI_GENERATED_REMARK)
-    )
-    ai_generated_in_range = int(ai_generated_mask.sum())
+    ai_generated_in_range = int(all_ai_generated_mask.loc[mask].sum())
     ai_generated_ratio = (
         round(ai_generated_in_range / total_in_range, 4)
         if total_in_range > 0
@@ -227,6 +231,7 @@ for i in range(0, 1000, 10):
 output = {
     'check_number': CHECK_NUMBER,
     'abstract_stats': abstract_stats,
+    'ai_stats': ai_stats,
     'ddc_under_check_number': {
         'total_ddc_classes': int(len(ddc_counts)),
         'ddc_over_check_number_count': int((ddc_counts['count'] >= CHECK_NUMBER).sum()),

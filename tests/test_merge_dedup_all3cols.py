@@ -6,6 +6,7 @@
 - 验证新四列输入会保留已有 remark。
 - 验证重复记录会优先保留非空 remark。
 - 验证旧数据补齐三位、新 DL1/DL2 来源编码和跨层级过滤去重。
+- 验证额外无 AI 版本排除乱码和 AI 标记，并保留原有两个版本。
 """
 
 from pathlib import Path
@@ -293,6 +294,56 @@ class MergeRemarkDeduplicationTest(ProjectTemporaryDirectoryTest):
                 }
             ],
         )
+
+
+class MergeAiFreeVersionTest(ProjectTemporaryDirectoryTest):
+    def test_writes_extra_ai_free_version_after_dedup_without_changing_existing_versions(self) -> None:
+        description = (
+            "one two three four five six seven eight nine ten eleven twelve "
+            "thirteen fourteen fifteen sixteen"
+        )
+        for include_human in (True, False):
+            with self.subTest(include_human=include_human):
+                legacy_rows = [{"DDC": "124", "Title": "Legacy duplicate", "description": description}]
+                generated_rows = [{"DDC": "124", "Title": "AI duplicate", "description": description, "remark": "ai-generated"}]
+                if include_human:
+                    legacy_rows.extend([
+                        {"DDC": "123", "Title": "Human", "description": description},
+                        {"DDC": "125", "Title": "Garbled human \ufffd", "description": description},
+                    ])
+                    generated_rows.append({"DDC": "126", "Title": "Manual", "description": description, "remark": "not-ai-generated"})
+
+                with tempfile.TemporaryDirectory(dir=TEST_TEMP_DIR) as temp_dir:
+                    merge_dir = Path(temp_dir) / "data_merge"
+                    merge_dir.mkdir()
+                    pd.DataFrame(legacy_rows).to_csv(merge_dir / "legacy.csv", index=False)
+                    pd.DataFrame(generated_rows).to_csv(merge_dir / "generated.csv", index=False)
+                    for filename, remark in (("dl1.csv", " AI-Generated "), ("dl2.csv", "AI-GENERATED")):
+                        pd.DataFrame([{"DDC": "100", "Title": filename, "description": description, "remark": remark}]).to_csv(merge_dir / filename, index=False)
+
+                    with (
+                        patch.object(merge_script, "BASE_DIR", str(merge_dir)),
+                        patch.object(merge_script, "FILES", [
+                            {"path": "legacy.csv"}, {"path": "generated.csv"},
+                            {"path": "dl1.csv", "ddc_digits": 1},
+                            {"path": "dl2.csv", "ddc_digits": 2},
+                        ]),
+                        patch.object(merge_script, "get_auto_book_description_files", return_value=[]),
+                        patch.object(merge_script, "ENABLE_ENGLISH_ONLY_FILTER", False),
+                        patch.object(merge_script, "UNDEFINED_DDC", []),
+                    ):
+                        merge_script.main()
+
+                    raw = pd.read_excel(Path(temp_dir) / "merged_dedup_all3cols.xlsx", dtype=str)
+                    clean = pd.read_excel(Path(temp_dir) / "merged_dedup_all3cols_clean.xlsx", dtype=str)
+                    ai_free_path = Path(temp_dir) / "merged_dedup_all3cols_clean_no_ai.xlsx"
+                    self.assertTrue(ai_free_path.is_file(), "应额外生成无 AI 版本")
+                    ai_free = pd.read_excel(ai_free_path, dtype=str)
+
+                self.assertEqual(ai_free.columns.tolist(), ["DDC", "Title", "description", "remark"])
+                self.assertEqual(set(raw["DDC"]), {"1", "10", "124", "123", "125", "126"} if include_human else {"1", "10", "124"})
+                self.assertEqual(set(clean["DDC"]), {"1", "10", "124", "123", "126"} if include_human else {"1", "10", "124"})
+                self.assertEqual(set(ai_free["DDC"]), {"123", "126"} if include_human else set())
 
 
 class MergeDdcCodeTest(ProjectTemporaryDirectoryTest):

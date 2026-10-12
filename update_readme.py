@@ -268,18 +268,33 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
     garbled_items = _normalize_garbled_items(garbled_raw)
     garbled_table = _build_garbled_table(garbled_items)
 
+    ai_summary = ""
+    ai_stats = stats.get("ai_stats")
+    if isinstance(ai_stats, dict):
+        ai_count = _safe_int(ai_stats.get("ai_count", 0), 0)
+        ai_total = _safe_int(ai_stats.get("total_records", 0), 0)
+        ai_ratio = ai_count / ai_total if ai_total else 0.0
+        ai_summary = (
+            f"**Overall AI-generated ratio: {ai_ratio:.2%} ({ai_count} / {ai_total} records)**\n\n"
+            "Includes all DL1, DL2 and DL3 records before garbled-text removal. "
+            "AI records are identified by `remark = ai-generated` (case-insensitive).\n\n"
+        )
+
     return (
         "## Statistics\n\n"
         "### DDC data distribution\n\n"
         f"DDC that already having {check_number} samples will not show details of the distribution.\n\n"
         f"**Vaild samples number in total: {valid_sample_total}**\n\n"
-        f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_check_number_count} \n\n"
+        f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_check_number_count}\n\n"
         f"DDC nodes that satisfy the requirement of {check_number} samples: {ddc_over_check_number_count}\n\n"
         f"**DDC grouped by 10 (count of DDC < {check_number}):**\n"
         f"{grouped_table}\n\n"
         f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
         f"{table}\n\n"
         "### DDC data quality\n\n"
+        f"{ai_summary}"
+        "**AI-free dataset:** [Download the clean, AI-free version](data/merged_dedup_all3cols_clean_no_ai.xlsx). "
+        "This additional version excludes both garbled text and AI-tagged records; the original two versions are retained.\n\n"
         "**Garbled text and AI-generated content by DDC group:**\n"
         f"{garbled_table}\n\n"
         f"**Minimal length of description: {min_description_length}**\n\n"
