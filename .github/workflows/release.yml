@@ -19,6 +19,7 @@ jobs:
           mkdir -p release
           cp data/merged_dedup_all3cols.xlsx release/dataset.xlsx
           cp data/merged_dedup_all3cols_clean.xlsx release/dataset_clean.xlsx
+          cp data/merged_dedup_all3cols_clean_no_ai.xlsx release/dataset_clean_no_ai.xlsx
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
@@ -27,5 +28,6 @@ jobs:
           files: |
             release/dataset.xlsx
             release/dataset_clean.xlsx
+            release/dataset_clean_no_ai.xlsx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

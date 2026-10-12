@@ -41,6 +41,38 @@ class MixedLevelStatisticsTest(unittest.TestCase):
             'remark': remark,
         }
 
+    def test_total_ai_ratio_includes_all_levels_before_garbled_removal(self):
+        raw_rows = [
+            self.make_row('1', remark=' AI-Generated '),
+            self.make_row('01', remark='ai-generated'),
+            self.make_row('123', remark=None),
+            self.make_row('124', title='Garbled AI \ufffd', remark='AI-GENERATED'),
+            self.make_row('125', remark='not-ai-generated'),
+            self.make_row('008', remark='ai-generated'),
+        ]
+        clean_rows = [row for row in raw_rows if '\ufffd' not in row['Title']]
+
+        statistics, _ = self.run_statistics(raw_rows, clean_rows)
+
+        self.assertTrue('ai_stats' in statistics, '应输出所有层级的总 AI 统计')
+        self.assertEqual(statistics['ai_stats'], {
+            'total_records': 5,
+            'ai_count': 3,
+            'ai_ratio': 0.6,
+        })
+
+    def test_total_ai_ratio_is_zero_without_ai_tags(self):
+        rows = [self.make_row('1'), self.make_row('01', remark='manual')]
+
+        statistics, _ = self.run_statistics(rows, rows)
+
+        self.assertTrue('ai_stats' in statistics, '无 AI 标记时也应输出总 AI 统计')
+        self.assertEqual(statistics['ai_stats'], {
+            'total_records': 2,
+            'ai_count': 0,
+            'ai_ratio': 0.0,
+        })
+
     def test_preserves_code_width_and_limits_class_reports_to_dl3(self):
         raw_rows = [
             self.make_row('0', description='short'),
