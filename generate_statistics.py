@@ -43,30 +43,32 @@ UNDEFINED_DDC = [
 # print(f"读取: {INPUT_FILE} ...")
 # df = pd.read_excel(INPUT_FILE)
 print(f"读取: {CLEAN_INPUT_FILE} ...")
-df = pd.read_excel(CLEAN_INPUT_FILE)
+df = pd.read_excel(CLEAN_INPUT_FILE, dtype={'DDC': str})
 
 # ── 0. 过滤未定义 DDC 分类 ───────────────────────────────────────────
 if UNDEFINED_DDC:
     undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
     before = len(df)
-    df = df[~df['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+    df = df[~df['DDC'].isin(undefined_set)].reset_index(drop=True)
     print(f"已过滤未定义 DDC {sorted(undefined_set)}：{before} → {len(df)} 条")
 
 # ── 读取去乱码版本 ──────────────────────────────────────────────────
-df_clean = pd.read_excel(CLEAN_INPUT_FILE)
+df_clean = pd.read_excel(CLEAN_INPUT_FILE, dtype={'DDC': str})
 if UNDEFINED_DDC:
-    df_clean = df_clean[~df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+    df_clean = df_clean[~df_clean['DDC'].isin(undefined_set)].reset_index(drop=True)
 print(f"去乱码版本: {len(df_clean)} 条（已过滤未定义 DDC）")
 
 # ── 读取未清洗版本（用于乱码检测）───────────────────────────────────
 print(f"读取未清洗文件: {INPUT_FILE} ...")
-df_unclean = pd.read_excel(INPUT_FILE)
+df_unclean = pd.read_excel(INPUT_FILE, dtype={'DDC': str})
 if UNDEFINED_DDC:
-    df_unclean = df_unclean[~df_unclean['DDC'].astype(int).astype(str).str.zfill(3).isin(undefined_set)].reset_index(drop=True)
+    df_unclean = df_unclean[~df_unclean['DDC'].isin(undefined_set)].reset_index(drop=True)
 print(f"未清洗版本: {len(df_unclean)} 条（已过滤未定义 DDC）")
 
-# ── 1. DDC 统计（只看不足 CHECK_NUMBER 条的分类）────────────────────
-ddc_counts = df.groupby('DDC').size().reset_index(name='count')
+# ── 1. DL3 统计（只看不足 CHECK_NUMBER 条的三位分类）────────────────
+# 内容统计继续使用完整数据，分类报表仅使用原始三位编码。
+df_dl3 = df[df['DDC'].str.fullmatch(r'[0-9]{3}', na=False)].copy()
+ddc_counts = df_dl3.groupby('DDC').size().reset_index(name='count')
 under_check_number = ddc_counts[ddc_counts['count'] < CHECK_NUMBER].copy()
 under_check_number['gap_to_check_number'] = CHECK_NUMBER - under_check_number['count']
 under_check_number = under_check_number.sort_values('DDC').reset_index(drop=True)
@@ -136,11 +138,10 @@ def _detect_garbled_vectorized(df: pd.DataFrame) -> pd.Series:
     return has_fffd | has_c1 | has_gbk
 
 
-undefined_int_set = {str(v).strip().zfill(3) for v in UNDEFINED_DDC}
+undefined_int_set = {str(v).strip() for v in UNDEFINED_DDC}
 all_ddc = {str(i).zfill(3) for i in range(1, 1000)} - undefined_int_set
-existing_ddc = set(ddc_counts['DDC'].astype(int).astype(str).str.zfill(3))
-existing_int_ddc = existing_ddc
-missing_ddc = sorted(all_ddc - existing_int_ddc)
+existing_ddc = set(ddc_counts['DDC'])
+missing_ddc = sorted(all_ddc - existing_ddc)
 
 # 将完全缺失的三位整数 DDC 作为 0 条记录并入不足 CHECK_NUMBER 的详情
 missing_as_under_check_number = [
@@ -154,14 +155,13 @@ missing_as_under_check_number = [
 
 ddc_under_check_number_details = sorted(
     ddc_result + missing_as_under_check_number,
-    key=lambda item: (item['current_count'], str(int(float(item['ddc']))).zfill(3))
+    key=lambda item: (item['current_count'], item['ddc'])
 )
 
 # 每 10 个 DDC 一组的记录数统计（000-009, 010-019, ..., 990-999）
 all_int_ddc = [str(i).zfill(3) for i in range(0, 1000)]
 ddc_int_counts = (
-    df['DDC']
-    .astype(int).astype(str).str.zfill(3)
+    df_dl3['DDC']
     .value_counts()
     .reindex(all_int_ddc, fill_value=0)
 )
@@ -193,7 +193,7 @@ for i in range(0, 1000, 10):
     codes = [c for c in codes if c not in undefined_int_set]
     if not codes:
         continue
-    mask = df_unclean['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
+    mask = df_unclean['DDC'].isin(codes)
     group_df = df_unclean[mask]
     total_in_range = len(group_df)
     garbled_in_range = int(group_df['has_garbled'].sum())
@@ -212,7 +212,7 @@ for i in range(0, 1000, 10):
         if total_in_range > 0
         else 0.0
     )
-    clean_mask = df_clean['DDC'].astype(int).astype(str).str.zfill(3).isin(codes)
+    clean_mask = df_clean['DDC'].isin(codes)
     clean_in_range = int(clean_mask.sum())
     ddc_group_by_10_garbled.append({
         'ddc_range': f"{codes[0]}-{codes[-1]}",

@@ -72,7 +72,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BOOK_DESC_PATTERN = re.compile(r'^book_descriptions_all(\d*)\.csv$', re.IGNORECASE)
 
 # 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099' 等）。
-# 凡 DDC 值在此列表中的行将被过滤掉。
+# 仅原始三位 DDC 值在此列表中的行会被过滤，不对一、二位编号补零匹配。
 UNDEFINED_DDC = [
     '008', 
     '009', 
@@ -188,9 +188,9 @@ def load_and_normalize(file_cfg):
     print(f"  读取: {file_path}")
     ext = os.path.splitext(path)[1].lower()
     if ext in ['.xlsx', '.xls']:
-        df = pd.read_excel(file_path)
+        df = pd.read_excel(file_path, dtype=str)
     elif ext == '.csv':
-        df = pd.read_csv(file_path, encoding='utf-8-sig')
+        df = pd.read_csv(file_path, encoding='utf-8-sig', dtype=str)
     else:
         raise ValueError(f"不支持的文件类型: {path}")
 
@@ -304,14 +304,16 @@ def main():
         print(f"\n=== 第二步（补4）：过滤未定义 DDC 分类 ===")
         undefined_set = set(str(v).strip() for v in UNDEFINED_DDC)
         before_udf = len(merged)
-        merged = merged[~merged['DDC'].astype(str).str.strip().apply(lambda x: x.split('.')[0].zfill(3)).isin(undefined_set)].reset_index(drop=True)
+        ddc_codes = merged['DDC'].astype(str).str.strip().str.split('.').str[0]
+        is_undefined = ddc_codes.str.fullmatch(r'[0-9]{3}') & ddc_codes.isin(undefined_set)
+        merged = merged[~is_undefined].reset_index(drop=True)
         after_udf = len(merged)
         print(f"过滤前: {before_udf} 条 -> 过滤后: {after_udf} 条，去除 {before_udf - after_udf} 条")
         print(f"过滤的 DDC: {sorted(undefined_set)}")
     else:
         print("\n=== 第二步（补4）：未定义 DDC 过滤已关闭（UNDEFINED_DDC 为空）===")
 
-    print("\n=== 第三步：DDC 取整并补零 ===")
+    print("\n=== 第三步：DDC 取整并保留原始位数 ===")
     before_ddc = len(merged)
     merged['DDC'] = (
         merged['DDC']
@@ -320,10 +322,10 @@ def main():
         .str.split('.')
         .str[0]
     )
-    merged = merged[merged['DDC'].str.match(r'^\d+$')].reset_index(drop=True)
-    merged['DDC'] = merged['DDC'].astype(int)
-    merged['DDC'] = merged['DDC'].apply(lambda x: f"{x:03d}")
-    merged = merged.sort_values(by='DDC', kind='stable').reset_index(drop=True)
+    merged = merged[merged['DDC'].str.fullmatch(r'[0-9]{1,3}')].reset_index(drop=True)
+    merged = merged.sort_values(
+        by='DDC', key=lambda codes: codes.astype(int), kind='stable'
+    ).reset_index(drop=True)
     after_ddc = len(merged)
     print(f"DDC 取整: 过滤前 {before_ddc} 条 -> 过滤后 {after_ddc} 条，去除 {before_ddc - after_ddc} 条")
     print("排序完成")
