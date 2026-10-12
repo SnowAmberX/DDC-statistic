@@ -5,7 +5,7 @@
 - 验证历史三列输入会补充空 remark。
 - 验证新四列输入会保留已有 remark。
 - 验证重复记录会优先保留非空 remark。
-- 验证 DDC 原始位数、前导零、数值排序和跨层级过滤去重。
+- 验证旧数据补齐三位、新 DL1/DL2 来源编码和跨层级过滤去重。
 """
 
 from pathlib import Path
@@ -88,6 +88,16 @@ class LoadAndNormalizeRemarkTest(ProjectTemporaryDirectoryTest):
                 }
             ],
         )
+
+    def test_csv_checkout_line_endings_do_not_change_multiline_descriptions(self) -> None:
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP_DIR) as temp_dir:
+            Path(temp_dir, "multiline.csv").write_bytes(
+                b'DDC,Title,description\r\n8,Book,"First line.\r\nSecond line."\r\n'
+            )
+            with patch.object(merge_script, "BASE_DIR", temp_dir):
+                result = merge_script.load_and_normalize({"path": "multiline.csv"})
+
+        self.assertEqual(result.loc[0, "description"], "First line.\nSecond line.")
 
     def test_preserves_code_widths_and_leading_zeros_from_csv_and_excel(self) -> None:
         codes = ["0", "00", "000", "8", "08", "008", "80", "080", "800", 7, 80]
@@ -320,7 +330,7 @@ class MergeDdcCodeTest(ProjectTemporaryDirectoryTest):
                 )
             }
 
-    def test_mixed_width_codes_remain_distinct_with_stable_numeric_sort(self) -> None:
+    def test_legacy_codes_are_padded_before_deduplication_and_numeric_sort(self) -> None:
         outputs = self.merge_codes(
             ["800", "80", "080", "008", "8", "08", "000", "0", "00", "10", "2", "8"],
             [],
@@ -329,14 +339,14 @@ class MergeDdcCodeTest(ProjectTemporaryDirectoryTest):
             with self.subTest(output_name=output_name):
                 self.assertEqual(
                     result["DDC"].tolist(),
-                    ["000", "0", "00", "2", "008", "8", "08", "10", "80", "080", "800"],
+                    ["000", "002", "008", "010", "080", "800"],
                 )
                 self.assertEqual(result.columns.tolist(), merge_script.TARGET_COLS)
-                row = result.loc[result["DDC"] == "8"].iloc[0]
-                self.assertEqual(row["Title"], "Book 4")
+                row = result.loc[result["DDC"] == "008"].iloc[0]
+                self.assertEqual(row["Title"], "Book 3")
                 self.assertEqual(row["remark"], "ai-generated")
 
-    def test_undefined_filter_only_removes_three_digit_codes(self) -> None:
+    def test_legacy_undefined_codes_are_filtered_after_padding(self) -> None:
         outputs = self.merge_codes(
             ["8", "08", "008", "008.2", "8.0", "80", "080", "800", "123.45",
              "1000", "-8", "bad", "", None],
@@ -344,7 +354,57 @@ class MergeDdcCodeTest(ProjectTemporaryDirectoryTest):
         )
         for output_name, result in outputs.items():
             with self.subTest(output_name=output_name):
-                self.assertEqual(result["DDC"].tolist(), ["8", "08", "80", "123", "800"])
+                self.assertEqual(result["DDC"].tolist(), ["123", "800"])
+
+    def test_level_workbooks_keep_hierarchy_while_legacy_sources_are_padded(self) -> None:
+        description = (
+            "one two three four five six seven eight nine ten eleven twelve "
+            "thirteen fourteen fifteen sixteen"
+        )
+        sources = [
+            ("Lib_Dataset_Level3_26Nov25_final.xlsx", "DDC-L3", ["0", "8", "80", "800"], "DL3"),
+            ("Lib_Dataset_Level1_30Nov25_final.xlsx", "DDC-L1", ["000", "100", "800"], "DL1"),
+            ("Lib_Dataset_Level2_27Nov25_final.xlsx", "DDC-L2", ["000", "010", "080", 80, "800"], "DL2"),
+        ]
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP_DIR) as temp_dir:
+            merge_dir = Path(temp_dir) / "data_merge"
+            merge_dir.mkdir()
+            for filename, column, codes, level in sources:
+                pd.DataFrame(
+                    {
+                        column: codes,
+                        "Title": [level] * len(codes),
+                        "Abstract": [description] * len(codes),
+                    }
+                ).to_excel(merge_dir / filename, index=False)
+
+            # 自动发现的历史 CSV 同样应补齐三位，且不影响低层级的同摘要记录。
+            pd.DataFrame(
+                [{"DDC": "1", "Title": "Legacy CSV", "description": description}]
+            ).to_csv(merge_dir / "book_descriptions_all.csv", index=False)
+            source_names = {source[0] for source in sources}
+            with (
+                patch.object(merge_script, "BASE_DIR", str(merge_dir)),
+                patch.object(merge_script, "FILES", [
+                    cfg for cfg in merge_script.FILES if cfg["path"] in source_names
+                ]),
+                patch.object(merge_script, "ENABLE_ENGLISH_ONLY_FILTER", False),
+                patch.object(merge_script, "UNDEFINED_DDC", ["008"]),
+            ):
+                merge_script.main()
+
+            for output_name in (
+                "merged_dedup_all3cols.xlsx",
+                "merged_dedup_all3cols_clean.xlsx",
+            ):
+                result = pd.read_excel(Path(temp_dir) / output_name, dtype=str)
+                with self.subTest(output_name=output_name):
+                    self.assertEqual(result.columns.tolist(), ["DDC", "Title", "description", "remark"])
+                    self.assertEqual(len(result), 11)
+                    self.assertEqual(set(result.loc[result["Title"] == "DL1", "DDC"]), {"0", "1", "8"})
+                    self.assertEqual(set(result.loc[result["Title"] == "DL2", "DDC"]), {"00", "01", "08", "80"})
+                    self.assertEqual(set(result.loc[result["Title"] == "DL3", "DDC"]), {"000", "080", "800"})
+                    self.assertEqual(result.loc[result["Title"] == "Legacy CSV", "DDC"].tolist(), ["001"])
 
 
 if __name__ == "__main__":
