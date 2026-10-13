@@ -6,6 +6,11 @@
     "mean": 102.51,
     "total_records": 329587
   },
+  "ai_stats": {
+    "total_records": 330813,
+    "ai_count": 6722,
+    "ai_ratio": 0.0203
+  },
   "ddc_under_check_number": {
     "total_ddc_classes": 975,
     "ddc_over_check_number_count": 975,
