@@ -276,8 +276,6 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         ai_ratio = ai_count / ai_total if ai_total else 0.0
         ai_summary = (
             f"**Overall AI-generated ratio: {ai_ratio:.2%} ({ai_count} / {ai_total} records)**\n\n"
-            "Includes all DL1, DL2 and DL3 records before garbled-text removal. "
-            "AI records are identified by `remark = ai-generated` (case-insensitive).\n\n"
         )
 
     return (
@@ -293,8 +291,6 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         f"{table}\n\n"
         "### DDC data quality\n\n"
         f"{ai_summary}"
-        "**AI-free dataset:** [Download the clean, AI-free version](data/merged_dedup_all3cols_clean_no_ai.xlsx). "
-        "This additional version excludes both garbled text and AI-tagged records; the original two versions are retained.\n\n"
         "**Garbled text and AI-generated content by DDC group:**\n"
         f"{garbled_table}\n\n"
         f"**Minimal length of description: {min_description_length}**\n\n"

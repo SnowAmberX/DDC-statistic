@@ -32,10 +32,6 @@ DDC nodes that satisfy the requirement of 50 samples: 975
 
 **Overall AI-generated ratio: 2.03% (6722 / 330813 records)**
 
-Includes all DL1, DL2 and DL3 records before garbled-text removal. AI records are identified by `remark = ai-generated` (case-insensitive).
-
-**AI-free dataset:** [Download the clean, AI-free version](data/merged_dedup_all3cols_clean_no_ai.xlsx). This additional version excludes both garbled text and AI-tagged records; the original two versions are retained.
-
 **Garbled text and AI-generated content by DDC group:**
 | DDC Range | Total Records | Garbled Records | Garbled Ratio | Clean Records | AI Records | AI Ratio |
 | --- | --- | --- | --- | --- | --- | --- |
