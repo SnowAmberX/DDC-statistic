@@ -3,18 +3,18 @@
   "abstract_stats": {
     "max": 1286,
     "min": 15,
-    "mean": 102.62,
-    "total_records": 330812
+    "mean": 103.14,
+    "total_records": 336247
   },
   "ai_stats": {
-    "total_records": 332038,
+    "total_records": 337475,
     "ai_count": 6722,
-    "ai_ratio": 0.0202
+    "ai_ratio": 0.0199
   },
   "ddc_under_check_number": {
     "total_ddc_classes": 975,
     "ddc_over_check_number_count": 975,
-    "ddc_over_check_number_total_records": 282029,
+    "ddc_over_check_number_total_records": 287464,
     "ddc_under_check_number_count": 0,
     "details": []
   },
@@ -518,12 +518,12 @@
   "ddc_group_by_10_garbled": [
     {
       "ddc_range": "000-007",
-      "total_count": 8441,
-      "garbled_count": 7,
-      "clean_count": 8434,
-      "garbled_ratio": 0.0008,
+      "total_count": 13878,
+      "garbled_count": 9,
+      "clean_count": 13869,
+      "garbled_ratio": 0.0006,
       "ai_count": 17,
-      "ai_ratio": 0.002
+      "ai_ratio": 0.0012
     },
     {
       "ddc_range": "010-019",
